@@ -6,6 +6,7 @@ import Policy from "../components/policy";
 import Category from "../components/category";
 import FlashSale from "../components/flash-sale";
 import Banner2 from "../components/banner2";
+import Link from "next/link";
 
 export default function Home({ funcSubmit }) {
   var settings = {
@@ -38,7 +39,7 @@ export default function Home({ funcSubmit }) {
             <div className="col-12">
               <div nh-block="vubzlni" nh-block-cache="true" className>
                 <div className="banner-newest-lookbooks">
-                  <a href="#">
+                  <Link href="#">
                     <img
                       nh-lazy="image"
                       className="img-fluid rounded-10"
@@ -46,7 +47,7 @@ export default function Home({ funcSubmit }) {
                       src="https://cdn.5sfood.vn/media/banner/banner-thuc-pham.jpg"
                       style={{}}
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -64,12 +65,14 @@ export default function Home({ funcSubmit }) {
               >
                 <div className="d-flex justify-content-between align-items-center mb-10 mb-xl-0">
                   <h3 className="title-section mb-0 mb-xl-10">Hải Sản Nauy</h3>
-                  <a
+                  <Link
                     className="color-main d-flex align-items-center fs-14 fs-lg-16"
                     href="hai-san-nauy"
                   >
-                    Xem thêm <i className="iconsax isax-arrow-right-3" />
-                  </a>
+                    <div>
+                      Xem thêm <i className="iconsax isax-arrow-right-3" />
+                    </div>
+                  </Link>
                 </div>
                 <div className="section-product-scoll">
                   <div className="row">
@@ -84,7 +87,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-hoi-chile-fillet-nguyen-mieng"
                               title="Cá hồi Chile Fillet nguyên miếng"
                             >
@@ -95,14 +98,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-hoi-chile-nguyen-mieng/ca-hoi-chile-fillet-nguyen-mieng.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-hoi-chile-fillet-nguyen-mieng">
+                            <Link href="/ca-hoi-chile-fillet-nguyen-mieng">
                               Cá hồi Chile Fillet nguyên miếng
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -113,15 +116,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -137,7 +142,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-saba-sot-teriyaki-120g"
                               title="Cá Saba sốt Teriyaki 120g"
                             >
@@ -148,14 +153,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-saba-nauy/sot-teriyaki/ca-saba-sot-teriyaki-120g-goi.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-saba-sot-teriyaki-120g">
+                            <Link href="/ca-saba-sot-teriyaki-120g">
                               Cá Saba sốt Teriyaki 120g
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -165,15 +170,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -189,7 +196,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-saba-nauy-nuong-muoi-110g"
                               title="Cá Saba Nauy nướng muối 110g"
                             >
@@ -200,14 +207,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-saba-nauy/nuong-muoi/ca-saba-nuong-muoi.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-saba-nauy-nuong-muoi-110g">
+                            <Link href="/ca-saba-nauy-nuong-muoi-110g">
                               Cá Saba Nauy nướng muối 110g
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -217,15 +224,18 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                {" "}
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -241,7 +251,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-saba-nauy-nguyen-con"
                               title="Cá Saba Nauy nguyên con"
                             >
@@ -252,14 +262,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-saba-nauy/nguyen-con/ca-saba-nguyen-con.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-saba-nauy-nguyen-con">
+                            <Link href="/ca-saba-nauy-nguyen-con">
                               Cá Saba Nauy nguyên con
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -270,15 +280,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -294,7 +306,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/xuong-ca-hoi-nauy"
                               title="Xương cá hồi Nauy"
                             >
@@ -305,12 +317,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/xuong-ca-hoi-nauy/xuong-ca-hoi-nauy-tuoi.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/xuong-ca-hoi-nauy">Xương cá hồi Nauy</a>
+                            <Link href="/xuong-ca-hoi-nauy">
+                              Xương cá hồi Nauy
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -320,15 +334,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -344,7 +360,10 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a href="/dau-ca-hoi-nauy" title="Đầu cá hồi Nauy">
+                            <Link
+                              href="/dau-ca-hoi-nauy"
+                              title="Đầu cá hồi Nauy"
+                            >
                               <img
                                 nh-lazy="image"
                                 className="img-fluid rounded-12"
@@ -352,12 +371,12 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/dau-ca-hoi-nauy/dau-ca-hoi-nauy-tuoi-1.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/dau-ca-hoi-nauy">Đầu cá hồi Nauy</a>
+                            <Link href="/dau-ca-hoi-nauy">Đầu cá hồi Nauy</Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -367,15 +386,18 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                {" "}
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -391,7 +413,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-hoi-nauy-xong-khoi-leroy-fossen"
                               title="Cá hồi Nauy xông khói Leroy Fossen"
                             >
@@ -402,14 +424,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-hoi-nauy-xong-khoi/ca-hoi-xong-khoi-nauy-fossen-leroy-200g-vi.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-hoi-nauy-xong-khoi-leroy-fossen">
+                            <Link href="/ca-hoi-nauy-xong-khoi-leroy-fossen">
                               Cá hồi Nauy xông khói Leroy Fossen
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -420,15 +442,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -444,7 +468,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-saba-nauy-fillet"
                               title="Cá Saba Nauy fillet"
                             >
@@ -455,15 +479,16 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-saba-nauy/ca-saba-fillet.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                           <div className="product-quick-shop">
-                            <a
+                            <Link
+                              href="#"
                               nh-btn-action="close-quick-shop"
                               className="quick-shop-close icon-close"
                             >
                               <i className="iconsax isax-add" />
-                            </a>
+                            </Link>
                             <div className="entry-quick-shop">
                               <div className="d-flex align-items-center flex-column h-100 justify-content-center">
                                 <div className="entire-attribute text-center">
@@ -490,13 +515,13 @@ export default function Home({ funcSubmit }) {
                                         Pack 4 miếng
                                       </div>
                                     </div>
-                                    <a
+                                    <Link
                                       nh-btn-action="clear-attribute-option"
                                       className="reset-attribute effect-border-scale"
-                                      href="javascript:;"
+                                      href="#"
                                     >
                                       Xóa
-                                    </a>
+                                    </Link>
                                   </div>
                                 </div>
                                 <div className="entire-cart d-flex flex-column align-items-center flex-wrap ">
@@ -523,13 +548,13 @@ export default function Home({ funcSubmit }) {
                                       <i className="iconsax isax-add" />
                                     </span>
                                   </div>
-                                  <a
+                                  <Link
                                     nh-btn-action="add-cart"
-                                    href="javascript:;"
+                                    href="#"
                                     className="add-to-cart added_to_cart effect-shadow"
                                   >
                                     <i className="iconsax isax-shopping-cart" />
-                                  </a>
+                                  </Link>
                                 </div>
                                 <div
                                   nh-quantity-product="out-stock"
@@ -543,9 +568,9 @@ export default function Home({ funcSubmit }) {
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-saba-nauy-fillet">
+                            <Link href="/ca-saba-nauy-fillet">
                               Cá Saba Nauy fillet
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -558,15 +583,18 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="select-option"
-                              href="javascript:;"
+                              href="#"
                               title="Chọn thuộc tính"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                {" "}
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -582,7 +610,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-hoi-chile-cat-khoanh-five-star"
                               title="Cá hồi Chile cắt khoanh (Five Star - Prime)"
                             >
@@ -593,14 +621,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-hoi-chile/ca-hoi-chile-cat-khuc.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-hoi-chile-cat-khoanh-five-star">
+                            <Link href="/ca-hoi-chile-cat-khoanh-five-star">
                               Cá hồi Chile cắt khoanh (Five Star - Prime)
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -611,15 +639,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -646,7 +676,7 @@ export default function Home({ funcSubmit }) {
                             </span>
                           </div>
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-tuyet-nauy-fillet-norwegian-cod"
                               title="Cá tuyết Nauy fillet - Norwegian Cod"
                             >
@@ -657,14 +687,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-tuyet-nauy/ca-tuyet-nauy-phi-le.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-tuyet-nauy-fillet-norwegian-cod">
+                            <Link href="/ca-tuyet-nauy-fillet-norwegian-cod">
                               Cá tuyết Nauy fillet - Norwegian Cod
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -679,15 +709,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -705,7 +737,7 @@ export default function Home({ funcSubmit }) {
             <div className="col-12">
               <div nh-block="0wj5hpa" nh-block-cache="false" className>
                 <div className="banner-newest-lookbooks">
-                  <a href="#">
+                  <Link href="#">
                     <img
                       nh-lazy="image"
                       className="img-fluid rounded-10"
@@ -713,7 +745,7 @@ export default function Home({ funcSubmit }) {
                       src="https://cdn.5sfood.vn/media/banner/banner-hai-san.jpg"
                       style={{}}
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -733,12 +765,14 @@ export default function Home({ funcSubmit }) {
                   <h3 className="title-section mb-0 mb-xl-10">
                     Hải Sản Nhật Bản
                   </h3>
-                  <a
+                  <Link
                     className="color-main d-flex align-items-center fs-14 fs-lg-16"
                     href="hai-san-nhat-ban"
                   >
-                    Xem thêm <i className="iconsax isax-arrow-right-3" />
-                  </a>
+                    <div>
+                      Xem thêm <i className="iconsax isax-arrow-right-3" />
+                    </div>
+                  </Link>
                 </div>
                 <div className="section-product-scoll">
                   <div className="row">
@@ -753,7 +787,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/vem-xanh-new-zealand-dong-lanh-tach-nua-vo-size-vua-1kg"
                               title="Vẹm xanh New Zealand đông lạnh tách nửa vỏ size vừa 1kg"
                             >
@@ -764,14 +798,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/vem-xanh-new-zealand/vem-xanh-new-zealand-dong-lanh-tach-nua-vo-size-vua-1kg.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/vem-xanh-new-zealand-dong-lanh-tach-nua-vo-size-vua-1kg">
+                            <Link href="/vem-xanh-new-zealand-dong-lanh-tach-nua-vo-size-vua-1kg">
                               Vẹm xanh New Zealand đông lạnh tách nửa vỏ ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -782,15 +816,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -806,7 +842,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/hau-sua-nhat-ban-nguyen-con"
                               title="Hàu sữa Nhật Bản nguyên con"
                             >
@@ -817,14 +853,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/hau-sua-nhat-ban/hau-sua-nhat-ban-nguyen-con.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/hau-sua-nhat-ban-nguyen-con">
+                            <Link href="/hau-sua-nhat-ban-nguyen-con">
                               Hàu sữa Nhật Bản nguyên con
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -834,15 +870,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -858,7 +896,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/chan-bach-tuoc-nhat-ban-sashimi"
                               title="Chân bạch tuộc Nhật Bản Sashimi"
                             >
@@ -869,14 +907,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/chan-bach-tuot-sashimi/chan-bach-tuoc-luoc-sashimi.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/chan-bach-tuoc-nhat-ban-sashimi">
+                            <Link href="/chan-bach-tuoc-nhat-ban-sashimi">
                               Chân bạch tuộc Nhật Bản Sashimi
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -887,15 +925,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -911,7 +951,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/so-do-nhat-hokkigai"
                               title="Sò Đỏ Nhật (Hokkigai)"
                             >
@@ -922,14 +962,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/so-do-nhat-ban/so-%C4%91o-nhat-hokkigai.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/so-do-nhat-hokkigai">
+                            <Link href="/so-do-nhat-hokkigai">
                               Sò Đỏ Nhật (Hokkigai)
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -940,15 +980,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -964,7 +1006,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/coi-so-diep-nhat-ban-japanese-scallops"
                               title="Cồi sò điệp Nhật Bản -Japanese Scallops"
                             >
@@ -975,14 +1017,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/hai-san/coi-diep-nhat/sashimi-coi-so-diep.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/coi-so-diep-nhat-ban-japanese-scallops">
+                            <Link href="/coi-so-diep-nhat-ban-japanese-scallops">
                               Cồi sò điệp Nhật Bản -Japanese Scallops
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -993,15 +1035,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1017,7 +1061,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/ca-trich-ep-trung-nhat-ban-komochi-nishin"
                               title="Cá trích ép trứng Nhật Bản (Komochi nishin)"
                             >
@@ -1028,14 +1072,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/ca-trich-ep-trung-nhat/ca-trich-ep-trung-nhat-ban.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/ca-trich-ep-trung-nhat-ban-komochi-nishin">
+                            <Link href="/ca-trich-ep-trung-nhat-ban-komochi-nishin">
                               Cá trích ép trứng Nhật Bản (Komochi nishin)
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1046,15 +1090,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1070,7 +1116,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/luon-nuong-unagi-kabayaki"
                               title="Lươn nướng Unagi Kabayaki"
                             >
@@ -1081,14 +1127,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/luon-nuong-nhat/luon-nuong-nhat.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/luon-nuong-unagi-kabayaki">
+                            <Link href="/luon-nuong-unagi-kabayaki">
                               Lươn nướng Unagi Kabayaki
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1099,15 +1145,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1125,7 +1173,7 @@ export default function Home({ funcSubmit }) {
             <div className="col-12">
               <div nh-block="vu8q90m" nh-block-cache="true" className>
                 <div className="banner-newest-lookbooks">
-                  <a href="#">
+                  <Link href="#">
                     <img
                       nh-lazy="image"
                       className="img-fluid rounded-10"
@@ -1133,7 +1181,7 @@ export default function Home({ funcSubmit }) {
                       src="https://cdn.5sfood.vn/media/banner/banner-thit-nhap-khau.jpg"
                       style={{}}
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -1153,12 +1201,14 @@ export default function Home({ funcSubmit }) {
                   <h3 className="title-section mb-0 mb-xl-10">
                     Thịt Nhập Khẩu
                   </h3>
-                  <a
+                  <Link
                     className="color-main d-flex align-items-center fs-14 fs-lg-16"
-                    href="thit-nhap-khau"
+                    href="/thit-nhap-khau"
                   >
-                    Xem thêm <i className="iconsax isax-arrow-right-3" />
-                  </a>
+                    <div>
+                      Xem thêm <i className="iconsax isax-arrow-right-3" />
+                    </div>
+                  </Link>
                 </div>
                 <div className="section-product-scoll">
                   <div className="row">
@@ -1173,7 +1223,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf"
                               title="Sườn non rút xương bò Wagyu Snake River Farms (SRF)"
                             >
@@ -1184,14 +1234,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/suon-non-rut-xuong-bo-wagyu-srf/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf">
+                            <Link href="/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf">
                               Sườn non rút xương bò Wagyu Snake River Farms ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1202,15 +1252,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1226,7 +1278,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/than-noi-bo-my-tenderloin-beef-usda-choice"
                               title="Thăn nội bò Mỹ - Tenderloin Beef USDA Choice (loại cao cấp)"
                             >
@@ -1237,14 +1289,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/than-noi-bo-my/choice-loai-cao-cap-than-noi-bo-my-tenderloin-beef-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/than-noi-bo-my-tenderloin-beef-usda-choice">
+                            <Link href="/than-noi-bo-my-tenderloin-beef-usda-choice">
                               Thăn nội bò Mỹ - Tenderloin Beef USDA Choice ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1255,15 +1307,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1279,7 +1333,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/than-ngoai-bo-my-striploin-beef-usda-choice-loai-cao-cap"
                               title="Thăn ngoại bò Mỹ - Striploin beef USDA Choice (loại cao cấp)"
                             >
@@ -1290,14 +1344,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/than-ngoai-bo-my/choice-loai-cao-cap-than-ngoai-bo-my-striploin-beef-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/than-ngoai-bo-my-striploin-beef-usda-choice-loai-cao-cap">
+                            <Link href="/than-ngoai-bo-my-striploin-beef-usda-choice-loai-cao-cap">
                               Thăn ngoại bò Mỹ - Striploin beef USDA Choice ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1308,15 +1362,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1332,7 +1388,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/than-lung-bo-my-rib-eye-beef-usda-choice-loai-cao-cap"
                               title="Thăn lưng bò Mỹ  - Rib Eye Beef USDA Choice (loại cao cấp)"
                             >
@@ -1343,14 +1399,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/than-lung-bo-my/choice-loai-cao-cap-than-lung-bo-my-rib-eye-beef-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/than-lung-bo-my-rib-eye-beef-usda-choice-loai-cao-cap">
+                            <Link href="/than-lung-bo-my-rib-eye-beef-usda-choice-loai-cao-cap">
                               Thăn lưng bò Mỹ - Rib Eye Beef USDA Choice ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1361,15 +1417,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1385,7 +1443,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/suon-non-bo-my-rut-xuong-short-rib-boneless-usda-choice-loai-cao-cap"
                               title="Sườn non bò Mỹ rút xương - Short Rib Boneless USDA Choice (loại cao cấp)"
                             >
@@ -1396,14 +1454,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/suon-non-bo-my-rut-xuong/choice-loai-cao-cap-suon-non-bo-my-rut-xuong-short-rib-boneless-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/suon-non-bo-my-rut-xuong-short-rib-boneless-usda-choice-loai-cao-cap">
+                            <Link href="/suon-non-bo-my-rut-xuong-short-rib-boneless-usda-choice-loai-cao-cap">
                               Sườn non bò Mỹ rút xương - Short Rib Boneless ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1414,15 +1472,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1438,7 +1498,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/suon-non-bo-my-co-xuong-short-rib-bone-in-usda-choice-loai-cao-cap"
                               title="Sườn non bò Mỹ có xương - Short Rib Bone In USDA Choice (loại cao cấp)"
                             >
@@ -1449,14 +1509,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/suon-non-bo-my-co-xuong/choice-loai-cao-cap-suon-non-bo-my-co-xuong-short-rib-bone-in-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/suon-non-bo-my-co-xuong-short-rib-bone-in-usda-choice-loai-cao-cap">
+                            <Link href="/suon-non-bo-my-co-xuong-short-rib-bone-in-usda-choice-loai-cao-cap">
                               Sườn non bò Mỹ có xương - Short Rib Bone In ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1467,15 +1527,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1491,7 +1553,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/thit-diem-than-bo-my-outside-skirt-usda-choice-loai-cao-cap"
                               title="Thịt diềm thăn bò Mỹ - Outside Skirt USDA Choice (loại cao cấp)"
                             >
@@ -1502,14 +1564,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/thit-diem-than-bo-my/choice-loai-cao-cap-thit-diem-than-bo-my-outside-skirt-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/thit-diem-than-bo-my-outside-skirt-usda-choice-loai-cao-cap">
+                            <Link href="/thit-diem-than-bo-my-outside-skirt-usda-choice-loai-cao-cap">
                               Thịt diềm thăn bò Mỹ - Outside Skirt USDA ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1520,15 +1582,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1555,7 +1619,7 @@ export default function Home({ funcSubmit }) {
                             </span>
                           </div>
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
                               title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
                             >
@@ -1566,14 +1630,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
+                            <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
                               Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1588,14 +1652,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
+                              href="#"
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              {/* Thêm giỏ hàng */}
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1622,7 +1689,7 @@ export default function Home({ funcSubmit }) {
                             </span>
                           </div>
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
                               title="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
                             >
@@ -1633,14 +1700,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/de-suon-bo-my/choice-loai-cao-cap-thit-de-suon-bo-my-rib-finger-beef-usda-1.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap">
+                            <Link href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap">
                               Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1655,15 +1722,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1679,7 +1748,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/thit-nac-vai-bo-my-chuck-eye-roll-usda-choice-loai-cao-cap"
                               title="Thịt nạc vai bò Mỹ - Chuck Eye Roll USDA Choice (loại cao cấp)"
                             >
@@ -1690,14 +1759,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/thit-nac-vai-bo-my/choice-loai-cao-cap-thit-nac-vai-bo-my-chuck-eye-roll-usda.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/thit-nac-vai-bo-my-chuck-eye-roll-usda-choice-loai-cao-cap">
+                            <Link href="/thit-nac-vai-bo-my-chuck-eye-roll-usda-choice-loai-cao-cap">
                               Thịt nạc vai bò Mỹ - Chuck Eye Roll USDA ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1708,15 +1777,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1734,7 +1805,7 @@ export default function Home({ funcSubmit }) {
             <div className="col-12">
               <div nh-block="wd29xtv" nh-block-cache="true" className>
                 <div className="banner-newest-lookbooks">
-                  <a href="#">
+                  <Link href="#">
                     <img
                       nh-lazy="image"
                       className="img-fluid rounded-10"
@@ -1742,7 +1813,7 @@ export default function Home({ funcSubmit }) {
                       src="https://cdn.5sfood.vn/media/banner/banner-gia-vi.jpg"
                       style={{}}
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -1762,12 +1833,14 @@ export default function Home({ funcSubmit }) {
                   <h3 className="title-section mb-0 mb-xl-10">
                     Sốt, Gia Vị và Các Sản Phẩm Khác
                   </h3>
-                  <a
+                  <Link
                     className="color-main d-flex align-items-center fs-14 fs-lg-16"
                     href="san-pham"
                   >
-                    Xem thêm <i className="iconsax isax-arrow-right-3" />
-                  </a>
+                    <div>
+                      Xem thêm <i className="iconsax isax-arrow-right-3" />
+                    </div>
+                  </Link>
                 </div>
                 <div className="section-product-scoll">
                   <div className="row">
@@ -1782,7 +1855,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/nuoc-tuong-kikkoman-150ml-loai-tong-hop-soy-sauce"
                               title="Nước tương Kikkoman 150ml loại tổng hợp(soy sauce)"
                             >
@@ -1793,15 +1866,16 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/nuoc-tuong-kikkoman-loai-tong-hop-soy-sauce/nuoc-tuong-kikkoman-150ml-loai-tong-hop-soy-sauce.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                           <div className="product-quick-shop">
-                            <a
+                            <Link
+                              href="#"
                               nh-btn-action="close-quick-shop"
                               className="quick-shop-close icon-close"
                             >
                               <i className="iconsax isax-add" />
-                            </a>
+                            </Link>
                             <div className="entry-quick-shop">
                               <div className="d-flex align-items-center flex-column h-100 justify-content-center">
                                 <div className="entire-attribute text-center">
@@ -1820,13 +1894,13 @@ export default function Home({ funcSubmit }) {
                                         Kg
                                       </div>
                                     </div>
-                                    <a
+                                    <Link
                                       nh-btn-action="clear-attribute-option"
                                       className="reset-attribute effect-border-scale"
-                                      href="javascript:;"
+                                      href="#"
                                     >
                                       Xóa
-                                    </a>
+                                    </Link>
                                   </div>
                                 </div>
                                 <div className="entire-cart d-flex flex-column align-items-center flex-wrap d-none">
@@ -1853,13 +1927,13 @@ export default function Home({ funcSubmit }) {
                                       <i className="iconsax isax-add" />
                                     </span>
                                   </div>
-                                  <a
+                                  <Link
                                     nh-btn-action="add-cart"
-                                    href="javascript:;"
+                                    href="#"
                                     className="add-to-cart added_to_cart effect-shadow"
                                   >
                                     <i className="iconsax isax-shopping-cart" />
-                                  </a>
+                                  </Link>
                                 </div>
                                 <div
                                   nh-quantity-product="out-stock"
@@ -1873,9 +1947,9 @@ export default function Home({ funcSubmit }) {
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/nuoc-tuong-kikkoman-150ml-loai-tong-hop-soy-sauce">
+                            <Link href="/nuoc-tuong-kikkoman-150ml-loai-tong-hop-soy-sauce">
                               Nước tương Kikkoman 150ml loại tổng hợp(soy sauce)
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1888,16 +1962,18 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               title="Thêm giỏ hàng"
                               href="javascript:void(0);"
                               data-toggle="modal"
                               data-target="#modal-het-hang"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1913,7 +1989,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/mu-tat-xanh-sb-wasabi-nhat-ban-vi-cay-nong-tuyp-43g"
                               title="Mù tạt xanh S&B - Wasabi Nhật Bản - vị cay nồng tuýp 43g"
                             >
@@ -1924,14 +2000,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/mu-tat-xanh-s-b-vi-cay-nong/mu-tat-xanh-s_b-wasabi-nhat-ban-vi-cay-nong-tuyp-43g.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/mu-tat-xanh-sb-wasabi-nhat-ban-vi-cay-nong-tuyp-43g">
+                            <Link href="/mu-tat-xanh-sb-wasabi-nhat-ban-vi-cay-nong-tuyp-43g">
                               Mù tạt xanh S&amp;B - Wasabi Nhật Bản - vị cay ...
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1941,15 +2017,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -1965,7 +2043,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/nuoc-tuong-kikkoman-sushi-sashimi-150ml"
                               title="Nước tương Kikkoman Sushi & Sashimi 150ml"
                             >
@@ -1976,14 +2054,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/nuoc-tuong-kikkoman-sushi-sashimi/nuoc-tuong-kikkoman-sushi-sashimi-150ml-lo.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/nuoc-tuong-kikkoman-sushi-sashimi-150ml">
+                            <Link href="/nuoc-tuong-kikkoman-sushi-sashimi-150ml">
                               Nước tương Kikkoman Sushi &amp; Sashimi 150ml
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -1993,15 +2071,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2017,7 +2097,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/dau-oliu-latino-bella-extra-virgin-250ml"
                               title="Dầu Oliu Latino Bella Extra Virgin 250ml"
                             >
@@ -2028,14 +2108,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/dau-oliu-latino-bella/dau-oliu-latino-bella-extra-virgin-250ml.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/dau-oliu-latino-bella-extra-virgin-250ml">
+                            <Link href="/dau-oliu-latino-bella-extra-virgin-250ml">
                               Dầu Oliu Latino Bella Extra Virgin 250ml
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -2046,15 +2126,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2070,7 +2152,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/khoai-tay-cat-soi-farm-best"
                               title="Khoai tây cắt sợi Farm Best"
                             >
@@ -2081,15 +2163,16 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/khoai-tay-cat-soi/khoai-tay-cat-soi-farm-best.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                           <div className="product-quick-shop">
-                            <a
+                            <Link
+                              href="#"
                               nh-btn-action="close-quick-shop"
                               className="quick-shop-close icon-close"
                             >
                               <i className="iconsax isax-add" />
-                            </a>
+                            </Link>
                             <div className="entry-quick-shop">
                               <div className="d-flex align-items-center flex-column h-100 justify-content-center">
                                 <div className="entire-attribute text-center">
@@ -2098,13 +2181,13 @@ export default function Home({ funcSubmit }) {
                                     className="list-attribute"
                                   >
                                     <label>Kg:</label>
-                                    <a
+                                    <Link
                                       nh-btn-action="clear-attribute-option"
                                       className="reset-attribute effect-border-scale"
-                                      href="javascript:;"
+                                      href="#"
                                     >
                                       Xóa
-                                    </a>
+                                    </Link>
                                   </div>
                                 </div>
                                 <div className="entire-cart d-flex flex-column align-items-center flex-wrap ">
@@ -2131,13 +2214,13 @@ export default function Home({ funcSubmit }) {
                                       <i className="iconsax isax-add" />
                                     </span>
                                   </div>
-                                  <a
+                                  <Link
                                     nh-btn-action="add-cart"
-                                    href="javascript:;"
+                                    href="#"
                                     className="add-to-cart added_to_cart effect-shadow"
                                   >
                                     <i className="iconsax isax-shopping-cart" />
-                                  </a>
+                                  </Link>
                                 </div>
                                 <div
                                   nh-quantity-product="out-stock"
@@ -2151,9 +2234,9 @@ export default function Home({ funcSubmit }) {
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/khoai-tay-cat-soi-farm-best">
+                            <Link href="/khoai-tay-cat-soi-farm-best">
                               Khoai tây cắt sợi Farm Best
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -2163,15 +2246,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2187,7 +2272,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/sot-ot-do-tabasco-60ml"
                               title="Sốt Ớt Đỏ Tabasco 60ml"
                             >
@@ -2198,14 +2283,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/sot-ot-do-tabasco/sot-ot-%C4%91o-tabasco-60ml.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/sot-ot-do-tabasco-60ml">
+                            <Link href="/sot-ot-do-tabasco-60ml">
                               Sốt Ớt Đỏ Tabasco 60ml
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -2215,15 +2300,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2239,7 +2326,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/trai-oliu-xanh-tach-hat-latino-bella-lo-235g"
                               title="Trái Oliu xanh tách hạt Latino Bella lọ 235g"
                             >
@@ -2250,14 +2337,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/trai-oliu-xanh-tach-hat-lo-235g/trai-oliu-xanh-tach-hat-latino-bella-lo-235g.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/trai-oliu-xanh-tach-hat-latino-bella-lo-235g">
+                            <Link href="/trai-oliu-xanh-tach-hat-latino-bella-lo-235g">
                               Trái Oliu xanh tách hạt Latino Bella lọ 235g
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -2267,15 +2354,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2291,7 +2380,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/trai-oliu-den-tach-hat-latino-bella-lo-235g"
                               title="Trái Oliu đen tách hạt Latino Bella lọ 235g"
                             >
@@ -2302,14 +2391,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/trai-oliu-den-tach-hat-lo-235g/trai-oliu-%C4%91en-tach-hat-latino-bella-lo-235g.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/trai-oliu-den-tach-hat-latino-bella-lo-235g">
+                            <Link href="/trai-oliu-den-tach-hat-latino-bella-lo-235g">
                               Trái Oliu đen tách hạt Latino Bella lọ 235g
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -2319,15 +2408,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2343,7 +2434,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/trai-oliu-den-tach-hat-latino-bella-lo-450g"
                               title="Trái Oliu đen tách hạt Latino Bella – lọ 450g"
                             >
@@ -2354,14 +2445,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/trai-oliu-den-tach-hat-lo-450g/trai-oliu-%C4%91en-tach-hat-latino-bella-lo-450g.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/trai-oliu-den-tach-hat-latino-bella-lo-450g">
+                            <Link href="/trai-oliu-den-tach-hat-latino-bella-lo-450g">
                               Trái Oliu đen tách hạt Latino Bella – lọ 450g
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -2371,15 +2462,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2395,7 +2488,7 @@ export default function Home({ funcSubmit }) {
                           <div className="product-status" />
                           <div className="product-status-right" />
                           <div className="wrp-effect-change-img ratio-custome">
-                            <a
+                            <Link
                               href="/trai-oliu-xanh-tach-hat-latino-bella-lo-450g"
                               title="Trái Oliu xanh tách hạt Latino Bella – lọ 450g"
                             >
@@ -2406,14 +2499,14 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/san-pham-5s/trai-oliu-xanh-tach-hat-lo-450g/trai-oliu-xanh-tach-hat-latino-bella-lo-450g.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <div className="inner-content">
                           <h4 className="product-title">
-                            <a href="/trai-oliu-xanh-tach-hat-latino-bella-lo-450g">
+                            <Link href="/trai-oliu-xanh-tach-hat-latino-bella-lo-450g">
                               Trái Oliu xanh tách hạt Latino Bella – lọ 450g
-                            </a>
+                            </Link>
                           </h4>
                           <div className="product-rating-price">
                             <div className="price">
@@ -2423,15 +2516,17 @@ export default function Home({ funcSubmit }) {
                             </div>
                           </div>
                           <div className="mt-5 mt-lg-10">
-                            <a
+                            <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               nh-btn-action="add-cart"
-                              href="javascript:;"
+                              href="#"
                               title="Thêm giỏ hàng"
                             >
-                              <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                              Thêm giỏ hàng
-                            </a>
+                              <div>
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
+                              </div>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2475,13 +2570,15 @@ export default function Home({ funcSubmit }) {
                                 </span>
                               </p>
                             </div>
-                            <a
+                            <Link
                               className="color-main d-flex align-items-center fs-16"
-                              href=" /gioi-thieu-5sfoodvn"
+                              href="/gioi-thieu-5sfoodvn"
                             >
-                              Xem thêm
-                              <i className="iconsax isax-arrow-right-3" />
-                            </a>
+                              <div>
+                                Xem thêm
+                                <i className="iconsax isax-arrow-right-3" />
+                              </div>
+                            </Link>
                           </div>
                           <div
                             nh-lazy="image-background"
@@ -2491,7 +2588,7 @@ export default function Home({ funcSubmit }) {
                         </div>
                         <div className="col-lg-6 col-sm-6 col-12">
                           <div className="image-intro">
-                            <a
+                            <Link
                               href="/gioi-thieu-5sfoodvn"
                               title="Giới thiệu 5sfood.vn"
                             >
@@ -2502,7 +2599,7 @@ export default function Home({ funcSubmit }) {
                                 src="https://cdn.5sfood.vn/media/anh-cua-hang-5sfood-lo-duc-1.jpg"
                                 style={{}}
                               />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -2525,12 +2622,14 @@ export default function Home({ funcSubmit }) {
               >
                 <div className="d-flex justify-content-between align-items-center mb-10 mb-xl-0">
                   <h3 className="title-section mb-0 mb-xl-10">TIN TỨC</h3>
-                  <a
+                  <Link
                     className="color-main d-flex align-items-center fs-14 fs-lg-16"
                     href="/tin-tuc"
                   >
-                    Xem thêm <i className="iconsax isax-arrow-right-3" />
-                  </a>
+                    <div>
+                      Xem thêm <i className="iconsax isax-arrow-right-3" />
+                    </div>
+                  </Link>
                 </div>
                 Không có dữ liệu
               </div>
@@ -2546,9 +2645,9 @@ export default function Home({ funcSubmit }) {
                 <div className="slider-doitac">
                   <div className="text-center mb-20">
                     <h3 className="title-section mb-5">
-                      <a className="color-main" href="doi-tac">
+                      <Link className="color-main" href="doi-tac">
                         ĐỐI TÁC
-                      </a>
+                      </Link>
                     </h3>
                     <p className="slogan-text">
                       5sfood tìm kiếm sản phẩm tốt nhất trên thế giới, chúng tôi
@@ -2577,7 +2676,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="true"
                           tabIndex={-1}
                         >
-                          <a href="/" tabIndex={-1}>
+                          <Link href="/" tabIndex={-1}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2585,7 +2684,7 @@ export default function Home({ funcSubmit }) {
                               alt="Namaika"
                               src="https://cdn.5sfood.vn/thumbs/namaika_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide"
@@ -2594,7 +2693,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="true"
                           tabIndex={-1}
                         >
-                          <a href="/" tabIndex={-1}>
+                          <Link href="/" tabIndex={-1}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2602,7 +2701,7 @@ export default function Home({ funcSubmit }) {
                               alt="Seafood From Norway"
                               src="https://cdn.5sfood.vn/thumbs/sefood-from-norway-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide"
@@ -2611,7 +2710,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="true"
                           tabIndex={-1}
                         >
-                          <a href="/" tabIndex={-1}>
+                          <Link href="/" tabIndex={-1}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2619,7 +2718,7 @@ export default function Home({ funcSubmit }) {
                               alt="CJ Food"
                               src="https://cdn.5sfood.vn/thumbs/cjfood-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide"
@@ -2628,7 +2727,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="true"
                           tabIndex={-1}
                         >
-                          <a href="/" tabIndex={-1}>
+                          <Link href="/" tabIndex={-1}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2636,7 +2735,7 @@ export default function Home({ funcSubmit }) {
                               alt="Genki"
                               src="https://cdn.5sfood.vn/thumbs/genki-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide slick-current slick-active"
@@ -2645,7 +2744,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="false"
                           tabIndex={0}
                         >
-                          <a href="/" tabIndex={0}>
+                          <Link href="/" tabIndex={0}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2653,7 +2752,7 @@ export default function Home({ funcSubmit }) {
                               alt="Gold Foods"
                               src="https://cdn.5sfood.vn/thumbs/goldfood-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide slick-active"
@@ -2662,7 +2761,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="false"
                           tabIndex={0}
                         >
-                          <a href="/" tabIndex={0}>
+                          <Link href="/" tabIndex={0}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2670,7 +2769,7 @@ export default function Home({ funcSubmit }) {
                               alt="Nakayama"
                               src="https://cdn.5sfood.vn/thumbs/nakayama-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide"
@@ -2679,7 +2778,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="true"
                           tabIndex={-1}
                         >
-                          <a href="/" tabIndex={-1}>
+                          <Link href="/" tabIndex={-1}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2687,7 +2786,7 @@ export default function Home({ funcSubmit }) {
                               alt="Đối tác 3"
                               src="https://cdn.5sfood.vn/thumbs/angus-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide"
@@ -2696,7 +2795,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="true"
                           tabIndex={-1}
                         >
-                          <a href="/" tabIndex={-1}>
+                          <Link href="/" tabIndex={-1}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2704,7 +2803,7 @@ export default function Home({ funcSubmit }) {
                               alt="Ace foods"
                               src="https://cdn.5sfood.vn/thumbs/acefoods-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div
                           className="item text-center slick-slide"
@@ -2713,7 +2812,7 @@ export default function Home({ funcSubmit }) {
                           aria-hidden="true"
                           tabIndex={-1}
                         >
-                          <a href="/" tabIndex={-1}>
+                          <Link href="/" tabIndex={-1}>
                             <img
                               nh-lazy="image"
                               className="img-fluid"
@@ -2721,7 +2820,7 @@ export default function Home({ funcSubmit }) {
                               alt="Bell"
                               src="https://cdn.5sfood.vn/thumbs/bell-doi-tac_thumb_350.png"
                             />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -2745,7 +2844,7 @@ export default function Home({ funcSubmit }) {
               <div className="col-12">
                 <div nh-block="w1tbzgx" nh-block-cache="true" className>
                   <div className="logo-section mt-0 mt-xl-40">
-                    <a href="/">
+                    <Link href="/">
                       <img
                         nh-lazy="image"
                         className="img-fluid"
@@ -2753,7 +2852,7 @@ export default function Home({ funcSubmit }) {
                         src="https://cdn.5sfood.vn/media/logo/logo.png"
                         style={{}}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="entire-info-website mt-20">
                     <address>
@@ -2791,19 +2890,21 @@ export default function Home({ funcSubmit }) {
                     <div className="title-footer">THÔNG TIN CÔNG TY</div>
                     <ul className="list-unstyled">
                       <li>
-                        <a href="/gioi-thieu-5sfoodvn">Giới thiệu công ty</a>
+                        <Link href="/gioi-thieu-5sfoodvn">
+                          Giới thiệu công ty
+                        </Link>
                       </li>
                       <li>
-                        <a href="/#">Hệ thống cửa hàng</a>
+                        <Link href="/#">Hệ thống cửa hàng</Link>
                       </li>
                       <li>
-                        <a href="/tin-tuc">Tin tức/ Kiến thức nhà bếp</a>
+                        <Link href="/tin-tuc">Tin tức/ Kiến thức nhà bếp</Link>
                       </li>
                       <li>
-                        <a href="/lien-he">Liên hệ</a>
+                        <Link href="/lien-he">Liên hệ</Link>
                       </li>
                       <li>
-                        <a href="/trang-khach-hang-phan-hoi">FeedBack</a>
+                        <Link href="/trang-khach-hang-phan-hoi">FeedBack</Link>
                       </li>
                     </ul>
                   </div>
@@ -2828,16 +2929,20 @@ export default function Home({ funcSubmit }) {
                 <div nh-block="meqc6t7" nh-block-cache="true" className>
                   <div className="toolbar-section">
                     <div className="toolbar-item">
-                      <a href="/">
-                        <i className="iconsax isax-home-2" />
-                        <span>Trang Chủ</span>
-                      </a>
+                      <Link href="/">
+                        <div>
+                          <i className="iconsax isax-home-2" />
+                          <span>Trang Chủ</span>
+                        </div>
+                      </Link>
                     </div>
                     <div className="toolbar-item">
-                      <a href="/tim-kiem">
-                        <i className="iconsax isax-search-normal-1" />
-                        <span>Tìm Kiếm</span>
-                      </a>
+                      <Link href="/tim-kiem">
+                        <div>
+                          <i className="iconsax isax-search-normal-1" />
+                          <span>Tìm Kiếm</span>
+                        </div>
+                      </Link>
                     </div>
                     <div className="toolbar-item category-tool">
                       <div className="before">
@@ -2887,34 +2992,40 @@ export default function Home({ funcSubmit }) {
                           </g>
                         </svg>
                       </div>
-                      <a nh-menu="btn-open" href="javascript:;">
-                        <i className="iconsax isax-element-equal" />
-                        <span>Danh mục</span>
-                      </a>
+                      <Link nh-menu="btn-open" href="#">
+                        <div>
+                          <i className="iconsax isax-element-equal" />
+                          <span>Danh mục</span>
+                        </div>
+                      </Link>
                     </div>
                     <div className="toolbar-item">
-                      <a href="https://zalo.me/">
-                        <img
-                          nh-lazy="image"
-                          className="img-fluid"
-                          alt="zalo"
-                          src="https://cdn.5sfood.vn/media/icon/widget_icon_light_zalo.svg"
-                          style={{}}
-                        />
-                        <span>Zalo</span>
-                      </a>
+                      <Link href="https://zalo.me/">
+                        <div>
+                          <img
+                            nh-lazy="image"
+                            className="img-fluid"
+                            alt="zalo"
+                            src="https://cdn.5sfood.vn/media/icon/widget_icon_light_zalo.svg"
+                            style={{}}
+                          />
+                          <span>Zalo</span>
+                        </div>
+                      </Link>
                     </div>
                     <div className="toolbar-item">
-                      <a href="https://www.facebook.com/messages/t/">
-                        <img
-                          nh-lazy="image"
-                          className="img-fluid"
-                          alt="Messenger"
-                          src="https://cdn.5sfood.vn/media/icon/widget_icon_light_messenger.svg"
-                          style={{}}
-                        />
-                        <span>Messenger</span>
-                      </a>
+                      <Link href="https://www.facebook.com/messages/t/">
+                        <div>
+                          <img
+                            nh-lazy="image"
+                            className="img-fluid"
+                            alt="Messenger"
+                            src="https://cdn.5sfood.vn/media/icon/widget_icon_light_messenger.svg"
+                            style={{}}
+                          />
+                          <span>Messenger</span>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -2928,30 +3039,32 @@ export default function Home({ funcSubmit }) {
               <div className="col-12">
                 <div nh-block="gj3f81l" nh-block-cache="true" className>
                   <div className="call-mobile">
-                    <a
+                    <Link
                       href="tel:0869.836.236"
                       mypage
                       className="call-now"
                       rel="nofollow"
                     >
-                      <span className="icon">
-                        <img
-                          nh-lazy="image"
-                          className="img-fluid"
-                          alt=""
-                          src="https://5sfood.vn/templates/fashion02/assets/media/icon/phone_mb.svg"
-                          style={{}}
-                        />
-                      </span>
-                      <span>0869.836.236</span>
-                    </a>
+                      <div>
+                        <span className="icon">
+                          <img
+                            nh-lazy="image"
+                            className="img-fluid"
+                            alt=""
+                            src="https://5sfood.vn/templates/fashion02/assets/media/icon/phone_mb.svg"
+                            style={{}}
+                          />
+                        </span>
+                        <span>0869.836.236</span>
+                      </div>
+                    </Link>
                   </div>
                 </div>
                 <div nh-block="kwavyip" nh-block-cache="true" className>
                   <div className="social-right-default">
                     <ul className="list-unstyled m-0">
                       <li className="mb-20">
-                        <a
+                        <Link
                           href="/bo-obe-khi-tat-ca-quy-trinh-san-xuat-deu-dam"
                           target="_blank"
                         >
@@ -2962,12 +3075,12 @@ export default function Home({ funcSubmit }) {
                             src="	https://5sfood.vn/templates/fashion02/assets/media/icon/aug_2_05.svg"
                             style={{}}
                           />
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="javascript:" id="return-to-top">
+                        <Link href="javascript:" id="return-to-top">
                           <i className="iconsax isax-arrow-up-3" />
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>

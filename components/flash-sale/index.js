@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CartModal from "../../components/popup/cart";
+import Link from "next/link";
 const Banner1 = ({ funcSubmit }) => {
   const [isCartModal, setCardModal] = useState(false);
   const [isChangeCart, setChangeCart] = useState(false);
@@ -96,7 +97,6 @@ const Banner1 = ({ funcSubmit }) => {
                         id
                         aria-hidden="true"
                         style={{ width: "192px" }}
-                        tabIndex={-1}
                       >
                         <div>
                           <div
@@ -118,10 +118,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap"
                                   title="Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -130,17 +129,14 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap"
-                                  tabIndex={-1}
-                                >
+                                <Link href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap">
                                   Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)
-                                </a>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -155,16 +151,17 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -189,10 +186,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap"
                                   title="Thịt gầu bò Mỹ - Brisket Point Beef USDA Choice (loại cao cấp)"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -201,17 +197,14 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Thịt gầu bò Mỹ - Brisket Point Beef USDA Choice (loại cao cấp)"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap"
-                                  tabIndex={-1}
-                                >
+                                <Link href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap">
                                   Thịt gầu bò Mỹ - Brisket Point Beef USDA ...
-                                </a>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -226,16 +219,17 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -247,7 +241,6 @@ const Banner1 = ({ funcSubmit }) => {
                         id
                         aria-hidden="true"
                         style={{ width: "192px" }}
-                        tabIndex={-1}
                       >
                         <div>
                           <div
@@ -269,10 +262,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/ca-tuyet-nauy-fillet-norwegian-cod"
                                   title="Cá tuyết Nauy fillet - Norwegian Cod"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -281,17 +273,14 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Cá tuyết Nauy fillet - Norwegian Cod"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/ca-tuyet-nauy-fillet-norwegian-cod"
-                                  tabIndex={-1}
-                                >
+                                <Link href="/ca-tuyet-nauy-fillet-norwegian-cod">
                                   Cá tuyết Nauy fillet - Norwegian Cod
-                                </a>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -306,16 +295,17 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -352,7 +342,7 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
                                   title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
                                   tabIndex={0}
@@ -364,18 +354,20 @@ const Banner1 = ({ funcSubmit }) => {
                                     src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda.jpg"
                                     style={{}}
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
+                                <Link
                                   href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
                                   tabIndex={0}
                                 >
-                                  Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao
-                                  cấp)
-                                </a>
+                                  <div>
+                                    Thịt bắp hoa bò Mỹ hạng USDA Choice (loại
+                                    cao cấp)
+                                  </div>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -390,7 +382,7 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   onClick={() =>
                                     addToCart({
                                       price: "359.000",
@@ -403,13 +395,16 @@ const Banner1 = ({ funcSubmit }) => {
                                   }
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
                                   tabIndex={0}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -437,7 +432,7 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
                                   title="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
                                   tabIndex={0}
@@ -449,17 +444,17 @@ const Banner1 = ({ funcSubmit }) => {
                                     src="https://cdn.5sfood.vn/media/san-pham-5s/de-suon-bo-my/choice-loai-cao-cap-thit-de-suon-bo-my-rib-finger-beef-usda-1.jpg"
                                     style={{}}
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
+                                <Link
                                   href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
                                   tabIndex={0}
                                 >
                                   Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA ...
-                                </a>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -474,7 +469,7 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   onClick={() =>
                                     addToCart({
                                       price: "429.000",
@@ -487,13 +482,16 @@ const Banner1 = ({ funcSubmit }) => {
                                   }
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
                                   tabIndex={0}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -529,7 +527,7 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap"
                                   title="Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)"
                                   tabIndex={0}
@@ -541,17 +539,21 @@ const Banner1 = ({ funcSubmit }) => {
                                     src="https://cdn.5sfood.vn/media/san-pham-5s/suon-hoang-de-bo-my/choice-loai-cao-cap-suon-hoang-de-bo-my.jpg"
                                     style={{}}
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
+                                <Link
                                   href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap"
                                   tabIndex={0}
                                 >
-                                  Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)
-                                </a>
+                                  <div>
+                                    {" "}
+                                    Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao
+                                    cấp)
+                                  </div>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -566,16 +568,19 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
                                   tabIndex={0}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -603,7 +608,7 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap"
                                   title="Thịt gầu bò Mỹ - Brisket Point Beef USDA Choice (loại cao cấp)"
                                   tabIndex={0}
@@ -615,17 +620,19 @@ const Banner1 = ({ funcSubmit }) => {
                                     src="https://cdn.5sfood.vn/media/san-pham-5s/thit-gau-bo-my/choice-loai-cao-cap-thit-gau-bo-my-brisket-point-beef-usda.jpg"
                                     style={{}}
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
+                                <Link
                                   href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap"
                                   tabIndex={0}
                                 >
-                                  Thịt gầu bò Mỹ - Brisket Point Beef USDA ...
-                                </a>
+                                  <p>
+                                    Thịt gầu bò Mỹ - Brisket Point Beef USDA ...
+                                  </p>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -640,16 +647,19 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
                                   tabIndex={0}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -660,7 +670,6 @@ const Banner1 = ({ funcSubmit }) => {
                         data-slick-index={2}
                         aria-hidden="true"
                         style={{ width: "192px" }}
-                        tabIndex={-1}
                       >
                         <div>
                           <div
@@ -685,10 +694,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/ca-tuyet-nauy-fillet-norwegian-cod"
                                   title="Cá tuyết Nauy fillet - Norwegian Cod"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -697,17 +705,14 @@ const Banner1 = ({ funcSubmit }) => {
                                     src="https://cdn.5sfood.vn/media/san-pham-5s/ca-tuyet-nauy/ca-tuyet-nauy-phi-le.jpg"
                                     style={{}}
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/ca-tuyet-nauy-fillet-norwegian-cod"
-                                  tabIndex={-1}
-                                >
-                                  Cá tuyết Nauy fillet - Norwegian Cod
-                                </a>
+                                <Link href="/ca-tuyet-nauy-fillet-norwegian-cod">
+                                  <p>Cá tuyết Nauy fillet - Norwegian Cod</p>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -722,16 +727,18 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -744,7 +751,6 @@ const Banner1 = ({ funcSubmit }) => {
                         id
                         aria-hidden="true"
                         style={{ width: "192px" }}
-                        tabIndex={-1}
                       >
                         <div>
                           <div
@@ -766,10 +772,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
                                   title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -778,18 +783,18 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
-                                  tabIndex={-1}
-                                >
-                                  Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao
-                                  cấp)
-                                </a>
+                                <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
+                                  <p>
+                                    {" "}
+                                    Thịt bắp hoa bò Mỹ hạng USDA Choice (loại
+                                    cao cấp)
+                                  </p>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -804,16 +809,18 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -838,10 +845,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
                                   title="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -850,17 +856,18 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
-                                  tabIndex={-1}
-                                >
-                                  Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA ...
-                                </a>
+                                <Link href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap">
+                                  <p>
+                                    {" "}
+                                    Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA
+                                    ...
+                                  </p>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -875,7 +882,7 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   onClick={() =>
                                     addToCart({
                                       price: "429.000",
@@ -888,13 +895,15 @@ const Banner1 = ({ funcSubmit }) => {
                                   }
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -906,7 +915,6 @@ const Banner1 = ({ funcSubmit }) => {
                         id
                         aria-hidden="true"
                         style={{ width: "192px" }}
-                        tabIndex={-1}
                       >
                         <div>
                           <div
@@ -928,10 +936,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap"
                                   title="Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -940,17 +947,18 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap"
-                                  tabIndex={-1}
-                                >
-                                  Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)
-                                </a>
+                                <Link href="/suon-hoang-de-bo-my-usda-choice-loai-cao-cap">
+                                  <p>
+                                    {" "}
+                                    Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao
+                                    cấp)
+                                  </p>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -965,16 +973,17 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -999,10 +1008,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap"
                                   title="Thịt gầu bò Mỹ - Brisket Point Beef USDA Choice (loại cao cấp)"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -1011,17 +1019,16 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Thịt gầu bò Mỹ - Brisket Point Beef USDA Choice (loại cao cấp)"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap"
-                                  tabIndex={-1}
-                                >
-                                  Thịt gầu bò Mỹ - Brisket Point Beef USDA ...
-                                </a>
+                                <Link href="/thit-gau-bo-my-brisket-point-beef-usda-choice-loai-cao-cap">
+                                  <p>
+                                    Thịt gầu bò Mỹ - Brisket Point Beef USDA ...
+                                  </p>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -1036,16 +1043,18 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -1057,7 +1066,6 @@ const Banner1 = ({ funcSubmit }) => {
                         id
                         aria-hidden="true"
                         style={{ width: "192px" }}
-                        tabIndex={-1}
                       >
                         <div>
                           <div
@@ -1079,10 +1087,9 @@ const Banner1 = ({ funcSubmit }) => {
                                 </span>
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
-                                <a
+                                <Link
                                   href="/ca-tuyet-nauy-fillet-norwegian-cod"
                                   title="Cá tuyết Nauy fillet - Norwegian Cod"
-                                  tabIndex={-1}
                                 >
                                   <img
                                     nh-lazy="image"
@@ -1091,17 +1098,14 @@ const Banner1 = ({ funcSubmit }) => {
                                     alt="Cá tuyết Nauy fillet - Norwegian Cod"
                                     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                   />
-                                </a>
+                                </Link>
                               </div>
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <a
-                                  href="/ca-tuyet-nauy-fillet-norwegian-cod"
-                                  tabIndex={-1}
-                                >
-                                  Cá tuyết Nauy fillet - Norwegian Cod
-                                </a>
+                                <Link href="/ca-tuyet-nauy-fillet-norwegian-cod">
+                                  <p> Cá tuyết Nauy fillet - Norwegian Cod</p>
+                                </Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -1116,16 +1120,18 @@ const Banner1 = ({ funcSubmit }) => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <Link
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                   nh-btn-action="add-cart"
-                                  href="javascript:;"
+                                  href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={-1}
                                 >
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </a>
+                                  <div>
+                                    {" "}
+                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
+                                    Thêm giỏ hàng
+                                  </div>
+                                </Link>
                               </div>
                             </div>
                           </div>

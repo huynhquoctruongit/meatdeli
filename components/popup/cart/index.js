@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 const Card = ({ open, setOpen, isChangeCart, funcSubmit }) => {
   const [carts, setCarts] = useState([]);
   var isChangeLocal = false;
@@ -34,14 +35,14 @@ const Card = ({ open, setOpen, isChangeCart, funcSubmit }) => {
           Giỏ hàng của bạn
         </div>
         <div className="sidebar-header">
-          <a
+          <Link
             onClick={() => setOpen(false)}
-            href="javascript:;"
+            href="#"
             nh-mini-cart="close"
             className="close-sidebar effect-rotate icon-close"
           >
             <i className="iconsax isax-add" />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="content-mini-cart">
@@ -56,21 +57,21 @@ const Card = ({ open, setOpen, isChangeCart, funcSubmit }) => {
                   className="cart-item clearfix"
                 >
                   <div className="inner-image">
-                    <a href={item.url} title={item.name}>
+                    <Link href={item.url} title={item.name}>
                       <img
                         className="img-fluid"
                         src={item.img}
                         alt="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="inner-content">
-                    <a
+                    <Link
                       className="product-title mr-5"
                       href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                     <div className="quantity">
                       <span className="mr-5">{item.quality}</span>x
                       <span className="price-amount ml-5">
@@ -81,14 +82,14 @@ const Card = ({ open, setOpen, isChangeCart, funcSubmit }) => {
                     <div className="btn-delete-save mt-5">
                       <ul className="mb-0 pl-0 d-flex font-weight-bold">
                         <li className="mr-15">
-                          <a
+                          <Link
                             onClick={() => deleteProduct(item.id)}
-                            href="javascript:;"
+                            href="#"
                             className="color-hover"
                             nh-remove-item-cart={52}
                           >
                             Xóa
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -105,12 +106,15 @@ const Card = ({ open, setOpen, isChangeCart, funcSubmit }) => {
               </p>
             </div>
             <div className="mini-cart-btn">
-              <a href="/order/cart-info" className="btn-cart-info btn-submit">
+              <Link
+                href="/order/cart-info"
+                className="btn-cart-info btn-submit"
+              >
                 Xem Giỏ hàng
-              </a>
-              <a href="/order/info" className="btn-checkout btn-submit">
+              </Link>
+              <Link href="/order/info" className="btn-checkout btn-submit">
                 Thanh toán
-              </a>
+              </Link>
             </div>
           </div>
         </div>

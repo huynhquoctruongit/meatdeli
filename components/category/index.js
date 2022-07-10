@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 const Banner1 = () => {
   return (
     <div nh-row="reuyskd" className="bg-white pt-30">
@@ -10,7 +11,7 @@ const Banner1 = () => {
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <a href=" /thit-nhap-khau">
+                      <Link href="/thit-nhap-khau">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -18,17 +19,17 @@ const Banner1 = () => {
                           src="https://cdn.5sfood.vn/media/category/sirloin-steak.svg"
                           style={{}}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <a href=" /thit-nhap-khau">Thịt nhập khẩu</a>
+                      <Link href="/thit-nhap-khau">Thịt nhập khẩu</Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <a href=" /hai-san-nhap-khau">
+                      <Link href="/hai-san-nhap-khau">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -36,17 +37,17 @@ const Banner1 = () => {
                           src="https://cdn.5sfood.vn/media/category/lobster.svg"
                           style={{}}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <a href=" /hai-san-nhap-khau">Hải sản nhập khẩu</a>
+                      <Link href="/hai-san-nhap-khau">Hải sản nhập khẩu</Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <a href=" /set-box-tien-loi">
+                      <Link href="/set-box-tien-loi">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -54,17 +55,17 @@ const Banner1 = () => {
                           src="https://cdn.5sfood.vn/media/category/hot-pot.svg"
                           style={{}}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <a href=" /set-box-tien-loi">Set box tiện lợi</a>
+                      <Link href="/set-box-tien-loi">Set box tiện lợi</Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <a href=" /nuoc-sot-gia-vi">
+                      <Link href="/nuoc-sot-gia-vi">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -72,17 +73,17 @@ const Banner1 = () => {
                           src="https://cdn.5sfood.vn/media/category/cooking.svg"
                           style={{}}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <a href=" /nuoc-sot-gia-vi">Nước sốt, gia vị</a>
+                      <Link href="/nuoc-sot-gia-vi">Nước sốt, gia vị</Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <a href=" /dau-an-bo-phomai">
+                      <Link href="/dau-an-bo-phomai">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -90,17 +91,17 @@ const Banner1 = () => {
                           src="https://cdn.5sfood.vn/media/category/drink.svg"
                           style={{}}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <a href=" /dau-an-bo-phomai">Dầu ăn, Bơ &amp; Phomai</a>
+                      <Link href="/dau-an-bo-phomai">Dầu ăn, Bơ &amp; Phomai</Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <a href=" /rau-cu-qua-my">
+                      <Link href="/rau-cu-qua-my">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -108,17 +109,17 @@ const Banner1 = () => {
                           src="https://cdn.5sfood.vn/media/category/kitchenware.svg"
                           style={{}}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <a href=" /rau-cu-qua-my">Rau củ quả &amp; Mỳ</a>
+                      <Link href="/rau-cu-qua-my">Rau củ quả &amp; Mỳ</Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <a href=" /san-pham-khac">
+                      <Link href="/san-pham-khac">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -126,10 +127,10 @@ const Banner1 = () => {
                           src="https://cdn.5sfood.vn/media/category/cooking.svg"
                           style={{}}
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <a href=" /san-pham-khac">Sản phẩm khác</a>
+                      <Link href="/san-pham-khac">Sản phẩm khác</Link>
                     </div>
                   </div>
                 </div>

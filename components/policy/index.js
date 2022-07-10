@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 const Banner1 = () => {
   return (
     <div nh-row="fz4r1tu" className="bg-white pt-30 mb-10">

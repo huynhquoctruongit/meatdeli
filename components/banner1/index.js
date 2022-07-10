@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 const Banner1 = () => {
   return (
     <div nh-row="ctnof1g" className="pb-10 pt-10">
@@ -29,13 +30,13 @@ const Banner1 = () => {
                         aria-hidden="false"
                         tabIndex={0}
                       >
-                        <a className="d-block" href="/" tabIndex={0}>
+                        <Link className="d-block" href="/" tabIndex={0}>
                           <img
                             className="img-fluid"
                             src="https://cdn.5sfood.vn/media/slide-ngang/banner2a.jpg"
                             alt="Slide 1"
                           />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

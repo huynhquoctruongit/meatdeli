@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CartModal from "../../components/popup/cart";
 import Link from "next/link";
-const Banner1 = ({ funcSubmit }) => {
+const Banner1 = () => {
   const [isCartModal, setCardModal] = useState(false);
   const [isChangeCart, setChangeCart] = useState(false);
   const addToCart = (data) => {
@@ -35,7 +35,6 @@ const Banner1 = ({ funcSubmit }) => {
         open={isCartModal}
         setOpen={setCardModal}
         isChangeCart={isChangeCart}
-        funcSubmit={funcSubmit}
       ></CartModal>
       <div nh-row="7rq91od" className="section-flash-sale-mb">
         <div className="container">
@@ -400,7 +399,6 @@ const Banner1 = ({ funcSubmit }) => {
                                   tabIndex={0}
                                 >
                                   <div>
-                                    {" "}
                                     <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
                                     Thêm giỏ hàng
                                   </div>
@@ -487,7 +485,6 @@ const Banner1 = ({ funcSubmit }) => {
                                   tabIndex={0}
                                 >
                                   <div>
-                                    {" "}
                                     <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
                                     Thêm giỏ hàng
                                   </div>

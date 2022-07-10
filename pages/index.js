@@ -8,7 +8,7 @@ import FlashSale from "../components/flash-sale";
 import Banner2 from "../components/banner2";
 import Link from "next/link";
 
-export default function Home({ funcSubmit }) {
+export default function Home() {
   var settings = {
     arrows: true,
     infinite: false,
@@ -30,7 +30,7 @@ export default function Home({ funcSubmit }) {
       <Banner1></Banner1>
       <Policy></Policy>
       <Category></Category>
-      <FlashSale funcSubmit={funcSubmit}></FlashSale>
+      <FlashSale></FlashSale>
       <Banner2></Banner2>
 
       <div nh-row="ro9evji" className="mb-20">

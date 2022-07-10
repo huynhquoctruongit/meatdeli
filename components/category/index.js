@@ -94,7 +94,7 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/dau-an-bo-phomai">Dầu ăn, Bơ &amp; Phomai</Link>
+                      <Link href="/dau-an-bo-phomai"><p>Dầu ăn, Bơ &amp; Phomai</p></Link>
                     </div>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/rau-cu-qua-my">Rau củ quả &amp; Mỳ</Link>
+                      <Link href="/rau-cu-qua-my"><p>Rau củ quả &amp; Mỳ</p></Link>
                     </div>
                   </div>
                 </div>
@@ -130,7 +130,7 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/san-pham-khac">Sản phẩm khác</Link>
+                      <Link href="/san-pham-khac"><p>Sản phẩm khác</p></Link>
                     </div>
                   </div>
                 </div>

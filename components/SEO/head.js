@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Script from "next/script";
+import Script from "next/script"
 export default function HeadSEO() {
   return (
     <Head>
@@ -39,51 +39,10 @@ export default function HeadSEO() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="/css/fonts.css" rel="preconnect" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
-
         <link
-          href="https://cdn.5sfood.vn/media/logo/fav.png"
-          rel="icon"
-          type="image/x-icon"
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         />
-        <link href="/css/variable.css" type="text/css" media="all" />
-        <link
-          href="/lib/bootstrap/bootstrap.min.css"
-          type="text/css"
-          media="all"
-        />
-        <link
-          href="/lib/bootstrap-datepicker/bootstrap-datepicker.min.css"
-          type="text/css"
-          media="all"
-        />
-        <link
-          href="/lib/bootstrap-select/bootstrap-select.css"
-          type="text/css"
-          media="all"
-        />
-        <link href="/css/iconsax.css" type="text/css" media="all" />
-        <link href="/lib/slick.css" type="text/css" media="all" />
-        <link
-          href="/lib/sweetalert2/sweetalert2.css"
-          type="text/css"
-          media="all"
-        />
-        <link href="/lib/lightgallery.css" type="text/css" media="all" />
-        <link
-          href="/lib/jquery-ui/jquery-ui.min.css"
-          type="text/css"
-          media="all"
-        />
-        <link href="/css/catalogue.css" type="text/css" media="all" />
-        <link href="/css/order.css" type="text/css" media="all" />
-        <link href="/css/compare.css" type="text/css" media="all" />
-        <link href="/css/member.css" type="text/css" media="all" />
-        <link href="/css/comment-rating.css" type="text/css" media="all" />
-        <link href="/css/utilities.css" type="text/css" media="all" />
-        <link href="/css/page.css" type="text/css" media="all" />
-        <link href="/css/custom.css" type="text/css" media="all" />
-
         <Script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></Script>
 
         <Script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></Script>
@@ -97,6 +56,113 @@ export default function HeadSEO() {
         ></Script>
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></Script>
         <Script type="text/javascript" src="/lib/slick.min.js"></Script>
+        <link
+          href="https://cdn.5sfood.vn/media/logo/fav.png"
+          rel="icon"
+          type="image/x-icon"
+        />
+        <link
+          href="/css/variable.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/lib/bootstrap/bootstrap.min.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/lib/bootstrap-datepicker/bootstrap-datepicker.min.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/lib/bootstrap-select/bootstrap-select.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/iconsax.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/lib/slick.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/lib/sweetalert2/sweetalert2.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/lib/lightgallery.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/lib/jquery-ui/jquery-ui.min.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/catalogue.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/order.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/compare.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/member.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/comment-rating.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/utilities.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/page.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
+        <link
+          href="/css/custom.css"
+          rel="stylesheet"
+          type="text/css"
+          media="all"
+        />
       </>
     </Head>
   );

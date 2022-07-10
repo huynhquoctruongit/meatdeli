@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-const Card = ({ open, setOpen, isChangeCart, funcSubmit }) => {
+const Card = ({ open, setOpen, isChangeCart }) => {
   const [carts, setCarts] = useState([]);
   var isChangeLocal = false;
   useEffect(() => {
@@ -22,7 +22,6 @@ const Card = ({ open, setOpen, isChangeCart, funcSubmit }) => {
   carts?.map((item, index) => {
     console.log(index, "index");
     total = total += parseInt(item.quality) * parseInt(item.price);
-    funcSubmit.current = index + 1;
   });
 
   return (

@@ -111,7 +111,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 10%
                                 </span>
@@ -179,7 +178,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 10%
                                 </span>
@@ -255,7 +253,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 21%
                                 </span>
@@ -332,10 +329,7 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  style={{
-                                    backgroundImage:
-                                      'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                                  }}
+                                  
                                 >
                                   Giảm 10%
                                 </span>
@@ -419,10 +413,7 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  style={{
-                                    backgroundImage:
-                                      'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                                  }}
+                                 
                                 >
                                   Giảm 10%
                                 </span>
@@ -511,10 +502,7 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  style={{
-                                    backgroundImage:
-                                      'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                                  }}
+                                 
                                 >
                                   Giảm 10%
                                 </span>
@@ -592,10 +580,7 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  style={{
-                                    backgroundImage:
-                                      'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                                  }}
+                                  
                                 >
                                   Giảm 10%
                                 </span>
@@ -678,10 +663,7 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  style={{
-                                    backgroundImage:
-                                      'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                                  }}
+                                  
                                 >
                                   Giảm 21%
                                 </span>
@@ -759,7 +741,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 10%
                                 </span>
@@ -832,7 +813,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 10%
                                 </span>
@@ -922,7 +902,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 10%
                                 </span>
@@ -994,7 +973,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 10%
                                 </span>
@@ -1073,7 +1051,6 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
-                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 21%
                                 </span>

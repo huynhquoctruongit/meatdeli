@@ -662,10 +662,7 @@ export default function Home() {
                             <span
                               className="giam-gia bg-product-status"
                               nh-lazy="image-background"
-                              style={{
-                                backgroundImage:
-                                  'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                              }}
+                             
                             >
                               Giảm 21%
                             </span>
@@ -1605,10 +1602,7 @@ export default function Home() {
                             <span
                               className="giam-gia bg-product-status"
                               nh-lazy="image-background"
-                              style={{
-                                backgroundImage:
-                                  'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                              }}
+                             
                             >
                               Giảm 10%
                             </span>
@@ -1675,10 +1669,7 @@ export default function Home() {
                             <span
                               className="giam-gia bg-product-status"
                               nh-lazy="image-background"
-                              style={{
-                                backgroundImage:
-                                  'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
-                              }}
+                              
                             >
                               Giảm 10%
                             </span>

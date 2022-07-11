@@ -381,7 +381,7 @@ const Banner1 = () => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <div
                                   onClick={() =>
                                     addToCart({
                                       price: "359.000",
@@ -402,7 +402,7 @@ const Banner1 = () => {
                                     <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
                                     Thêm giỏ hàng
                                   </div>
-                                </a>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -467,7 +467,7 @@ const Banner1 = () => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <a
+                                <div
                                   onClick={() =>
                                     addToCart({
                                       price: "429.000",
@@ -488,7 +488,7 @@ const Banner1 = () => {
                                     <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
                                     Thêm giỏ hàng
                                   </div>
-                                </a>
+                                </div>
                               </div>
                             </div>
                           </div>

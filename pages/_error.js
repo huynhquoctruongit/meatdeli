@@ -9,7 +9,7 @@ export default function Custom404() {
         <h2>
           Không tìm thấy trang bạn yêu cầu, vui lòng trở về
           <Link href="/" passHref>
-            <a className="text-blue-600"> Trang chủ</a>
+            <p className="text-blue-600"> Trang chủ</p>
           </Link>
         </h2>
       </div>

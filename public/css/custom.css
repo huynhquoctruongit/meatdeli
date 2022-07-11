@@ -191,7 +191,7 @@ html {
     width: 100%;
 }
 
-.menu-vertical .menu-section > ul > li > a {
+.menu-vertical .menu-section > ul > li > div {
     height: auto;
     color: #fff !important;
     font-size: 18px;
@@ -561,7 +561,7 @@ body.home .menu-vertical .menu-section > ul > li > .entry-menu {
     margin-bottom: 5px;
 }
 
-.toolbar-section .toolbar-item a .items-number {
+.toolbar-section .toolbar-item p .items-number {
     right: 0;
     margin: 0 auto;
     position: absolute;
@@ -1721,16 +1721,16 @@ p {
 .album-intro img:last-child {
     margin-right: 0;
 }
-.is-mobile .menu-section > ul > li > a > span.icon-name-marker,
-.is-mobile .menu-section > ul > li > a > span.text-name {
+.is-mobile .menu-section > ul > li > div > span.icon-name-marker,
+.is-mobile .menu-section > ul > li > div > span.text-name {
     display: inline-block !important;
     margin-left: 0;
 }
-.is-mobile .menu-section > ul > li > a > span.text-name {
+.is-mobile .menu-section > ul > li > div > span.text-name {
     line-height: 24px;
     font-size: 16px;
 }
-.is-mobile .menu-section > ul > li > a > span.icon-name-marker img {
+.is-mobile .menu-section > ul > li > div > span.icon-name-marker img {
     width: 24px;
     height: 24px;
     object-fit: contain;

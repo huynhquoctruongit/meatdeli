@@ -1773,17 +1773,17 @@ a.language-picker, a.currency-picker {
       text-align: left; border-top: 1px solid #ddd;}
   .menu-section > ul > li:last-child {
     margin-right: 0px; }
-  .menu-section > ul > li > a {
+  .menu-section > ul > li > div {
     line-height: 39px;
     height: 39px;
     text-align: center;
     font-size: 14px;
     }
-    .menu-section > ul > li > a span {
+    .menu-section > ul > li > div span {
       display: none; }
-  .menu-section > ul > li.has-child > a {
+  .menu-section > ul > li.has-child > div {
     display: inline-block; }
-    .menu-section > ul > li.has-child > a span {
+    .menu-section > ul > li.has-child > div span {
       display: inline-block;
       font-size: 12px;
       margin-left: 3px; }
@@ -1901,7 +1901,7 @@ a.language-picker, a.currency-picker {
     flex: 0 0 20%;
     position: relative;
 }
-.toolbar-section .toolbar-item a {
+.toolbar-section .toolbar-item p {
     position: relative;
     display: flex;
     align-items: center;
@@ -1912,11 +1912,11 @@ a.language-picker, a.currency-picker {
     padding-right: 10px;
     padding-bottom: 20px;
 color: var(--black);}
-.toolbar-section .toolbar-item a i {
+.toolbar-section .toolbar-item p i {
     font-size: 22px;
     color: #9B9B9B;
 }
-.toolbar-section .toolbar-item a span {
+.toolbar-section .toolbar-item p span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1928,8 +1928,8 @@ color: var(--black);}
     text-align: center;
     font-size: 10px;
 }
-.toolbar-item.category-tool a span,
-.toolbar-item.category-tool a i {
+.toolbar-item.category-tool p span,
+.toolbar-item.category-tool p i {
     color: var(--white);
 }
 
@@ -4169,7 +4169,7 @@ div#change-address-modal .modal-body .form-group label {
     border-bottom: 1px solid #e3e3e3; }
     .is-mobile .menu-section > ul > li:last-child {
       border-bottom: 0; }
-    .is-mobile .menu-section > ul > li > a {
+    .is-mobile .menu-section > ul > li > div {
       line-height: 1;
       height: auto;
       display: block !important;
@@ -4511,7 +4511,7 @@ div#change-address-modal .modal-body .form-group label {
       border-bottom: 1px solid #e3e3e3; }
       .menu-section > ul > li:last-child {
         border-bottom: 0; }
-      .menu-section > ul > li > a {
+      .menu-section > ul > li > div {
         line-height: 1;
         height: auto;
         display: block !important;

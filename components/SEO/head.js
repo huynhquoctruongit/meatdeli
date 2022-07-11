@@ -4,7 +4,7 @@ export default function HeadSEO() {
   return (
     <Head>
       <>
-        <title>5S FOOD</title>
+        <title>5S FOODsss</title>
         <meta charSet="utf-8" />
         <meta
           name="viewport"

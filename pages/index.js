@@ -2524,7 +2524,7 @@ export default function Home() {
                             >
                               <div>
                                 <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                Thêm giỏ hàng
+                                Thêm giỏ hàng s sd s
                               </div>
                             </Link>
                           </div>

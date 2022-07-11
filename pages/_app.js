@@ -30,7 +30,6 @@ function MyApp({ Component, pageProps, infoSettings = {} }) {
           <Component {...pageProps} key={asPath} />
         </motion.main>
       </div>
-      {/* </body> */}
     </>
   );
 }

@@ -67,24 +67,6 @@ export default function HeadSEO() {
           media="all"
         />
         <link
-          href="/lib/bootstrap/bootstrap.min.css"
-          rel="stylesheet"
-          type="text/css"
-          media="all"
-        />
-        <link
-          href="/lib/bootstrap-datepicker/bootstrap-datepicker.min.css"
-          rel="stylesheet"
-          type="text/css"
-          media="all"
-        />
-        <link
-          href="/lib/bootstrap-select/bootstrap-select.css"
-          rel="stylesheet"
-          type="text/css"
-          media="all"
-        />
-        <link
           href="/css/iconsax.css"
           rel="stylesheet"
           type="text/css"
@@ -96,24 +78,8 @@ export default function HeadSEO() {
           type="text/css"
           media="all"
         />
-        <link
-          href="/lib/sweetalert2/sweetalert2.css"
-          rel="stylesheet"
-          type="text/css"
-          media="all"
-        />
-        <link
-          href="/lib/lightgallery.css"
-          rel="stylesheet"
-          type="text/css"
-          media="all"
-        />
-        <link
-          href="/lib/jquery-ui/jquery-ui.min.css"
-          rel="stylesheet"
-          type="text/css"
-          media="all"
-        />
+       
+       
         <link
           href="/css/catalogue.css"
           rel="stylesheet"

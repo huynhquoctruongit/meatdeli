@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import React, { useEffect, useState, useRef } from "react";
-import HeadSEO from "../components/SEO/head";
+import HeadSEO from "../components/seo/head";
 import { useRouter } from "next/router";
 import Header from "../components/header";
 import { motion } from 'framer-motion';

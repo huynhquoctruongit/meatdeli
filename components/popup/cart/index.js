@@ -19,10 +19,12 @@ const Card = ({ open, setOpen, isChangeCart }) => {
   };
 
   var total = 0;
-  carts?.map((item, index) => {
-    console.log(index, "index");
-    total = total += parseInt(item.quality) * parseInt(item.price);
-  });
+  carts &&
+    carts.length > 0 &&
+    carts?.map((item, index) => {
+      console.log(index, "index");
+      total = total += parseInt(item.quality) * parseInt(item.price);
+    });
 
   return (
     <div

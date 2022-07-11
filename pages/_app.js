@@ -6,6 +6,7 @@ import Header from "../components/header";
 import { motion } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
+  console.log(pageProps,'pageProps');
   const router = useRouter();
   const asPath = router.asPath;
 

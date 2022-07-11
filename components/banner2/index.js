@@ -2,13 +2,11 @@ import React from "react";
 import Link from "next/link";
 const Banner1 = () => {
   return (
-    <div nh-row="l76an84" className="mb-15">
+    <div className="mb-15">
       <div className="container">
         <div className="row ">
           <div className="col-12">
             <div
-              nh-block="a857pk9"
-              nh-block-cache="false"
               className="mt-10 mt-lg-20 product-scoll"
             >
               <div className="d-flex justify-content-between align-items-center mb-10 mb-xl-0">
@@ -26,9 +24,6 @@ const Banner1 = () => {
                 <div className="row">
                   <div className="col-lg-3 col-sm-4 col-6 col-custom">
                     <div
-                      nh-product={39}
-                      nh-product-item-id={53}
-                      nh-product-attribute-special
                       className="product-item bg-white rounded-15"
                     >
                       <div className="inner-image">
@@ -36,7 +31,6 @@ const Banner1 = () => {
                         <div className="product-status-right">
                           <span
                             className="giam-gia bg-product-status"
-                            nh-lazy="image-background"
                             style={{
                               backgroundImage:
                                 'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
@@ -51,7 +45,6 @@ const Banner1 = () => {
                             title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
                           >
                             <img
-                              nh-lazy="image"
                               className="img-fluid rounded-12"
                               alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
                               src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda.jpg"
@@ -81,8 +74,7 @@ const Banner1 = () => {
                         <div className="mt-5 mt-lg-10">
                           <Link
                             className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
-                            nh-btn-action="add-cart"
-                            href="javascript:;"
+                            href="#"
                             title="Thêm giỏ hàng"
                           >
                             <div>
@@ -96,9 +88,6 @@ const Banner1 = () => {
                   </div>
                   <div className="col-lg-3 col-sm-4 col-6 col-custom">
                     <div
-                      nh-product={38}
-                      nh-product-item-id={52}
-                      nh-product-attribute-special
                       className="product-item bg-white rounded-15"
                     >
                       <div className="inner-image">
@@ -106,7 +95,6 @@ const Banner1 = () => {
                         <div className="product-status-right">
                           <span
                             className="giam-gia bg-product-status"
-                            nh-lazy="image-background"
                             style={{
                               backgroundImage:
                                 'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
@@ -121,7 +109,6 @@ const Banner1 = () => {
                             title="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
                           >
                             <img
-                              nh-lazy="image"
                               className="img-fluid rounded-12"
                               alt="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
                               src="https://cdn.5sfood.vn/media/san-pham-5s/de-suon-bo-my/choice-loai-cao-cap-thit-de-suon-bo-my-rib-finger-beef-usda-1.jpg"
@@ -151,8 +138,7 @@ const Banner1 = () => {
                         <div className="mt-5 mt-lg-10">
                           <Link
                             className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
-                            nh-btn-action="add-cart"
-                            href="javascript:;"
+                            href="#"
                             title="Thêm giỏ hàng"
                           >
                             <div>
@@ -166,9 +152,6 @@ const Banner1 = () => {
                   </div>
                   <div className="col-lg-3 col-sm-4 col-6 col-custom">
                     <div
-                      nh-product={36}
-                      nh-product-item-id={50}
-                      nh-product-attribute-special
                       className="product-item bg-white rounded-15"
                     >
                       <div className="inner-image">
@@ -176,7 +159,6 @@ const Banner1 = () => {
                         <div className="product-status-right">
                           <span
                             className="giam-gia bg-product-status"
-                            nh-lazy="image-background"
                             style={{
                               backgroundImage:
                                 'url("/templates/fashion02/assets/media/icon/bg-sale.png")',
@@ -191,7 +173,6 @@ const Banner1 = () => {
                             title="Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)"
                           >
                             <img
-                              nh-lazy="image"
                               className="img-fluid rounded-12"
                               alt="Sườn Hoàng Đế bò Mỹ USDA Choice (loại cao cấp)"
                               src="https://cdn.5sfood.vn/media/san-pham-5s/suon-hoang-de-bo-my/choice-loai-cao-cap-suon-hoang-de-bo-my.jpg"
@@ -221,8 +202,7 @@ const Banner1 = () => {
                         <div className="mt-5 mt-lg-10">
                           <Link
                             className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
-                            nh-btn-action="add-cart"
-                            href="javascript:;"
+                            href="#"
                             title="Thêm giỏ hàng"
                           >
                             <div>
@@ -236,9 +216,6 @@ const Banner1 = () => {
                   </div>
                   <div className="col-lg-3 col-sm-4 col-6 col-custom">
                     <div
-                      nh-product={33}
-                      nh-product-item-id={45}
-                      nh-product-attribute-special
                       className="product-item bg-white rounded-15"
                     >
                       <div className="inner-image">
@@ -292,7 +269,7 @@ const Banner1 = () => {
                           <Link
                             className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                             nh-btn-action="add-cart"
-                            href="javascript:;"
+                            href="#"
                             title="Thêm giỏ hàng"
                           >
                             <div>

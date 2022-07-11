@@ -421,7 +421,6 @@ const Header = () => {
                           className="form-control bg-white"
                         />
                         <button
-                          nh-btn-submit
                           className="btn position-absolute"
                           type="submit"
                         >

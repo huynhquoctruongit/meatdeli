@@ -80,7 +80,7 @@ export default function Home() {
                       <div
                         nh-product={77}
                         nh-product-item-id={94}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -135,7 +135,7 @@ export default function Home() {
                       <div
                         nh-product={27}
                         nh-product-item-id={39}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -189,7 +189,7 @@ export default function Home() {
                       <div
                         nh-product={26}
                         nh-product-item-id={38}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -244,7 +244,7 @@ export default function Home() {
                       <div
                         nh-product={25}
                         nh-product-item-id={37}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -299,7 +299,7 @@ export default function Home() {
                       <div
                         nh-product={24}
                         nh-product-item-id={36}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -353,7 +353,7 @@ export default function Home() {
                       <div
                         nh-product={23}
                         nh-product-item-id={35}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -406,7 +406,7 @@ export default function Home() {
                       <div
                         nh-product={20}
                         nh-product-item-id={32}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -459,9 +459,6 @@ export default function Home() {
                     </div>
                     <div className="col-lg-3 col-sm-4 col-6 col-custom">
                       <div
-                        nh-product={19}
-                        nh-product-item-id={30}
-                        nh-product-attribute-special='{"pack_pack2mieng":{"product_item_id":30,"code":"2020009010006","price":95000,"price_special":0,"apply_special":false,"quantity_available":1000},"pack_pack4mieng":{"product_item_id":31,"code":"2020008","price":160000,"price_special":0,"apply_special":false,"quantity_available":10000}}'
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -603,7 +600,7 @@ export default function Home() {
                       <div
                         nh-product={18}
                         nh-product-item-id={26}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -658,7 +655,7 @@ export default function Home() {
                       <div
                         nh-product={17}
                         nh-product-item-id={25}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -780,7 +777,7 @@ export default function Home() {
                       <div
                         nh-product={74}
                         nh-product-item-id={88}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -835,7 +832,7 @@ export default function Home() {
                       <div
                         nh-product={67}
                         nh-product-item-id={81}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -889,7 +886,7 @@ export default function Home() {
                       <div
                         nh-product={48}
                         nh-product-item-id={62}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -944,7 +941,7 @@ export default function Home() {
                       <div
                         nh-product={47}
                         nh-product-item-id={61}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -999,7 +996,7 @@ export default function Home() {
                       <div
                         nh-product={34}
                         nh-product-item-id={46}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1054,7 +1051,7 @@ export default function Home() {
                       <div
                         nh-product={30}
                         nh-product-item-id={42}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1109,7 +1106,7 @@ export default function Home() {
                       <div
                         nh-product={29}
                         nh-product-item-id={41}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1216,7 +1213,7 @@ export default function Home() {
                       <div
                         nh-product={46}
                         nh-product-item-id={60}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1271,7 +1268,7 @@ export default function Home() {
                       <div
                         nh-product={45}
                         nh-product-item-id={59}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1326,7 +1323,7 @@ export default function Home() {
                       <div
                         nh-product={44}
                         nh-product-item-id={58}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1381,7 +1378,7 @@ export default function Home() {
                       <div
                         nh-product={43}
                         nh-product-item-id={57}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1436,7 +1433,7 @@ export default function Home() {
                       <div
                         nh-product={42}
                         nh-product-item-id={56}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1491,7 +1488,7 @@ export default function Home() {
                       <div
                         nh-product={41}
                         nh-product-item-id={55}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1546,7 +1543,7 @@ export default function Home() {
                       <div
                         nh-product={40}
                         nh-product-item-id={54}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1601,7 +1598,7 @@ export default function Home() {
                       <div
                         nh-product={39}
                         nh-product-item-id={53}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1671,7 +1668,7 @@ export default function Home() {
                       <div
                         nh-product={38}
                         nh-product-item-id={52}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1741,7 +1738,7 @@ export default function Home() {
                       <div
                         nh-product={37}
                         nh-product-item-id={51}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1846,9 +1843,6 @@ export default function Home() {
                   <div className="row">
                     <div className="col-lg-3 col-sm-4 col-6 col-custom">
                       <div
-                        nh-product={92}
-                        nh-product-item-id={123}
-                        nh-product-attribute-special='{"kg_kg":{"product_item_id":123,"code":"60WBDKJYFQ","price":80000,"price_special":0,"apply_special":false,"quantity_available":null}}'
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -1965,7 +1959,7 @@ export default function Home() {
                             <Link
                               className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                               title="Thêm giỏ hàng"
-                              href="javascript:void(0);"
+                              href="#"
                               data-toggle="modal"
                               data-target="#modal-het-hang"
                             >
@@ -1982,7 +1976,7 @@ export default function Home() {
                       <div
                         nh-product={91}
                         nh-product-item-id={108}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2036,7 +2030,7 @@ export default function Home() {
                       <div
                         nh-product={90}
                         nh-product-item-id={107}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2090,7 +2084,7 @@ export default function Home() {
                       <div
                         nh-product={89}
                         nh-product-item-id={106}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2143,9 +2137,6 @@ export default function Home() {
                     </div>
                     <div className="col-lg-3 col-sm-4 col-6 col-custom">
                       <div
-                        nh-product={88}
-                        nh-product-item-id={111}
-                        nh-product-attribute-special='{"kg_":{"product_item_id":111,"code":"2020058","price":52000,"price_special":0,"apply_special":false,"quantity_available":1111}}'
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2265,7 +2256,7 @@ export default function Home() {
                       <div
                         nh-product={87}
                         nh-product-item-id={104}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2319,7 +2310,7 @@ export default function Home() {
                       <div
                         nh-product={86}
                         nh-product-item-id={103}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2373,7 +2364,7 @@ export default function Home() {
                       <div
                         nh-product={85}
                         nh-product-item-id={102}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2427,7 +2418,7 @@ export default function Home() {
                       <div
                         nh-product={84}
                         nh-product-item-id={101}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2481,7 +2472,7 @@ export default function Home() {
                       <div
                         nh-product={83}
                         nh-product-item-id={100}
-                        nh-product-attribute-special
+                        
                         className="product-item bg-white rounded-15"
                       >
                         <div className="inner-image">
@@ -2560,7 +2551,7 @@ export default function Home() {
                               Giới thiệu 5sfood.vn
                             </h4>
                             <div className="article-description">
-                              <p>
+                              <div>
                                 <span style={{ fontWeight: 400 }}>
                                   <strong>5sfood.vn</strong> được xây dựng với
                                   mục tiêu trở thành chuỗi hệ thống cửa hàng
@@ -2568,7 +2559,7 @@ export default function Home() {
                                   cấp sản phẩm chất lượng đồng đều với giá cả
                                   phải chăng cùng dịch vụ tốt, đáp ứng ...
                                 </span>
-                              </p>
+                              </div>
                             </div>
                             <Link
                               className="color-main d-flex align-items-center fs-16"
@@ -2863,25 +2854,25 @@ export default function Home() {
                         <p>Giấy phép kinh doanh : 0901117010</p>
                         <p>Cấp ngày : 2022-02-23</p>
                       </div>
-                      <p className="d-flex">
+                      <div className="d-flex">
                         <i className="iconsax isax-location-tick5 pr-5" />
                         <span>
                           Số 18 ngõ 156 Lạc Trung, Thanh Lương, Hai Bà Trưng, Hà
                           Nội
                         </span>
-                      </p>
-                      <p className="d-flex">
+                      </div>
+                      <div className="d-flex">
                         <i className="iconsax isax-calendar-15 pr-5" />
                         <span>Giờ làm việc: Từ 8h00 - 19h30 Từ T2 đến CN</span>
-                      </p>
-                      <p className="d-flex">
+                      </div>
+                      <div className="d-flex">
                         <i className="iconsax isax-call-incoming5 pr-5" />
                         <span> 0869.836.236</span>
-                      </p>
-                      <p className="d-flex">
+                      </div>
+                      <div className="d-flex">
                         <i className="iconsax isax-sms5 pr-5" />
                         <span> contact@5sfood.vn</span>
-                      </p>
+                      </div>
                     </address>
                   </div>
                 </div>
@@ -2929,20 +2920,20 @@ export default function Home() {
                 <div nh-block="meqc6t7" nh-block-cache="true" className>
                   <div className="toolbar-section">
                     <div className="toolbar-item">
-                      <p href="/">
+                      <div>
                         <div>
                           <i className="iconsax isax-home-2" />
                           <span>Trang Chủ</span>
                         </div>
-                      </p>
+                      </div>
                     </div>
                     <div className="toolbar-item">
-                      <p href="/tim-kiem">
+                      <div href="/tim-kiem">
                         <div>
                           <i className="iconsax isax-search-normal-1" />
                           <span>Tìm Kiếm</span>
                         </div>
-                      </p>
+                      </div>
                     </div>
                     <div className="toolbar-item category-tool">
                       <div className="before">
@@ -2992,15 +2983,15 @@ export default function Home() {
                           </g>
                         </svg>
                       </div>
-                      <p nh-menu="btn-open" href="#">
+                      <div nh-menu="btn-open" href="#">
                         <div>
                           <i className="iconsax isax-element-equal" />
                           <span>Danh mục</span>
                         </div>
-                      </p>
+                      </div>
                     </div>
                     <div className="toolbar-item">
-                      <p href="https://zalo.me/">
+                      <div href="https://zalo.me/">
                         <div>
                           <img
                             nh-lazy="image"
@@ -3011,10 +3002,10 @@ export default function Home() {
                           />
                           <span>Zalo</span>
                         </div>
-                      </p>
+                      </div>
                     </div>
                     <div className="toolbar-item">
-                      <p href="https://www.facebook.com/messages/t/">
+                      <div >
                         <div>
                           <img
                             nh-lazy="image"
@@ -3025,7 +3016,7 @@ export default function Home() {
                           />
                           <span>Messenger</span>
                         </div>
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3078,7 +3069,7 @@ export default function Home() {
                         </Link>
                       </li>
                       <li>
-                        <Link href="javascript:" id="return-to-top">
+                        <Link href="#" id="return-to-top">
                           <i className="iconsax isax-arrow-up-3" />
                         </Link>
                       </li>

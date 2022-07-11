@@ -99,10 +99,10 @@ const Card = ({ open, setOpen, isChangeCart }) => {
           <div className="entire-bottom-minicart bg-white px-10 px-md-30">
             <div className="total-price mb-10 clearfix">
               <label>Giá tạm tính: </label>
-              <p className="price-amount">
+              <div className="price-amount">
                 {total}
                 <span className="currency-symbol">đ</span>
-              </p>
+              </div>
             </div>
             <div className="mini-cart-btn">
               <Link

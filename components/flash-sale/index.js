@@ -101,7 +101,7 @@ const Banner1 = () => {
                           <div
                             nh-product={36}
                             nh-product-item-id={50}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -169,7 +169,7 @@ const Banner1 = () => {
                           <div
                             nh-product={33}
                             nh-product-item-id={45}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -245,7 +245,7 @@ const Banner1 = () => {
                           <div
                             nh-product={17}
                             nh-product-item-id={25}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -322,7 +322,7 @@ const Banner1 = () => {
                           <div
                             nh-product={39}
                             nh-product-item-id={53}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -393,10 +393,8 @@ const Banner1 = () => {
                                     })
                                   }
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
-                                  nh-btn-action="add-cart"
                                   href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={0}
                                 >
                                   <div>
                                     <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
@@ -411,7 +409,7 @@ const Banner1 = () => {
                           <div
                             nh-product={38}
                             nh-product-item-id={52}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -479,10 +477,8 @@ const Banner1 = () => {
                                     })
                                   }
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
-                                  nh-btn-action="add-cart"
                                   href="#"
                                   title="Thêm giỏ hàng"
-                                  tabIndex={0}
                                 >
                                   <div>
                                     <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
@@ -505,7 +501,7 @@ const Banner1 = () => {
                           <div
                             nh-product={36}
                             nh-product-item-id={50}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -586,7 +582,7 @@ const Banner1 = () => {
                           <div
                             nh-product={33}
                             nh-product-item-id={45}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -672,7 +668,7 @@ const Banner1 = () => {
                           <div
                             nh-product={17}
                             nh-product-item-id={25}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -753,7 +749,7 @@ const Banner1 = () => {
                           <div
                             nh-product={39}
                             nh-product-item-id={53}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -826,7 +822,7 @@ const Banner1 = () => {
                           <div
                             nh-product={38}
                             nh-product-item-id={52}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -879,7 +875,7 @@ const Banner1 = () => {
                                 </div>
                               </div>
                               <div className="mt-5 mt-lg-10">
-                                <Link
+                                <div
                                   onClick={() =>
                                     addToCart({
                                       price: "429.000",
@@ -891,7 +887,6 @@ const Banner1 = () => {
                                     })
                                   }
                                   className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
-                                  nh-btn-action="add-cart"
                                   href="#"
                                   title="Thêm giỏ hàng"
                                 >
@@ -900,7 +895,7 @@ const Banner1 = () => {
                                     <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />
                                     Thêm giỏ hàng
                                   </div>
-                                </Link>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -917,7 +912,7 @@ const Banner1 = () => {
                           <div
                             nh-product={36}
                             nh-product-item-id={50}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -989,7 +984,7 @@ const Banner1 = () => {
                           <div
                             nh-product={33}
                             nh-product-item-id={45}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >
@@ -1068,7 +1063,7 @@ const Banner1 = () => {
                           <div
                             nh-product={17}
                             nh-product-item-id={25}
-                            nh-product-attribute-special
+                            
                             className="product-item bg-white rounded-15"
                             style={{ width: "100%", display: "inline-block" }}
                           >

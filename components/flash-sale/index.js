@@ -52,7 +52,6 @@ const Banner1 = () => {
                         nh-lazy="image"
                         className="img-fluid"
                         alt="icon"
-                        src="https://5sfood.vn/templates/fashion02/assets/media/icon/icon-flash.png"
                         style={{}}
                       />
                     </span>

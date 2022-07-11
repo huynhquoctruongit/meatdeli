@@ -2986,7 +2986,6 @@ export default function Home() {
                             nh-lazy="image"
                             className="img-fluid"
                             alt="zalo"
-                            src="https://cdn.5sfood.vn/media/icon/widget_icon_light_zalo.svg"
                             style={{}}
                           />
                           <span>Zalo</span>
@@ -3000,7 +2999,6 @@ export default function Home() {
                             nh-lazy="image"
                             className="img-fluid"
                             alt="Messenger"
-                            src="https://cdn.5sfood.vn/media/icon/widget_icon_light_messenger.svg"
                             style={{}}
                           />
                           <span>Messenger</span>
@@ -3031,7 +3029,6 @@ export default function Home() {
                             nh-lazy="image"
                             className="img-fluid"
                             alt=""
-                            src="https://5sfood.vn/templates/fashion02/assets/media/icon/phone_mb.svg"
                             style={{}}
                           />
                         </span>
@@ -3052,7 +3049,6 @@ export default function Home() {
                             nh-lazy="image"
                             className="img-fluid"
                             alt="Khuyến mãi"
-                            src="	https://5sfood.vn/templates/fashion02/assets/media/icon/aug_2_05.svg"
                             style={{}}
                           />
                         </Link>

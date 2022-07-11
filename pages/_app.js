@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import React, { useEffect, useState, useRef } from "react";
-import Headsep from "../components/seo";
 import { useRouter } from "next/router";
+import Headseo from "../components/seo-header";
 import Header from "../components/header";
 import { motion } from 'framer-motion';
 
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps, infoSettings = {} }) {
   };
   return (
     <>
-      <HeadSEO />
+      <Headseo />
       <div id="wrapper" className="is-mobile">
         <Header />
         <motion.main

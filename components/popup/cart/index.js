@@ -34,14 +34,14 @@ const Card = ({ open, setOpen, isChangeCart }) => {
           Giỏ hàng của bạn
         </div>
         <div className="sidebar-header">
-          <Link
+          <a
             onClick={() => setOpen(false)}
             href="#"
             nh-mini-cart="close"
             className="close-sidebar effect-rotate icon-close"
           >
             <i className="iconsax isax-add" />
-          </Link>
+          </a>
         </div>
       </div>
       <div className="content-mini-cart">
@@ -81,14 +81,14 @@ const Card = ({ open, setOpen, isChangeCart }) => {
                     <div className="btn-delete-save mt-5">
                       <ul className="mb-0 pl-0 d-flex font-weight-bold">
                         <li className="mr-15">
-                          <Link
+                          <a
                             onClick={() => deleteProduct(item.id)}
                             href="#"
                             className="color-hover"
                             nh-remove-item-cart={52}
                           >
                             Xóa
-                          </Link>
+                          </a>
                         </li>
                       </ul>
                     </div>

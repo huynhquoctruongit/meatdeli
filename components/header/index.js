@@ -36,14 +36,14 @@ const Header = () => {
                   >
                     <div className="bg-main px-15 pt-5 pb-15">
                       <div className="menu-top mt-0 mb-0">
-                        <Link
+                        <a
                           onClick={() => openMenu()}
                           href="#"
                           nh-menu="btn-close"
                           className="close-sidebar effect-rotate icon-close"
                         >
                           <i className="iconsax isax-add" />
-                        </Link>
+                        </a>
                       </div>
                       {/* <div className="top-sidebar">
                         <ul className="list-unstyled m-0">
@@ -78,8 +78,8 @@ const Header = () => {
                     </div>
                     <ul>
                       <li className="position-relative has-child ">
-                        <Link href="/thit-nhap-khau">
-                          <div>
+                        <a href="/thit-nhap-khau">
+                          <>
                             <span className="icon-name-marker">
                               <img
                                 src="https://cdn.5sfood.vn/media/category/sirloin-steak.svg"
@@ -89,36 +89,36 @@ const Header = () => {
                             </span>
                             <span className="text-name">Thịt nhập khẩu</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                         <span className="grower" nh-toggle="y3pn0xs4ia" />
                         <ul
                           nh-toggle-element="y3pn0xs4ia"
                           className="entry-menu dropdown"
                         >
                           <li className=" ">
-                            <Link className="menu-link" href="/thit-bo-my">
+                            <a className="menu-link" href="/thit-bo-my">
                               Thịt bò Mỹ
-                            </Link>
+                            </a>
                           </li>
                           <li className=" ">
-                            <Link className="menu-link" href="/thit-bo-uc">
+                            <a className="menu-link" href="/thit-bo-uc">
                               Thịt bò Úc
-                            </Link>
+                            </a>
                           </li>
                           <li className=" ">
-                            <Link
+                            <a
                               className="menu-link"
                               href="/thit-bo-nhat-ban"
                             >
                               Thịt bò Nhật Bản
-                            </Link>
+                            </a>
                           </li>
                         </ul>
                       </li>
                       <li className="position-relative has-child ">
-                        <Link href="/hai-san-nhap-khau">
-                          <div>
+                        <a href="/hai-san-nhap-khau">
+                          <>
                             <span className="icon-name-marker">
                               <img
                                 src="https://cdn.5sfood.vn/media/category/lobster.svg"
@@ -128,39 +128,39 @@ const Header = () => {
                             </span>
                             <span className="text-name">Hải sản nhập khẩu</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                         <span className="grower" nh-toggle="fb65ayohq3" />
                         <ul
                           nh-toggle-element="fb65ayohq3"
                           className="entry-menu dropdown"
                         >
                           <li className=" ">
-                            <Link
+                            <a
                               className="menu-link"
                               href="/hai-san-viet-nam"
                             >
                               Hải sản Việt Nam
-                            </Link>
+                            </a>
                           </li>
                           <li className=" ">
-                            <Link
+                            <a
                               className="menu-link"
                               href="/hai-san-nhat-ban"
                             >
                               Hải sản Nhật Bản
-                            </Link>
+                            </a>
                           </li>
                           <li className=" ">
-                            <Link className="menu-link" href="/hai-san-nauy">
+                            <a className="menu-link" href="/hai-san-nauy">
                               Hải sản Nauy
-                            </Link>
+                            </a>
                           </li>
                         </ul>
                       </li>
                       <li className>
-                        <Link href="/set-box-tien-loi">
-                          <div>
+                        <a href="/set-box-tien-loi">
+                          <>
                             <span className="icon-name-marker">
                               <img
                                 src="https://cdn.5sfood.vn/media/category/hot-pot.svg"
@@ -170,12 +170,12 @@ const Header = () => {
                             </span>
                             <span className="text-name">Set box tiện lợi</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className="position-relative has-child ">
-                        <Link href="/nuoc-sot-gia-vi">
-                          <div>
+                        <a href="/nuoc-sot-gia-vi">
+                          <>
                             <span className="icon-name-marker">
                               <img
                                 src="https://cdn.5sfood.vn/media/category/spices.svg"
@@ -185,8 +185,8 @@ const Header = () => {
                             </span>
                             <span className="text-name">Nước sốt, gia vị</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                         <span className="grower" nh-toggle="xvj3bdykw2" />
                         <ul
                           nh-toggle-element="xvj3bdykw2"
@@ -211,8 +211,8 @@ const Header = () => {
                         </ul>
                       </li>
                       <li className>
-                        <Link href="/dau-an-bo-phomai">
-                          <div>
+                        <a href="/dau-an-bo-phomai">
+                          <>
                             <span className="icon-name-marker">
                               <img
                                 src="https://cdn.5sfood.vn/media/category/drink.svg"
@@ -224,12 +224,12 @@ const Header = () => {
                               Dầu ăn, Bơ &amp; Phomai
                             </span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className>
-                        <Link href="/rau-cu-qua-my">
-                          <div>
+                        <a href="/rau-cu-qua-my">
+                          <>
                             <span className="icon-name-marker">
                               <img
                                 src="https://cdn.5sfood.vn/media/category/kitchenware.svg"
@@ -241,12 +241,12 @@ const Header = () => {
                               Rau củ quả &amp; Mỳ
                             </span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className>
-                        <Link href="/san-pham-khac">
-                          <div>
+                        <a href="/san-pham-khac">
+                          <>
                             <span className="icon-name-marker">
                               <img
                                 src="https://cdn.5sfood.vn/media/category/cooking.svg"
@@ -256,70 +256,56 @@ const Header = () => {
                             </span>
                             <span className="text-name">Sản phẩm khác</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className>
-                        <Link href="/">
-                          <div>
-                            <span className="icon-name-marker">
-                              <img
-                                src="/templates/fashion02/assets/media/icon-menu/cong_thuc.svg"
-                                alt="Công thức hay"
-                                className="marker-image"
-                              />
-                            </span>
+                        <a href="/">
+                          <>
                             <span className="text-name">Công thức hay</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className>
-                        <Link href="/tin-tuc">
-                          <div>
-                            <span className="icon-name-marker">
-                              <img
-                                src="/templates/fashion02/assets/media/icon-menu/tin_tuc.svg"
-                                alt="Blog tin tức"
-                                className="marker-image"
-                              />
-                            </span>
+                        <a href="/tin-tuc">
+                          <>
                             <span className="text-name">Blog tin tức</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className>
-                        <Link href="/ve-chung-toi">
-                          <div>
+                        <a href="/ve-chung-toi">
+                          <>
                             <span className="icon-name-marker" />
                             <span className="text-name">Giới thiệu</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className>
-                        <Link href="/huong-dan-dat-hang">
-                          <div>
+                        <a href="/huong-dan-dat-hang">
+                          <>
                             <span className="icon-name-marker" />
                             <span className="text-name">
                               Hướng dẫn đặt hàng
                             </span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                       <li className>
-                        <Link href="/">
-                          <div>
+                        <a href="/">
+                          <>
                             {" "}
                             <span className="icon-name-marker" />
                             <span className="text-name">
                               Phương thức thanh toán
                             </span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </Link>
+                          </>
+                        </a>
                       </li>
                     </ul>
                   </nav>
@@ -329,20 +315,20 @@ const Header = () => {
             <div className="col-6">
               <div nh-block="r8nbkfp">
                 <div className="logo-section text-center">
-                  <Link href="/">
+                  <a href="/">
                     <img
                       className="img-fluid"
                       src="https://5sfood.vn/templates/fashion02/assets/media/template/group_1633.svg"
                       alt="logo"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
             <div className="col-3">
               <div nh-block="6gxudh8" className="float-right">
                 <div className="entire-action-header">
-                  <div
+                  <a
                     className="btn-mini-cart btn-action-header"
                     nh-mini-cart="open"
                     title="Giỏ hàng"
@@ -411,7 +397,7 @@ const Header = () => {
                         1
                       </span>
                     </>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

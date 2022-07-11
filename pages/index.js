@@ -2929,20 +2929,20 @@ export default function Home() {
                 <div nh-block="meqc6t7" nh-block-cache="true" className>
                   <div className="toolbar-section">
                     <div className="toolbar-item">
-                      <Link href="/">
+                      <a href="/">
                         <div>
                           <i className="iconsax isax-home-2" />
                           <span>Trang Chủ</span>
                         </div>
-                      </Link>
+                      </a>
                     </div>
                     <div className="toolbar-item">
-                      <Link href="/tim-kiem">
+                      <a href="/tim-kiem">
                         <div>
                           <i className="iconsax isax-search-normal-1" />
                           <span>Tìm Kiếm</span>
                         </div>
-                      </Link>
+                      </a>
                     </div>
                     <div className="toolbar-item category-tool">
                       <div className="before">
@@ -2992,15 +2992,15 @@ export default function Home() {
                           </g>
                         </svg>
                       </div>
-                      <Link nh-menu="btn-open" href="#">
+                      <a nh-menu="btn-open" href="#">
                         <div>
                           <i className="iconsax isax-element-equal" />
                           <span>Danh mục</span>
                         </div>
-                      </Link>
+                      </a>
                     </div>
                     <div className="toolbar-item">
-                      <Link href="https://zalo.me/">
+                      <a href="https://zalo.me/">
                         <div>
                           <img
                             nh-lazy="image"
@@ -3011,10 +3011,10 @@ export default function Home() {
                           />
                           <span>Zalo</span>
                         </div>
-                      </Link>
+                      </a>
                     </div>
                     <div className="toolbar-item">
-                      <Link href="https://www.facebook.com/messages/t/">
+                      <a href="https://www.facebook.com/messages/t/">
                         <div>
                           <img
                             nh-lazy="image"
@@ -3025,7 +3025,7 @@ export default function Home() {
                           />
                           <span>Messenger</span>
                         </div>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -24,7 +24,6 @@ export default function HeadSEO() {
           name="twitter:image"
           content="https://cdn.5sfood.vn/media/logo/logo.png"
         />
-        {/* Open Graph data */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content />
         <meta property="og:title" content="5S FOOD" />

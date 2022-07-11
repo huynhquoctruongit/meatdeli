@@ -1860,12 +1860,12 @@ a.language-picker, a.currency-picker {
     padding: 0px;
     content: "";
 }
-.toolbar-item.category-tool a span {
+.toolbar-item.category-tool div span {
     color: var(--color-white);
 }
 
-.toolbar-item.category-tool a span,
-.toolbar-item.category-tool a i {
+.toolbar-item.category-tool div span,
+.toolbar-item.category-tool div i {
     color: var(--white);
 }
 
@@ -1878,7 +1878,7 @@ a.language-picker, a.currency-picker {
     height: 19px;
     z-index: -1;
 }
-.toolbar-section .toolbar-item a span.items-number {
+.toolbar-section .toolbar-item div span.items-number {
     background: none;
     left: 48px !important;
     top: 0 !important;
@@ -1889,7 +1889,7 @@ a.language-picker, a.currency-picker {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 5px 5px 2px;
+    padding: 6px 6px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1901,7 +1901,7 @@ a.language-picker, a.currency-picker {
     flex: 0 0 20%;
     position: relative;
 }
-.toolbar-section .toolbar-item p {
+.toolbar-section .toolbar-item div {
     position: relative;
     display: flex;
     align-items: center;
@@ -1912,14 +1912,13 @@ a.language-picker, a.currency-picker {
     padding-right: 10px;
     padding-bottom: 20px;
 color: var(--black);}
-.toolbar-section .toolbar-item p i {
+.toolbar-section .toolbar-item div i {
     font-size: 22px;
     color: #9B9B9B;
 }
-.toolbar-section .toolbar-item p span {
+.toolbar-section .toolbar-item div span {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
     display: block;
     position: absolute;
     left: 10px;
@@ -1928,8 +1927,8 @@ color: var(--black);}
     text-align: center;
     font-size: 10px;
 }
-.toolbar-item.category-tool p span,
-.toolbar-item.category-tool p i {
+.toolbar-item.category-tool div span,
+.toolbar-item.category-tool div i {
     color: var(--white);
 }
 

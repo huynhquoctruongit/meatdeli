@@ -16,6 +16,7 @@ const Banner1 = () => {
                         nh-lazy="image"
                         className="img-fluid"
                         alt="Chất lượng hàng đầu"
+                        src="https://5sfood.vn/templates/fashion02/assets/media/icon/4.svg"
                       />
                     </div>
                     <div className="item-policy-name text-center">
@@ -35,6 +36,7 @@ const Banner1 = () => {
                         nh-lazy="image"
                         className="img-fluid"
                         alt="Mức giá cạnh tranh"
+                        src="https://5sfood.vn/templates/fashion02/assets/media/icon/1.svg"
                       />
                     </div>
                     <div className="item-policy-name text-center">
@@ -54,6 +56,7 @@ const Banner1 = () => {
                         nh-lazy="image"
                         className="img-fluid"
                         alt="Ready to eat/cook"
+                        src="https://5sfood.vn/templates/fashion02/assets/media/icon/2.svg"
                       />
                     </div>
                     <div className="item-policy-name text-center">
@@ -73,6 +76,7 @@ const Banner1 = () => {
                         nh-lazy="image"
                         className="img-fluid"
                         alt="Giao hàng tận nơi"
+                        src="https://5sfood.vn/templates/fashion02/assets/media/icon/3.svg"
                       />
                     </div>
                     <div className="item-policy-name text-center">

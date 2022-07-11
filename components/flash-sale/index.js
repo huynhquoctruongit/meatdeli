@@ -52,6 +52,7 @@ const Banner1 = () => {
                         nh-lazy="image"
                         className="img-fluid"
                         alt="icon"
+                        src="https://5sfood.vn/templates/fashion02/assets/media/icon/icon-flash.png"
                         style={{}}
                       />
                     </span>
@@ -972,6 +973,7 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
+                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 10%
                                 </span>
@@ -1050,6 +1052,7 @@ const Banner1 = () => {
                                 <span
                                   className="giam-gia bg-product-status"
                                   nh-lazy="image-background"
+                                  data-src="/templates/fashion02/assets/media/icon/bg-sale.png"
                                 >
                                   Giảm 21%
                                 </span>

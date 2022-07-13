@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Link from "next/link";
 export default class index extends Component {
   render() {
     return (
@@ -9,15 +10,15 @@ export default class index extends Component {
               <div className="col-12">
                 <div nh-block="mz4eo5d" nh-block-cache="false" className>
                   <nav className="breadcrumbs-section py-15">
-                    <a href="/">Trang chủ</a>
-                    <a href="/thit-nhap-khau">Thịt nhập khẩu</a>
-                    <a href="/thit-bo-my">Thịt bò Mỹ</a>
+                    <Link href="/">Trang chủ</Link>
+                    <Link href="/thit-nhap-khau">Thịt nhập khẩu</Link>
+                    <Link href="/thit-bo-my">Thịt bò Mỹ</Link>
                     <h1>
-                      <a href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
+                      <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
                         <span>
                           Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)
                         </span>
-                      </a>
+                      </Link>
                     </h1>
                   </nav>
                 </div>
@@ -262,25 +263,27 @@ export default class index extends Component {
                           </div>
                         </div>
                         <div className="social-share mb-20">
-                          <a
+                          <Link
                             className="facebook-icon px-15"
                             href="javascript:;"
                             nh-link-redirect="https://www.facebook.com/sharer/sharer.php?u=https://5sfood.vn/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
                             target="_blank"
                             title="Facebook"
                           >
-                            <span className="image-facebook">
-                              <img
-                                nh-lazy="image"
-                                className="img-fluid"
-                                src="https://5sfood.vn/templates/fashion02/assets/media/icon/icon_awesome-facebook-f_1.png"
-                                style={{}}
-                              />
-                            </span>
-                            <span className="facebook-share-title pl-25 color-main fs-12">
-                              Chia sẻ Facebook
-                            </span>
-                          </a>
+                            <div>
+                              <span className="image-facebook">
+                                <img
+                                  nh-lazy="image"
+                                  className="img-fluid"
+                                  src="https://5sfood.vn/templates/fashion02/assets/media/icon/icon_awesome-facebook-f_1.png"
+                                  style={{}}
+                                />
+                              </span>
+                              <span className="facebook-share-title pl-25 color-main fs-12">
+                                Chia sẻ Facebook
+                              </span>
+                            </div>
+                          </Link>
                         </div>
                       </div>
                       <div className="col-lg-6">
@@ -357,28 +360,28 @@ export default class index extends Component {
                                 </div>
                               </div>
                               <p className="font-italic color-gray m-0">
-                                "Do đặc tính sản phẩm nên trọng lượng thực tế có
+                                Do đặc tính sản phẩm nên trọng lượng thực tế có
                                 thể chênh lệch so với số lượng bạn đặt hàng.
-                                5sFood sẽ xác nhận với bạn khi có sự thay đổi"
+                                5sFood sẽ xác nhận với bạn khi có sự thay đổi
                               </p>
                             </div>
                             <div className="quantity-buy d-flex flex-sm-wrap flex-row bg-white rounded-10 mb-10 p-15">
                               <div className="btn-cart-buy d-flex flex-sm-wrap">
-                                <a
+                                <Link
                                   nh-btn-action="add-cart"
                                   href="javascript:;"
                                   className="add-to-cart rounded"
                                 >
                                   Thêm giỏ hàng
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                   nh-btn-action="add-cart"
                                   nh-redirect="/order/info"
                                   href="javascript:;"
                                   className="add-to-cart add-to-cart-buy rounded"
                                 >
                                   Mua ngay
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </div>
@@ -424,7 +427,7 @@ export default class index extends Component {
                           <span style={{ fontWeight: 400 }}>
                             Thịt bắp hoa bò Mỹ là phần được lọc ra từ chân trước
                             của con bò nên thớ thịt có đặc điểm là nhỏ và rất
-                            săn chắc.&nbsp;
+                            săn chắc.
                           </span>
                         </p>
                         <p style={{ textAlign: "justify" }}>
@@ -433,7 +436,7 @@ export default class index extends Component {
                             các màng gân có màu trắng cực kỳ cuốn hút. Khi dùng
                             tay ấn nhẹ, bạn sẽ cảm nhận rõ sự đàn hồi của miếng
                             thịt, thớ thịt chắc, mẩy khi ăn lại rất ngọt và
-                            mềm.&nbsp;
+                            mềm.
                           </span>
                         </p>
                         <h2 style={{ textAlign: "justify" }}>
@@ -551,7 +554,7 @@ export default class index extends Component {
                         </p>
                         <h3 style={{ textAlign: "justify" }}>
                           <strong>Bún bắp hoa bò Mỹ</strong>
-                          <span style={{ fontWeight: 400 }}>&nbsp;</span>
+                          <span style={{ fontWeight: 400 }}></span>
                         </h3>
                         <p style={{ textAlign: "justify" }}>
                           <span style={{ fontWeight: 400 }}>
@@ -564,7 +567,7 @@ export default class index extends Component {
                             Hương vị của bát bún bắp hoa bò Mỹ thật sự rất khó
                             quên. Bát bún nóng hổi bày ra trước mắt với phần
                             nước dùng ngọt đậm đà cùng những miếng thịt bắp bò
-                            chín mềm thấm đã gia vị lôi cuốn vô cùng.&nbsp;
+                            chín mềm thấm đã gia vị lôi cuốn vô cùng.
                           </span>
                         </p>
                         <h2 style={{ textAlign: "justify" }}>
@@ -599,7 +602,7 @@ export default class index extends Component {
                           <li style={{ fontWeight: 400 }} aria-level={1}>
                             <span style={{ fontWeight: 400 }}>
                               Khi ấn tay vào miếng thịt sẽ có sự đàn hồi rõ
-                              ràng.&nbsp;
+                              ràng.
                             </span>
                           </li>
                         </ul>
@@ -773,7 +776,7 @@ export default class index extends Component {
                             <div className="product-status" />
                             <div className="product-status-right" />
                             <div className="wrp-effect-change-img ratio-custome">
-                              <a
+                              <Link
                                 href="/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf"
                                 title="Sườn non rút xương bò Wagyu Snake River Farms (SRF)"
                               >
@@ -784,15 +787,15 @@ export default class index extends Component {
                                   src="https://cdn.5sfood.vn/media/san-pham-5s/suon-non-rut-xuong-bo-wagyu-srf/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf.jpg"
                                   style={{}}
                                 />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                           <div className="inner-content">
                             <h4 className="product-title">
-                              <a href="/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf">
+                              <Link href="/suon-non-rut-xuong-bo-wagyu-snake-river-farms-srf">
                                 Sườn non rút xương bò Wagyu Snake River Farms
                                 ...
-                              </a>
+                              </Link>
                             </h4>
                             <div className="product-rating-price">
                               <div className="price">
@@ -803,15 +806,17 @@ export default class index extends Component {
                               </div>
                             </div>
                             <div className="mt-5 mt-lg-10">
-                              <a
+                              <Link
                                 className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                 nh-btn-action="add-cart"
                                 href="javascript:;"
                                 title="Thêm giỏ hàng"
                               >
-                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                Thêm giỏ hàng
-                              </a>
+                                <div>
+                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                  Thêm giỏ hàng
+                                </div>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -827,7 +832,7 @@ export default class index extends Component {
                             <div className="product-status" />
                             <div className="product-status-right" />
                             <div className="wrp-effect-change-img ratio-custome">
-                              <a
+                              <Link
                                 href="/than-noi-bo-my-tenderloin-beef-usda-choice"
                                 title="Thăn nội bò Mỹ - Tenderloin Beef USDA Choice (loại cao cấp)"
                               >
@@ -838,14 +843,14 @@ export default class index extends Component {
                                   src="https://cdn.5sfood.vn/media/san-pham-5s/than-noi-bo-my/choice-loai-cao-cap-than-noi-bo-my-tenderloin-beef-usda.jpg"
                                   style={{}}
                                 />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                           <div className="inner-content">
                             <h4 className="product-title">
-                              <a href="/than-noi-bo-my-tenderloin-beef-usda-choice">
+                              <Link href="/than-noi-bo-my-tenderloin-beef-usda-choice">
                                 Thăn nội bò Mỹ - Tenderloin Beef USDA Choice ...
-                              </a>
+                              </Link>
                             </h4>
                             <div className="product-rating-price">
                               <div className="price">
@@ -856,15 +861,17 @@ export default class index extends Component {
                               </div>
                             </div>
                             <div className="mt-5 mt-lg-10">
-                              <a
+                              <Link
                                 className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                 nh-btn-action="add-cart"
                                 href="javascript:;"
                                 title="Thêm giỏ hàng"
                               >
-                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                Thêm giỏ hàng
-                              </a>
+                                <div>
+                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                  Thêm giỏ hàng
+                                </div>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -880,7 +887,7 @@ export default class index extends Component {
                             <div className="product-status" />
                             <div className="product-status-right" />
                             <div className="wrp-effect-change-img ratio-custome">
-                              <a
+                              <Link
                                 href="/than-ngoai-bo-my-striploin-beef-usda-choice-loai-cao-cap"
                                 title="Thăn ngoại bò Mỹ - Striploin beef USDA Choice (loại cao cấp)"
                               >
@@ -891,15 +898,15 @@ export default class index extends Component {
                                   src="https://cdn.5sfood.vn/media/san-pham-5s/than-ngoai-bo-my/choice-loai-cao-cap-than-ngoai-bo-my-striploin-beef-usda.jpg"
                                   style={{}}
                                 />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                           <div className="inner-content">
                             <h4 className="product-title">
-                              <a href="/than-ngoai-bo-my-striploin-beef-usda-choice-loai-cao-cap">
+                              <Link href="/than-ngoai-bo-my-striploin-beef-usda-choice-loai-cao-cap">
                                 Thăn ngoại bò Mỹ - Striploin beef USDA Choice
                                 ...
-                              </a>
+                              </Link>
                             </h4>
                             <div className="product-rating-price">
                               <div className="price">
@@ -910,15 +917,17 @@ export default class index extends Component {
                               </div>
                             </div>
                             <div className="mt-5 mt-lg-10">
-                              <a
+                              <Link
                                 className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                 nh-btn-action="add-cart"
                                 href="javascript:;"
                                 title="Thêm giỏ hàng"
                               >
-                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                Thêm giỏ hàng
-                              </a>
+                                <div>
+                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                  Thêm giỏ hàng
+                                </div>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -934,7 +943,7 @@ export default class index extends Component {
                             <div className="product-status" />
                             <div className="product-status-right" />
                             <div className="wrp-effect-change-img ratio-custome">
-                              <a
+                              <Link
                                 href="/than-lung-bo-my-rib-eye-beef-usda-choice-loai-cao-cap"
                                 title="Thăn lưng bò Mỹ  - Rib Eye Beef USDA Choice (loại cao cấp)"
                               >
@@ -945,14 +954,14 @@ export default class index extends Component {
                                   src="https://cdn.5sfood.vn/media/san-pham-5s/than-lung-bo-my/choice-loai-cao-cap-than-lung-bo-my-rib-eye-beef-usda.jpg"
                                   style={{}}
                                 />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                           <div className="inner-content">
                             <h4 className="product-title">
-                              <a href="/than-lung-bo-my-rib-eye-beef-usda-choice-loai-cao-cap">
+                              <Link href="/than-lung-bo-my-rib-eye-beef-usda-choice-loai-cao-cap">
                                 Thăn lưng bò Mỹ - Rib Eye Beef USDA Choice ...
-                              </a>
+                              </Link>
                             </h4>
                             <div className="product-rating-price">
                               <div className="price">
@@ -963,15 +972,17 @@ export default class index extends Component {
                               </div>
                             </div>
                             <div className="mt-5 mt-lg-10">
-                              <a
+                              <Link
                                 className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                 nh-btn-action="add-cart"
                                 href="javascript:;"
                                 title="Thêm giỏ hàng"
                               >
-                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                Thêm giỏ hàng
-                              </a>
+                                <div>
+                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                  Thêm giỏ hàng
+                                </div>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -987,7 +998,7 @@ export default class index extends Component {
                             <div className="product-status" />
                             <div className="product-status-right" />
                             <div className="wrp-effect-change-img ratio-custome">
-                              <a
+                              <Link
                                 href="/suon-non-bo-my-rut-xuong-short-rib-boneless-usda-choice-loai-cao-cap"
                                 title="Sườn non bò Mỹ rút xương - Short Rib Boneless USDA Choice (loại cao cấp)"
                               >
@@ -998,15 +1009,15 @@ export default class index extends Component {
                                   src="https://cdn.5sfood.vn/media/san-pham-5s/suon-non-bo-my-rut-xuong/choice-loai-cao-cap-suon-non-bo-my-rut-xuong-short-rib-boneless-usda.jpg"
                                   style={{}}
                                 />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                           <div className="inner-content">
                             <h4 className="product-title">
-                              <a href="/suon-non-bo-my-rut-xuong-short-rib-boneless-usda-choice-loai-cao-cap">
+                              <Link href="/suon-non-bo-my-rut-xuong-short-rib-boneless-usda-choice-loai-cao-cap">
                                 Sườn non bò Mỹ rút xương - Short Rib Boneless
                                 ...
-                              </a>
+                              </Link>
                             </h4>
                             <div className="product-rating-price">
                               <div className="price">
@@ -1017,15 +1028,15 @@ export default class index extends Component {
                               </div>
                             </div>
                             <div className="mt-5 mt-lg-10">
-                              <a
+                              <Link
                                 className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
                                 nh-btn-action="add-cart"
                                 href="javascript:;"
                                 title="Thêm giỏ hàng"
                               >
-                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                Thêm giỏ hàng
-                              </a>
+                                <div><i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng</div>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -1245,7 +1256,7 @@ export default class index extends Component {
                                 }}
                               >
                                 <li className="selected active">
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item active selected"
                                     id="bs-select-1-0"
@@ -1257,490 +1268,490 @@ export default class index extends Component {
                                     <span className="text">
                                       -- Tỉnh thành --
                                     </span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-1"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hà Nội</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-2"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hà Giang</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-3"
                                     tabIndex={0}
                                   >
                                     <span className="text">Cao Bằng</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-4"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bắc Kạn</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-5"
                                     tabIndex={0}
                                   >
                                     <span className="text">Tuyên Quang</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-6"
                                     tabIndex={0}
                                   >
                                     <span className="text">Lào Cai</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-7"
                                     tabIndex={0}
                                   >
                                     <span className="text">Điện Biên</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-8"
                                     tabIndex={0}
                                   >
                                     <span className="text">Lai Châu</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-9"
                                     tabIndex={0}
                                   >
                                     <span className="text">Sơn La</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-10"
                                     tabIndex={0}
                                   >
                                     <span className="text">Yên Bái</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-11"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hòa Bình</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-12"
                                     tabIndex={0}
                                   >
                                     <span className="text">Thái Nguyên</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-13"
                                     tabIndex={0}
                                   >
                                     <span className="text">Lạng Sơn</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-14"
                                     tabIndex={0}
                                   >
                                     <span className="text">Quảng Ninh</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-15"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bắc Giang</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-16"
                                     tabIndex={0}
                                   >
                                     <span className="text">Phú Thọ</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-17"
                                     tabIndex={0}
                                   >
                                     <span className="text">Vĩnh Phúc</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-18"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bắc Ninh</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-19"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hải Dương</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-20"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hải Phòng</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-21"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hưng Yên</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-22"
                                     tabIndex={0}
                                   >
                                     <span className="text">Thái Bình</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-23"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hà Nam</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-24"
                                     tabIndex={0}
                                   >
                                     <span className="text">Nam Định</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-25"
                                     tabIndex={0}
                                   >
                                     <span className="text">Ninh Bình</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-26"
                                     tabIndex={0}
                                   >
                                     <span className="text">Thanh Hóa</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-27"
                                     tabIndex={0}
                                   >
                                     <span className="text">Nghệ An</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-28"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hà Tĩnh</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-29"
                                     tabIndex={0}
                                   >
                                     <span className="text">Quảng Bình</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-30"
                                     tabIndex={0}
                                   >
                                     <span className="text">Quảng Trị</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-31"
                                     tabIndex={0}
                                   >
                                     <span className="text">Thừa Thiên Huế</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-32"
                                     tabIndex={0}
                                   >
                                     <span className="text">Đà Nẵng</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-33"
                                     tabIndex={0}
                                   >
                                     <span className="text">Quảng Nam</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-34"
                                     tabIndex={0}
                                   >
                                     <span className="text">Quảng Ngãi</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-35"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bình Định</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-36"
                                     tabIndex={0}
                                   >
                                     <span className="text">Phú Yên</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-37"
                                     tabIndex={0}
                                   >
                                     <span className="text">Khánh Hòa</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-38"
                                     tabIndex={0}
                                   >
                                     <span className="text">Ninh Thuận</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-39"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bình Thuận</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-40"
                                     tabIndex={0}
                                   >
                                     <span className="text">Kon Tum</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-41"
                                     tabIndex={0}
                                   >
                                     <span className="text">Gia Lai</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-42"
                                     tabIndex={0}
                                   >
                                     <span className="text">Đắk Lắk</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-43"
                                     tabIndex={0}
                                   >
                                     <span className="text">Đắk Nông</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-44"
                                     tabIndex={0}
                                   >
                                     <span className="text">Lâm Đồng</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-45"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bình Phước</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-46"
                                     tabIndex={0}
                                   >
                                     <span className="text">Tây Ninh</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-47"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bình Dương</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-48"
                                     tabIndex={0}
                                   >
                                     <span className="text">Đồng Nai</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-49"
@@ -1749,147 +1760,147 @@ export default class index extends Component {
                                     <span className="text">
                                       Bà Rịa - Vũng Tàu
                                     </span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-50"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hồ Chí Minh</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-51"
                                     tabIndex={0}
                                   >
                                     <span className="text">Long An</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-52"
                                     tabIndex={0}
                                   >
                                     <span className="text">Tiền Giang</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-53"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bến Tre</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-54"
                                     tabIndex={0}
                                   >
                                     <span className="text">Trà Vinh</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-55"
                                     tabIndex={0}
                                   >
                                     <span className="text">Vĩnh Long</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-56"
                                     tabIndex={0}
                                   >
                                     <span className="text">Đồng Tháp</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-57"
                                     tabIndex={0}
                                   >
                                     <span className="text">An Giang</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-58"
                                     tabIndex={0}
                                   >
                                     <span className="text">Kiên Giang</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-59"
                                     tabIndex={0}
                                   >
                                     <span className="text">Cần Thơ</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-60"
                                     tabIndex={0}
                                   >
                                     <span className="text">Hậu Giang</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-61"
                                     tabIndex={0}
                                   >
                                     <span className="text">Sóc Trăng</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-62"
                                     tabIndex={0}
                                   >
                                     <span className="text">Bạc Liêu</span>
-                                  </a>
+                                  </Link>
                                 </li>
                                 <li>
-                                  <a
+                                  <Link
                                     role="option"
                                     className="dropdown-item"
                                     id="bs-select-1-63"
                                     tabIndex={0}
                                   >
                                     <span className="text">Cà Mau</span>
-                                  </a>
+                                  </Link>
                                 </li>
                               </ul>
                             </div>
@@ -2011,7 +2022,7 @@ export default class index extends Component {
                   <div className="address-map">
                     <div className="map">
                       <iframe
-                        src="https://maps.google.com/maps?hl=en&q=135 Nam Kỳ Khởi Nghĩa, phường Bến Thành, Quận 1, TP. HCM&t=p&z=14&ie=UTF8&iwloc=B&output=embed"
+                        // src="https://maps.google.com/maps?hl=en&q=135 Nam Kỳ Khởi Nghĩa, phường Bến Thành, Quận 1, TP. HCM&t=p&z=14&ie=UTF8&iwloc=B&output=embed"
                         width={600}
                         height={450}
                         style={{ border: 0 }}

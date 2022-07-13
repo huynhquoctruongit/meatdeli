@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import Headseo from "../components/seo-header";
 import Header from "../components/header";
+import Footer from "../components/footer"
 import { motion } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }) {
       <div id="wrapper" className="is-mobile">
         <Header />
         <Component {...pageProps} key={asPath} />
+        <Footer/>
       </div>
     </>
   );

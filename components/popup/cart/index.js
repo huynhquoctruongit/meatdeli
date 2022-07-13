@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 const Card = ({ open, setOpen, isChangeCart }) => {
   const [carts, setCarts] = useState([]);
+  const [total, setTotal] = useState(0);
   var isChangeLocal = false;
   useEffect(() => {
     let localCart = localStorage.getItem("cart");
@@ -18,14 +19,38 @@ const Card = ({ open, setOpen, isChangeCart }) => {
     setCarts(filteredItems);
   };
 
-  var total = 0;
-  carts &&
-    carts.length > 0 &&
-    carts?.map((item, index) => {
-      console.log(index, "index");
-      total = total += parseInt(item.quality) * parseInt(item.price);
-    });
+  var totalTemp = 0;
+  useEffect(() => {
+    carts &&
+      carts.length > 0 &&
+      carts?.map((item, index) => {
+        totalTemp = totalTemp += parseInt(item.quality) * parseInt(item.price);
+      });
+    setTotal(totalTemp);
+  }, [carts]);
 
+  const changeQuality = (type, item) => {
+    let localCart = JSON.parse(localStorage.getItem("cart"));
+    var merge = [];
+    localCart.map((itemVal) => {
+      if (itemVal.id === item.id) {
+        if (type === "add") {
+          itemVal.quality = itemVal.quality + 1;
+        } else {
+          if (itemVal.quality >= 1) {
+            itemVal.quality = itemVal.quality - 1;
+          } else {
+            deleteProduct(itemVal.id);
+          }
+        }
+        merge.push(itemVal);
+      } else {
+        merge.push(itemVal);
+      }
+    });
+    localStorage.setItem("cart", JSON.stringify(merge));
+    setCarts(merge);
+  };
   return (
     <div
       nh-mini-cart="sidebar"
@@ -79,6 +104,36 @@ const Card = ({ open, setOpen, isChangeCart }) => {
                         {item.price}
                         <span className="currency-symbol">đ</span>
                       </span>
+                      <div className="d-flex align-items-center mb-10">
+                        <strong className="fs-13 pr-15 pl-10">Số lượng:</strong>
+                        <div
+                          nh-quantity-product="wrap"
+                          className="product-quantity"
+                        >
+                          <span
+                            onClick={() => changeQuality("minus", item)}
+                            nh-quantity-product="subtract"
+                            className="btn-quantity"
+                          >
+                            <i className="iconsax isax-minus" />
+                          </span>
+                          <input
+                            nh-quantity-product="quantity"
+                            className="text-center quantity-input events-none"
+                            type="text"
+                            id={item.id}
+                            defaultValue={1}
+                            value={item.quality}
+                          />
+                          <span
+                            onClick={() => changeQuality("add", item)}
+                            nh-quantity-product="add"
+                            className="btn-quantity"
+                          >
+                            <i className="iconsax isax-add" />
+                          </span>
+                        </div>
+                      </div>
                     </div>
                     <div className="btn-delete-save mt-5">
                       <ul className="mb-0 pl-0 d-flex font-weight-bold">

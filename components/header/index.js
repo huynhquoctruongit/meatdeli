@@ -315,13 +315,13 @@ const Header = () => {
             <div className="col-6">
               <div nh-block="r8nbkfp">
                 <div className="logo-section text-center">
-                  <div href="/">
+                  <Link href="/">
                     <img
                       className="img-fluid"
                       src="https://5sfood.vn/templates/fashion02/assets/media/template/group_1633.svg"
                       alt="logo"
                     />
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>

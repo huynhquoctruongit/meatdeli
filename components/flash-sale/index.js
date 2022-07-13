@@ -336,7 +336,7 @@ const Banner1 = () => {
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
                                 <Link
-                                  href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
+                                  href="/product-detail/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
                                   title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
                                   tabIndex={0}
                                 >
@@ -353,7 +353,7 @@ const Banner1 = () => {
                             <div className="inner-content">
                               <h4 className="product-title">
                                 <Link
-                                  href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
+                                  href="/product-detail/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
                                   tabIndex={0}
                                 >
                                   <div>
@@ -420,7 +420,7 @@ const Banner1 = () => {
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
                                 <Link
-                                  href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
+                                  href="/product-detail/product-detail/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
                                   title="Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA Choice (loại cao cấp)"
                                   tabIndex={0}
                                 >
@@ -437,7 +437,7 @@ const Banner1 = () => {
                             <div className="inner-content">
                               <h4 className="product-title">
                                 <Link
-                                  href="/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
+                                  href="/product-detail/thit-de-suon-bo-my-rib-finger-beef-usda-choice-loai-cao-cap"
                                   tabIndex={0}
                                 >
                                   Thịt dẻ sườn bò Mỹ - Rib Finger Beef USDA ...

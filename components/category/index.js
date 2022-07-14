@@ -11,7 +11,7 @@ const Banner1 = () => {
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <Link href="/thit-nhap-khau">
+                      <Link href="/category/thit-nhap-khau">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -22,14 +22,16 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/thit-nhap-khau">Thịt nhập khẩu</Link>
+                      <Link href="/category/thit-nhap-khau">
+                        Thịt nhập khẩu
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <Link href="/hai-san-nhap-khau">
+                      <Link href="/category/hai-san-nhap-khau">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -40,14 +42,16 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/hai-san-nhap-khau">Hải sản nhập khẩu</Link>
+                      <Link href="/category/hai-san-nhap-khau">
+                        Hải sản nhập khẩu
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <Link href="/set-box-tien-loi">
+                      <Link href="/category/set-box-tien-loi">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -58,14 +62,16 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/set-box-tien-loi">Set box tiện lợi</Link>
+                      <Link href="/category/set-box-tien-loi">
+                        Set box tiện lợi
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <Link href="/nuoc-sot-gia-vi">
+                      <Link href="/category/nuoc-sot-gia-vi">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -76,14 +82,16 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/nuoc-sot-gia-vi">Nước sốt, gia vị</Link>
+                      <Link href="/category/nuoc-sot-gia-vi">
+                        Nước sốt, gia vị
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <Link href="/dau-an-bo-phomai">
+                      <Link href="/category/dau-an-bo-phomai">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -94,14 +102,16 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/dau-an-bo-phomai"><p>Dầu ăn, Bơ &amp; Phomai</p></Link>
+                      <Link href="/category/dau-an-bo-phomai">
+                        <p>Dầu ăn, Bơ &amp; Phomai</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <Link href="/rau-cu-qua-my">
+                      <Link href="/category/rau-cu-qua-my">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -112,14 +122,16 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/rau-cu-qua-my"><p>Rau củ quả &amp; Mỳ</p></Link>
+                      <Link href="/category/rau-cu-qua-my">
+                        <p>Rau củ quả &amp; Mỳ</p>
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-3 col-3">
                   <div className="list_category mb-30">
                     <div className="img_category text-center mb-15">
-                      <Link href="/san-pham-khac">
+                      <Link href="/category/san-pham-khac">
                         <img
                           nh-lazy="image"
                           className="img-fluid"
@@ -130,7 +142,9 @@ const Banner1 = () => {
                       </Link>
                     </div>
                     <div className="item-title-category text-center fs-10 font-weight-bold  fs-md-14">
-                      <Link href="/san-pham-khac"><p>Sản phẩm khác</p></Link>
+                      <Link href="/category/san-pham-khac">
+                        <p>Sản phẩm khác</p>
+                      </Link>
                     </div>
                   </div>
                 </div>

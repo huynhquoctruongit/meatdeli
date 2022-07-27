@@ -231,9 +231,7 @@ const Products = ({ products }) => {
                             </div>
                             <div className="inner-content">
                               <h4 className="product-title">
-                                <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
-                                  {item.name}
-                                </Link>
+                                <Link href={item.image.slug}>{item.name}</Link>
                               </h4>
                               <div className="product-rating-price">
                                 <div className="price">
@@ -247,17 +245,23 @@ const Products = ({ products }) => {
                                   </div>
                                 </div>
                               </div>
-                              <div className="mt-5 mt-lg-10">
-                                <Link
-                                  className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center"
-                                  href="#"
-                                  title="Thêm giỏ hàng"
-                                >
-                                  <div>
-                                    <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                    Thêm giỏ hàng
-                                  </div>
-                                </Link>
+                              <div
+                                className="mt-5 mt-lg-10"
+                                onClick={() =>
+                                  addToCart({
+                                    id: item.image.slug,
+                                    img: item?.image?.sourceUrl,
+                                    name: item.name,
+                                    price: "359.000",
+                                    quality: 1,
+                                    url: +"/" + item?.image?.sourceUrl,
+                                  })
+                                }
+                              >
+                                <div className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center">
+                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                  Thêm giỏ hàng
+                                </div>
                               </div>
                             </div>
                           </div>

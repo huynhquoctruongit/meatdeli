@@ -4,6 +4,7 @@ export const homeGQL = gql`
     products {
       nodes {
         name
+        slug
         image {
           altText
           fileSize

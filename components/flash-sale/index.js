@@ -217,7 +217,7 @@ const Products = ({ products }) => {
                               </div>
                               <div className="wrp-effect-change-img ratio-custome">
                                 <Link
-                                  href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap"
+                                  href={`/product-detail/${item?.slug}`}
                                   title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
                                 >
                                   <img
@@ -254,7 +254,9 @@ const Products = ({ products }) => {
                                     name: item.name,
                                     price: "359.000",
                                     quality: 1,
-                                    url: +"/" + item?.image?.sourceUrl,
+                                    url:
+                                      +"/product-detail/" +
+                                      item?.image?.sourceUrl,
                                   })
                                 }
                               >

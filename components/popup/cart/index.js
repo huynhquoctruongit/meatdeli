@@ -9,7 +9,6 @@ const Card = ({ open, setOpen, isChangeCart }) => {
     setCarts(
       localCart !== "null" && localCart !== null && JSON.parse(localCart)
     );
-    window.globalvar1 = !isChangeLocal;
   }, [isChangeCart]);
 
   const deleteProduct = (id) => {
@@ -63,7 +62,6 @@ const Card = ({ open, setOpen, isChangeCart }) => {
         <div className="sidebar-header">
           <div
             onClick={() => setOpen(false)}
-            href="#"
             nh-mini-cart="close"
             className="close-sidebar effect-rotate icon-close"
           >
@@ -162,14 +160,16 @@ const Card = ({ open, setOpen, isChangeCart }) => {
               </div>
             </div>
             <div className="mini-cart-btn">
-              <Link
-                href="/order/cart-info"
-                className="btn-cart-info btn-submit"
-              >
-                Xem Giỏ hàng
+              <Link href="/order/cart-info">
+                <div
+                  className="btn-cart-info btn-submit"
+                  onClick={() => setOpen(false)}
+                >
+                  Xem Giỏ hàng
+                </div>
               </Link>
-              <Link href="/order/info" className="btn-checkout btn-submit">
-                Thanh toán
+              <Link href="/order/info">
+                <div className="btn-checkout btn-submit">Thanh toán</div>
               </Link>
             </div>
           </div>

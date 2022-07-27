@@ -97,7 +97,10 @@ const Header = () => {
                         </li>
                       </Link>
                       <Link href="category/hai-san-nhap-khau">
-                        <li  onClick={() => openMenu()} className="position-relative has-child ">
+                        <li
+                          onClick={() => openMenu()}
+                          className="position-relative has-child "
+                        >
                           <div>
                             <span className="icon-name-marker">
                               <img
@@ -139,7 +142,10 @@ const Header = () => {
                         </li>
                       </Link>
                       <Link href="category//set-box-tien-loi">
-                        <li  onClick={() => openMenu()} className="position-relative has-child">
+                        <li
+                          onClick={() => openMenu()}
+                          className="position-relative has-child"
+                        >
                           <div>
                             <span className="icon-name-marker">
                               <img
@@ -154,7 +160,10 @@ const Header = () => {
                         </li>
                       </Link>
                       <Link href="category/nuoc-sot-gia-vi">
-                        <li  onClick={() => openMenu()} className="position-relative has-child ">
+                        <li
+                          onClick={() => openMenu()}
+                          className="position-relative has-child "
+                        >
                           <div>
                             <span className="icon-name-marker">
                               <img
@@ -191,7 +200,10 @@ const Header = () => {
                         </li>
                       </Link>
                       <Link href="category/dau-an-bo-phomai">
-                        <li  onClick={() => openMenu()} className="position-relative has-child">
+                        <li
+                          onClick={() => openMenu()}
+                          className="position-relative has-child"
+                        >
                           <div href="/dau-an-bo-phomai">
                             <>
                               <span className="icon-name-marker">
@@ -210,7 +222,7 @@ const Header = () => {
                         </li>
                       </Link>
                       <Link href="category/rau-cu-qua-my">
-                        <li  onClick={() => openMenu()} className>
+                        <li onClick={() => openMenu()}>
                           <div>
                             <>
                               <span className="icon-name-marker">
@@ -229,7 +241,7 @@ const Header = () => {
                         </li>
                       </Link>
                       <Link href="category/san-pham-khac">
-                        <li onClick={() => openMenu()} className>
+                        <li onClick={() => openMenu()}>
                           <div>
                             <>
                               <span className="icon-name-marker">
@@ -245,7 +257,7 @@ const Header = () => {
                           </div>
                         </li>
                       </Link>
-                      <li className>
+                      <li onClick={() => openMenu()}>
                         <div href="/">
                           <>
                             <span className="text-name">Công thức hay</span>
@@ -253,7 +265,7 @@ const Header = () => {
                           </>
                         </div>
                       </li>
-                      <li className>
+                      <li>
                         <div href="/tin-tuc">
                           <>
                             <span className="text-name">Blog tin tức</span>
@@ -261,16 +273,16 @@ const Header = () => {
                           </>
                         </div>
                       </li>
-                      <li className>
-                        <div href="/ve-chung-toi">
-                          <>
+                      <Link href="gioi-thieu">
+                        <li onClick={() => openMenu()}>
+                          <div>
                             <span className="icon-name-marker" />
                             <span className="text-name">Giới thiệu</span>
                             <span className="iconsax isax-arrow-down-1" />
-                          </>
-                        </div>
-                      </li>
-                      <li className>
+                          </div>
+                        </li>
+                      </Link>
+                      <li onClick={() => openMenu()}>
                         <div href="/huong-dan-dat-hang">
                           <>
                             <span className="icon-name-marker" />
@@ -281,7 +293,7 @@ const Header = () => {
                           </>
                         </div>
                       </li>
-                      <li className>
+                      <li>
                         <div href="/">
                           <>
                             {" "}

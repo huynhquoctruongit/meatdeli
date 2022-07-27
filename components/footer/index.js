@@ -95,16 +95,20 @@ export default class index extends Component {
                 <div nh-block="meqc6t7" nh-block-cache="true" className>
                   <div className="toolbar-section">
                     <div className="toolbar-item">
-                      <div>
-                        <i className="iconsax isax-home-2" />
-                        <span>Trang Chủ</span>
-                      </div>
+                      <Link href="/">
+                        <div>
+                          <i className="iconsax isax-home-2" />
+                          <span>Trang Chủ</span>
+                        </div>
+                      </Link>
                     </div>
                     <div className="toolbar-item">
-                      <div href="/tim-kiem">
-                        <i className="iconsax isax-search-normal-1" />
-                        <span>Tìm Kiếm</span>
-                      </div>
+                      <Link href="/tim-kiem">
+                        <div>
+                          <i className="iconsax isax-search-normal-1" />
+                          <span>Tìm Kiếm</span>
+                        </div>
+                      </Link>
                     </div>
                     <div className="toolbar-item category-tool">
                       <div className="before">

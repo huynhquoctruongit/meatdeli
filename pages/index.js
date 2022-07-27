@@ -7,8 +7,24 @@ import Category from "../components/category";
 import FlashSale from "../components/flash-sale";
 import Banner2 from "../components/banner2";
 import Link from "next/link";
+import { apollo } from "@/api/index";
+import { homeGQL } from "@/geters/home";
 
-export default function Home() {
+export async function getStaticProps() {
+  const result = await apollo.query({ query: homeGQL });
+  const home = {};
+  Object.keys(result?.data || {}).map((key) => {
+    const element = result?.data[key];
+    home[key] = element?.nodes || element?.posts || [];
+  });
+  const { products } = home;
+
+  return {
+    props: { products },
+    revalidate: 60,
+  };
+}
+export default function Home({ products }) {
   var settings = {
     arrows: true,
     infinite: false,
@@ -30,10 +46,10 @@ export default function Home() {
       <Banner1></Banner1>
       <Policy></Policy>
       <Category></Category>
-      <FlashSale></FlashSale>
-      <Banner2></Banner2>
+      <FlashSale products={products}></FlashSale>
+      {/* <Banner2></Banner2> */}
 
-      <div nh-row="ro9evji" className="mb-20">
+      {/* <div nh-row="ro9evji" className="mb-20">
         <div className="container">
           <div className="row ">
             <div className="col-12">
@@ -53,8 +69,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div nh-row="fsmcvuk" className="mb-15">
+      </div> */}
+      {/* <div nh-row="fsmcvuk" className="mb-15">
         <div className="container">
           <div className="row ">
             <div className="col-12">
@@ -716,8 +732,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div nh-row="epmjvx3" className="mb-20">
+      </div> */}
+      {/* <div nh-row="epmjvx3" className="mb-20">
         <div className="container">
           <div className="row ">
             <div className="col-12">
@@ -737,8 +753,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div nh-row="4e5g0rc" className="mb-15">
+      </div> */}
+      {/* <div nh-row="4e5g0rc" className="mb-15">
         <div className="container">
           <div className="row ">
             <div className="col-12">
@@ -1145,7 +1161,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div nh-row="xbpdioz" className="mb-20">
         <div className="container">
           <div className="row ">
@@ -1167,7 +1183,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div nh-row="g29fsxv" className="mb-15">
+      {/* <div nh-row="g29fsxv" className="mb-15">
         <div className="container">
           <div className="row ">
             <div className="col-12">
@@ -1767,8 +1783,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div nh-row="c2j5gxf" className="mb-20">
+      </div> */}
+      {/* <div nh-row="c2j5gxf" className="mb-20">
         <div className="container">
           <div className="row ">
             <div className="col-12">
@@ -1788,8 +1804,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div nh-row="s4903nw" className="mb-15">
+      </div> */}
+      {/* <div nh-row="s4903nw" className="mb-15">
         <div className="container">
           <div className="row ">
             <div className="col-12">
@@ -2488,7 +2504,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div
         nh-row="ha9sgmc"
         className="section-introduce-mb pt-20 pt-sm-20 pb-0 pb-sm-20"

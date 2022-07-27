@@ -236,11 +236,11 @@ const Products = ({ products }) => {
                               <div className="product-rating-price">
                                 <div className="price">
                                   <span className="price-amount">
-                                    359,000
+                                    {item?.price}
                                     <span className="currency-symbol">đ</span>
                                   </span>
                                   <div className="price-amount old-price">
-                                    399,000
+                                    {item?.regularPrice}
                                     <span className="currency-symbol">đ</span>
                                   </div>
                                 </div>
@@ -252,7 +252,7 @@ const Products = ({ products }) => {
                                     id: item.image.slug,
                                     img: item?.image?.sourceUrl,
                                     name: item.name,
-                                    price: "359.000",
+                                    price: item?.price,
                                     quality: 1,
                                     url:
                                       +"/product-detail/" +

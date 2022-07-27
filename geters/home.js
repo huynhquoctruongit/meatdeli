@@ -15,6 +15,12 @@ export const homeGQL = gql`
           title
           uri
         }
+        ... on SimpleProduct {
+          id
+          name
+          regularPrice(format: RAW)
+          price(format: RAW)
+        }
       }
     }
   }

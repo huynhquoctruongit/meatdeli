@@ -87,7 +87,7 @@ const CheckoutCart = () => {
                             <div className="inner-col-1 mb-15 p-15 bg-white rounded-5">
                               <div>
                                 <strong>Thông tin khách hàng </strong>
-                                "mua không cần tài khoản"
+                                <span>mua không cần tài khoản</span>
                               </div>
                               <div className="form-billing">
                                 <div className="form-group validate-form">

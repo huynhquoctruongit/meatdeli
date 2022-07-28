@@ -253,6 +253,7 @@ const Products = ({ products }) => {
                                     img: item?.image?.sourceUrl,
                                     name: item.name,
                                     price: item?.price,
+                                    tag : item.productTags?.nodes?.[0]?.name,
                                     quality: 1,
                                     url:
                                       +"/product-detail/" +

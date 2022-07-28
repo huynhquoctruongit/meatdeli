@@ -5,6 +5,11 @@ export const homeGQL = gql`
       nodes {
         name
         slug
+        productTags {
+          nodes {
+            name
+          }
+        }
         image {
           altText
           fileSize

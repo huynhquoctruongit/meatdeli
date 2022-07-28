@@ -25,6 +25,7 @@ export async function getStaticProps() {
   };
 }
 export default function Home({ products }) {
+  console.log(products,'products');
   var settings = {
     arrows: true,
     infinite: false,

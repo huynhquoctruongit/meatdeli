@@ -219,9 +219,9 @@ const Order = () => {
                         Tóm tắt đơn hàng
                       </div>
                       <div className="entire-cart-totals mb-15 p-15 bg-white rounded-5">
-                        <div className="thoigian-giao border-bottom">
+                        {/* <div className="thoigian-giao border-bottom">
                           <p className="fs-16">Chọn thời gian giao hàng</p>
-                        </div>
+                        </div> */}
                         <div className="order-total d-flex justify-content-between align-items-center mb-10">
                           <div className="fs-16">Thành tiền</div>
                           <div>
@@ -234,12 +234,14 @@ const Order = () => {
                           </div>
                         </div>
                         <div className="proceed-to-checkout text-uppercase fs-16">
-                          <div
-                            nh-cart-action="checkout"
-                            className="btn-checkout bg-main-1 btn-1a color-white d-block m-auto px-25 py-10 rounded text-center"
-                          >
-                            Đặt hàng
-                          </div>
+                          <Link href="/order/checkout">
+                            <div
+                              nh-cart-action="checkout"
+                              className="btn-checkout bg-main-1 btn-1a color-white d-block m-auto px-25 py-10 rounded text-center"
+                            >
+                              Đặt hàng
+                            </div>
+                          </Link>
                         </div>
                         <div className="text-center fs-16">
                           <img
@@ -250,9 +252,7 @@ const Order = () => {
                             style={{}}
                           />
                           <div className="color-hightlight">
-                            <Link href="/">
-                              Tiếp tục mua hàng
-                            </Link>
+                            <Link href="/">Tiếp tục mua hàng</Link>
                           </div>
                         </div>
                         <p className="text-center">

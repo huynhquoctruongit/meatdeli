@@ -176,8 +176,8 @@
   
 }
 
-.payment-method ul li a.active, 
-.payment-method ul li a:hover {
+.payment-method ul li div.active, 
+.payment-method ul li div:hover {
   filter: inherit;
   color: var(--color-hightlight) !important;
   border-color: var(--color-hightlight) !important;

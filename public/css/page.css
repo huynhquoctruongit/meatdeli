@@ -4834,7 +4834,7 @@ div#change-address-modal .modal-body .form-group label {
   .payment-method ul {
     border-bottom: 1px solid #e3e3e3;
     padding-bottom: 30px; }
-    .payment-method ul li a.active::after {
+    .payment-method ul li div.active::after {
       content: none; }
   .entire-cart-totals .order-total {
     font-size: 16px; }

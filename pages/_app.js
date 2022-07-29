@@ -26,10 +26,8 @@ const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
     uri: "https://delimeat.vn/?graphql",
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Credentials": true,
+    fetchOptions: {
+      mode: "no-cors",
     },
   }),
 });

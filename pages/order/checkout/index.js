@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { postCart } from "@/geters/submitCart.js";
+import { GRAPHQL_QUERY } from "@/geters/submit-cart";
+import axios from "axios";
+import { print } from "graphql";
 const CheckoutCart = () => {
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -9,29 +11,23 @@ const CheckoutCart = () => {
   const openTabPayment = (status) => {
     tabPayment(status);
   };
-  useEffect(() => {
-    setTimeout(() => {
-      callPostCart();
-    }, 2000);
-  }, []);
-  const [callPostCart] = useMutation(postCart, {
-    variables: {
-      billing: {
-        address1: "",
-        city: "",
-        email: "",
-        firstName: "",
-        lastName: "",
-        phone: "",
-      },
-    },
-  });
+
   useEffect(() => {
     let localCart = localStorage.getItem("cart");
     setCarts(
       localCart !== "null" && localCart !== null && JSON.parse(localCart)
     );
   }, []);
+  const [callPostReview] = useMutation(GRAPHQL_QUERY, {
+    variables: {
+      address1: 123,
+    },
+  });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(null);
+
+
   const deleteProduct = (id) => {
     let localCart = JSON.parse(localStorage.getItem("cart"));
     var filteredItems = localCart.filter((itemVal) => itemVal.id !== id);
@@ -47,6 +43,10 @@ const CheckoutCart = () => {
       });
     setTotal(totalTemp);
   }, [carts]);
+
+  const submitOrder = () => {
+    callPostReview();
+  };
 
   const changeQuality = (type, item) => {
     let localCart = JSON.parse(localStorage.getItem("cart"));
@@ -528,89 +528,82 @@ const CheckoutCart = () => {
                               </thead>
                               <tbody>
                                 {carts?.map((item, index) => (
-                                  <React.Fragment
-                                    key={index}
-                                    style={{ border: "1px solid gray" }}
-                                  >
-                                    <tr key={index}>
-                                      <td>
-                                        <div className="product-element-top row py-10">
-                                          <div className="col-lg-5 col-sm-5 col-5">
-                                            <div className="position-relative rti-100 bg-light">
-                                              <Link href="/ca-hoi-nauy-nguyen-con-seafood-from-norway-sfn">
-                                                <img
-                                                  className="img-fluid rti-abs-cover rounded-10 border border-color-main"
-                                                  src={item.img}
-                                                  alt="Cá hồi Na Uy nguyên con - Seafood From Norway (SFN) (Kg)"
-                                                />
-                                              </Link>
-                                              <div className="position-absolute rounded-circle bg-blue text-white quantity-info-right text-center">
-                                                <span>{item.quality}</span>
-                                              </div>
+                                  <tr key={index}>
+                                    <td>
+                                      <div className="product-element-top row py-10">
+                                        <div className="col-lg-5 col-sm-5 col-5">
+                                          <div className="position-relative rti-100 bg-light">
+                                            <Link href="/ca-hoi-nauy-nguyen-con-seafood-from-norway-sfn">
+                                              <img
+                                                className="img-fluid rti-abs-cover rounded-10 border border-color-main"
+                                                src={item.img}
+                                                alt="Cá hồi Na Uy nguyên con - Seafood From Norway (SFN) (Kg)"
+                                              />
+                                            </Link>
+                                            <div className="position-absolute rounded-circle bg-blue text-white quantity-info-right text-center">
+                                              <span>{item.quality}</span>
                                             </div>
                                           </div>
-                                          <div className="col-lg-7 col-sm-7 col-7">
-                                            <div className="top-name-right">
-                                              <div className="name-element font-weight-bold d-flex justify-content-between">
-                                                <Link href="/ca-hoi-nauy-nguyen-con-seafood-from-norway-sfn">
-                                                  {item.name}
-                                                </Link>
-                                                <p>
-                                                  {item.quality * item.price}
-                                                  <span className="currency-symbol">
-                                                    đ
-                                                  </span>
-                                                </p>
-                                              </div>
-                                              <div className="d-flex justify-content-between">
+                                        </div>
+                                        <div className="col-lg-7 col-sm-7 col-7">
+                                          <div className="top-name-right">
+                                            <div className="name-element font-weight-bold d-flex justify-content-between">
+                                              <Link href="/ca-hoi-nauy-nguyen-con-seafood-from-norway-sfn">
+                                                {item.name}
+                                              </Link>
+                                              <p>
+                                                {item.quality * item.price}
+                                                <span className="currency-symbol">
+                                                  đ
+                                                </span>
+                                              </p>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                              <div
+                                                data-title="Số lượng"
+                                                className="item-quantity"
+                                              >
                                                 <div
-                                                  data-title="Số lượng"
-                                                  className="item-quantity"
+                                                  nh-quantity-product="wrap"
+                                                  className="product-quantity"
                                                 >
-                                                  <div
-                                                    nh-quantity-product="wrap"
-                                                    className="product-quantity"
+                                                  <span
+                                                    onClick={() =>
+                                                      changeQuality(
+                                                        "minus",
+                                                        item
+                                                      )
+                                                    }
+                                                    nh-quantity-product="subtract"
+                                                    className="btn-quantity"
                                                   >
-                                                    <span
-                                                      onClick={() =>
-                                                        changeQuality(
-                                                          "minus",
-                                                          item
-                                                        )
-                                                      }
-                                                      nh-quantity-product="subtract"
-                                                      className="btn-quantity"
-                                                    >
-                                                      <i className="iconsax isax-minus" />
-                                                    </span>
-                                                    <input
-                                                      value={item.quality}
-                                                      nh-quantity-product="quantity"
-                                                      className="text-center quantity-input events-none"
-                                                      type="text"
-                                                    />
-                                                    <span
-                                                      onClick={() =>
-                                                        changeQuality(
-                                                          "add",
-                                                          item
-                                                        )
-                                                      }
-                                                      nh-quantity-product="add"
-                                                      className="btn-quantity"
-                                                    >
-                                                      <i className="iconsax isax-add" />
-                                                    </span>
-                                                  </div>
-                                                </div>
-                                                <p>
-                                                  {item.price}{" "}
-                                                  <span className="currency-symbol">
-                                                    đ
+                                                    <i className="iconsax isax-minus" />
                                                   </span>
-                                                </p>
+                                                  <input
+                                                    value={item.quality}
+                                                    nh-quantity-product="quantity"
+                                                    className="text-center quantity-input events-none"
+                                                    type="text"
+                                                  />
+                                                  <span
+                                                    onClick={() =>
+                                                      changeQuality("add", item)
+                                                    }
+                                                    nh-quantity-product="add"
+                                                    className="btn-quantity"
+                                                  >
+                                                    <i className="iconsax isax-add" />
+                                                  </span>
+                                                </div>
                                               </div>
-                                              {/* <div
+                                              <p>
+                                                {item.price}{" "}
+                                                <span className="currency-symbol">
+                                                  đ
+                                                </span>
+                                              </p>
+                                            </div>
+                                            {/* <div
                                                 onClick={() =>
                                                   deleteProduct(item.id)
                                                 }
@@ -625,139 +618,133 @@ const CheckoutCart = () => {
                                                   Xóa
                                                 </p>
                                               </div> */}
-                                              {item.tag == "thit-heo" && (
-                                                <div>
-                                                  <div className="dropdown bootstrap-select form-controls input-hover">
-                                                    <div className="d-flex justify-content-center align-items-center">
-                                                      <span
-                                                        style={{
-                                                          width: "40%",
-                                                        }}
-                                                      >
+                                            {item.tag == "thit-heo" && (
+                                              <div>
+                                                <div className="dropdown bootstrap-select form-controls input-hover">
+                                                  <div className="d-flex justify-content-center align-items-center">
+                                                    <span
+                                                      style={{
+                                                        width: "40%",
+                                                      }}
+                                                    >
+                                                      Sơ chế
+                                                    </span>
+                                                    <select
+                                                      name="city_id"
+                                                      id="city_id"
+                                                      className="form-control selectpicker input-hover"
+                                                      data-size={10}
+                                                      data-live-search={1}
+                                                      tabIndex={-98}
+                                                    >
+                                                      <option selected disabled>
                                                         Sơ chế
-                                                      </span>
-                                                      <select
-                                                        name="city_id"
-                                                        id="city_id"
-                                                        className="form-control selectpicker input-hover"
-                                                        data-size={10}
-                                                        data-live-search={1}
-                                                        tabIndex={-98}
-                                                      >
-                                                        <option
-                                                          selected
-                                                          disabled
-                                                        >
-                                                          Sơ chế
-                                                        </option>
-                                                        <option value={1}>
-                                                          Xay
-                                                        </option>
-                                                        <option value={2}>
-                                                          Chặt khúc
-                                                        </option>
-                                                      </select>
-                                                    </div>
-
-                                                    <div className="dropdown-menu ">
-                                                      <div className="bs-searchbox">
-                                                        <input
-                                                          type="search"
-                                                          className="form-control"
-                                                          autoComplete="off"
-                                                          role="combobox"
-                                                          aria-label="Search"
-                                                          aria-controls="bs-select-1"
-                                                          aria-autocomplete="list"
-                                                        />
-                                                      </div>
-                                                      <div
-                                                        className="inner show"
-                                                        role="listbox"
-                                                        id="bs-select-1"
-                                                        tabIndex={-1}
-                                                      >
-                                                        <ul
-                                                          className="dropdown-menu inner show"
-                                                          role="presentation"
-                                                        />
-                                                      </div>
-                                                    </div>
+                                                      </option>
+                                                      <option value={1}>
+                                                        Xay
+                                                      </option>
+                                                      <option value={2}>
+                                                        Chặt khúc
+                                                      </option>
+                                                    </select>
                                                   </div>
 
-                                                  <div className="mt-3 dropdown bootstrap-select form-controls input-hover">
-                                                    <div className="d-flex">
-                                                      <span
-                                                        style={{
-                                                          width: "40%",
-                                                        }}
-                                                      >
-                                                        Khẩu vị
-                                                      </span>
-                                                      <select
-                                                        name="city_id"
-                                                        id="city_id"
-                                                        className="form-control selectpicker input-hover"
-                                                        data-size={10}
-                                                        data-live-search={1}
-                                                        tabIndex={-98}
-                                                      >
-                                                        <option
-                                                          selected
-                                                          disabled
-                                                        >
-                                                          Khẩu vị
-                                                        </option>
-                                                        <option value={1}>
-                                                          Rất nạc
-                                                        </option>
-                                                        <option value={2}>
-                                                          Nạc
-                                                        </option>
-                                                        <option value={2}>
-                                                          Trung bình
-                                                        </option>
-                                                        <option value={2}>
-                                                          Mỡ
-                                                        </option>
-                                                        <option value={2}>
-                                                          Rất mỡ
-                                                        </option>
-                                                      </select>
+                                                  <div className="dropdown-menu ">
+                                                    <div className="bs-searchbox">
+                                                      <input
+                                                        type="search"
+                                                        className="form-control"
+                                                        autoComplete="off"
+                                                        role="combobox"
+                                                        aria-label="Search"
+                                                        aria-controls="bs-select-1"
+                                                        aria-autocomplete="list"
+                                                      />
                                                     </div>
-
-                                                    <div className="dropdown-menu ">
-                                                      <div className="bs-searchbox">
-                                                        <input
-                                                          type="search"
-                                                          className="form-control"
-                                                          autoComplete="off"
-                                                          role="combobox"
-                                                          aria-label="Search"
-                                                          aria-controls="bs-select-1"
-                                                          aria-autocomplete="list"
-                                                        />
-                                                      </div>
-                                                      <div
-                                                        className="inner show"
-                                                        role="listbox"
-                                                        id="bs-select-1"
-                                                        tabIndex={-1}
-                                                      >
-                                                        <ul
-                                                          className="dropdown-menu inner show"
-                                                          role="presentation"
-                                                        />
-                                                      </div>
+                                                    <div
+                                                      className="inner show"
+                                                      role="listbox"
+                                                      id="bs-select-1"
+                                                      tabIndex={-1}
+                                                    >
+                                                      <ul
+                                                        className="dropdown-menu inner show"
+                                                        role="presentation"
+                                                      />
                                                     </div>
                                                   </div>
                                                 </div>
-                                              )}
-                                            </div>
+
+                                                <div className="mt-3 dropdown bootstrap-select form-controls input-hover">
+                                                  <div className="d-flex">
+                                                    <span
+                                                      style={{
+                                                        width: "40%",
+                                                      }}
+                                                    >
+                                                      Khẩu vị
+                                                    </span>
+                                                    <select
+                                                      name="city_id"
+                                                      id="city_id"
+                                                      className="form-control selectpicker input-hover"
+                                                      data-size={10}
+                                                      data-live-search={1}
+                                                      tabIndex={-98}
+                                                    >
+                                                      <option selected disabled>
+                                                        Khẩu vị
+                                                      </option>
+                                                      <option value={1}>
+                                                        Rất nạc
+                                                      </option>
+                                                      <option value={2}>
+                                                        Nạc
+                                                      </option>
+                                                      <option value={2}>
+                                                        Trung bình
+                                                      </option>
+                                                      <option value={2}>
+                                                        Mỡ
+                                                      </option>
+                                                      <option value={2}>
+                                                        Rất mỡ
+                                                      </option>
+                                                    </select>
+                                                  </div>
+
+                                                  <div className="dropdown-menu ">
+                                                    <div className="bs-searchbox">
+                                                      <input
+                                                        type="search"
+                                                        className="form-control"
+                                                        autoComplete="off"
+                                                        role="combobox"
+                                                        aria-label="Search"
+                                                        aria-controls="bs-select-1"
+                                                        aria-autocomplete="list"
+                                                      />
+                                                    </div>
+                                                    <div
+                                                      className="inner show"
+                                                      role="listbox"
+                                                      id="bs-select-1"
+                                                      tabIndex={-1}
+                                                    >
+                                                      <ul
+                                                        className="dropdown-menu inner show"
+                                                        role="presentation"
+                                                      />
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            )}
                                           </div>
                                         </div>
-                                      </td>
-                                      {/* <td className="text-right">
+                                      </div>
+                                    </td>
+                                    {/* <td className="text-right">
                                         <div className="price-quantity mt-10">
                                           <span className>
                                             {item.quality * item.price}
@@ -767,8 +754,7 @@ const CheckoutCart = () => {
                                           </span>
                                         </div>
                                       </td> */}
-                                    </tr>
-                                  </React.Fragment>
+                                  </tr>
                                 ))}
                               </tbody>
                             </table>
@@ -879,6 +865,7 @@ const CheckoutCart = () => {
                               </div>
                               <div className="checkout-payment bg-white mb-10 px-15 pb-15">
                                 <span
+                                  onClick={() => submitOrder()}
                                   nh-btn-action="create-order"
                                   className="btn bg-hightlight btn-1a color-white px-25 py-10 w-100 rounded text-uppercase fs-16"
                                 >

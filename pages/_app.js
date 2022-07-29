@@ -10,12 +10,28 @@ import {
   InMemoryCache,
   ApolloProvider,
   useQuery,
+  HttpLink,
   gql,
 } from "@apollo/client";
 
+// const apolloClient = new ApolloClient({
+//   uri: "https://delimeat.vn/?graphql",
+//   cache: new InMemoryCache(),
+//   fetchOptions: {
+//     mode: 'no-cors',
+//   },
+//   // plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
+// });
 const apolloClient = new ApolloClient({
-  uri: process.env.API_URL,
   cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: "https://delimeat.vn/?graphql",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+    },
+  }),
 });
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

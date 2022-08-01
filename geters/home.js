@@ -30,3 +30,14 @@ export const homeGQL = gql`
     }
   }
 `;
+export const searchProd = gql`
+  query Home($search: String!) {
+    products(where: { search: $search }) {
+      nodes {
+        name
+        description
+        totalSales
+      }
+    }
+  }
+`;

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { GRAPHQL_QUERY } from "@/geters/submit-cart";
+import { callPostCart } from "@/geters/submit-cart";
 import axios from "axios";
 import { print } from "graphql";
+import { convertCurrency } from "@/services/helper";
 const CheckoutCart = () => {
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -18,15 +19,14 @@ const CheckoutCart = () => {
       localCart !== "null" && localCart !== null && JSON.parse(localCart)
     );
   }, []);
-  const [callPostReview] = useMutation(GRAPHQL_QUERY, {
+  const [callPostReview] = useMutation(callPostCart, {
     variables: {
-      address1: 123,
+      addressText: "ho hoan kiem",
     },
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-
 
   const deleteProduct = (id) => {
     let localCart = JSON.parse(localStorage.getItem("cart"));
@@ -46,6 +46,24 @@ const CheckoutCart = () => {
 
   const submitOrder = () => {
     callPostReview();
+    // axios
+    //   .post(
+    //     "https://delimeat.vn/?graphql",
+    //     {
+    //       query: print(GRAPHQL_QUERY),
+    //       credentials: "include",
+    //       variables: {
+    //         commentOn: 12,
+    //         rating: 5,
+    //         content: 'test',
+    //         author: 'valueComment.author',
+    //         authorEmail: 'truonghq@galaxy.com.vn',
+    //         date: Date.now().toString(),
+    //       },
+    //     },
+    //   )
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
   };
 
   const changeQuality = (type, item) => {
@@ -104,9 +122,8 @@ const CheckoutCart = () => {
                               </h3>
                             </div>
                             <div className="inner-col-1 mb-15 p-15 bg-white rounded-5">
-                              <div>
+                              <div className="mb-3">
                                 <strong>Thông tin khách hàng </strong>
-                                <span>mua không cần tài khoản</span>
                               </div>
                               <div className="form-billing">
                                 <div className="form-group validate-form">
@@ -114,7 +131,7 @@ const CheckoutCart = () => {
                                     className="bg-white border form-control rounded input-hover"
                                     name="full_name"
                                     type="text"
-                                    placeholder="Họ và tên"
+                                    placeholder="Họ và tên *"
                                   />
                                 </div>
                                 <div className="row">
@@ -134,7 +151,7 @@ const CheckoutCart = () => {
                                         className="bg-white border form-control rounded input-hover"
                                         name="phone"
                                         type="text"
-                                        placeholder="Số điện thoại"
+                                        placeholder="Số điện thoại *"
                                       />
                                     </div>
                                   </div>
@@ -143,12 +160,12 @@ const CheckoutCart = () => {
                                   <input
                                     className="bg-white border form-control rounded input-hover"
                                     name="address"
-                                    placeholder="Địa chỉ"
+                                    placeholder="Địa chỉ *"
                                     type="text"
                                   />
                                 </div>
                                 <div className="row">
-                                  <div className="col-lg-4 col-12">
+                                  {/* <div className="col-lg-4 col-12">
                                     <div className="form-group validate-form">
                                       <div className="dropdown bootstrap-select form-controls input-hover">
                                         <select
@@ -261,129 +278,18 @@ const CheckoutCart = () => {
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
-                                  {/* <div className="col-lg-4 col-12">
-                                    <div className="form-group validate-form">
-                                      <div className="dropdown bootstrap-select form-control input-hover">
-                                        <select
-                                          name="district_id"
-                                          id="district_id"
-                                          className="form-control selectpicker input-hover"
-                                          data-size={10}
-                                          data-live-search={1}
-                                          tabIndex={-98}
-                                        >
-                                          <option value>
-                                            -- Quận huyện --
-                                          </option>
-                                        </select>
-                                        <button
-                                          type="button"
-                                          className="btn dropdown-toggle btn-light bs-placeholder"
-                                          data-toggle="dropdown"
-                                          role="combobox"
-                                          aria-owns="bs-select-2"
-                                          aria-haspopup="listbox"
-                                          aria-expanded="false"
-                                          data-id="district_id"
-                                          title="-- Quận huyện --"
-                                        >
-                                          <div className="filter-option">
-                                            <div className="filter-option-inner">
-                                              <div className="filter-option-inner-inner">
-                                                -- Quận huyện --
-                                              </div>
-                                            </div>{" "}
-                                          </div>
-                                        </button>
-                                        <div className="dropdown-menu ">
-                                          <div className="bs-searchbox">
-                                            <input
-                                              type="search"
-                                              className="form-control"
-                                              autoComplete="off"
-                                              role="combobox"
-                                              aria-label="Search"
-                                              aria-controls="bs-select-2"
-                                              aria-autocomplete="list"
-                                            />
-                                          </div>
-                                          <div
-                                            className="inner show"
-                                            role="listbox"
-                                            id="bs-select-2"
-                                            tabIndex={-1}
-                                          >
-                                            <ul
-                                              className="dropdown-menu inner show"
-                                              role="presentation"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div className="col-lg-4 col-12">
-                                    <div className="form-group validate-form">
-                                      <div className="dropdown bootstrap-select form-control input-hover">
-                                        <select
-                                          name="ward_id"
-                                          id="ward_id"
-                                          className="form-control selectpicker input-hover"
-                                          data-size={10}
-                                          data-live-search={1}
-                                          tabIndex={-98}
-                                        >
-                                          <option value>-- Phường xã --</option>
-                                        </select>
-                                        <button
-                                          type="button"
-                                          className="btn dropdown-toggle btn-light bs-placeholder"
-                                          data-toggle="dropdown"
-                                          role="combobox"
-                                          aria-owns="bs-select-3"
-                                          aria-haspopup="listbox"
-                                          aria-expanded="false"
-                                          data-id="ward_id"
-                                          title="-- Phường xã --"
-                                        >
-                                          <div className="filter-option">
-                                            <div className="filter-option-inner">
-                                              <div className="filter-option-inner-inner">
-                                                -- Phường xã --
-                                              </div>
-                                            </div>{" "}
-                                          </div>
-                                        </button>
-                                        <div className="dropdown-menu ">
-                                          <div className="bs-searchbox">
-                                            <input
-                                              type="search"
-                                              className="form-control"
-                                              autoComplete="off"
-                                              role="combobox"
-                                              aria-label="Search"
-                                              aria-controls="bs-select-3"
-                                              aria-autocomplete="list"
-                                            />
-                                          </div>
-                                          <div
-                                            className="inner show"
-                                            role="listbox"
-                                            id="bs-select-3"
-                                            tabIndex={-1}
-                                          >
-                                            <ul
-                                              className="dropdown-menu inner show"
-                                              role="presentation"
-                                            />
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
                                   </div> */}
                                 </div>
+                                <div className="form-group validate-form">
+                                  <input
+                                    className="bg-white border form-control rounded input-hover"
+                                    name="address"
+                                    placeholder="Địa chỉ nhận hàng *"
+                                    type="text"
+                                  />
+                                </div>
                               </div>
+                              <p>* Bắt buộc</p>
                             </div>
                             <div className="inner-col-2 mt-5 mb-15 p-15 bg-white rounded-5">
                               <label>Ghi chú</label>
@@ -552,10 +458,9 @@ const CheckoutCart = () => {
                                                 {item.name}
                                               </Link>
                                               <p>
-                                                {item.quality * item.price}
-                                                <span className="currency-symbol">
-                                                  đ
-                                                </span>
+                                                {convertCurrency(
+                                                  item.quality * item.price
+                                                )}
                                               </p>
                                             </div>
                                             <div className="d-flex justify-content-between">
@@ -597,10 +502,7 @@ const CheckoutCart = () => {
                                                 </div>
                                               </div>
                                               <p>
-                                                {item.price}{" "}
-                                                <span className="currency-symbol">
-                                                  đ
-                                                </span>
+                                                {convertCurrency(item.price)}
                                               </p>
                                             </div>
                                             {/* <div
@@ -844,8 +746,7 @@ const CheckoutCart = () => {
                                   <span className="text-right">
                                     <strong>
                                       <span className="fs-15 font-weight-bold">
-                                        {total}
-                                        <span>đ</span>
+                                        {convertCurrency(total)}
                                       </span>
                                     </strong>
                                   </span>
@@ -856,8 +757,7 @@ const CheckoutCart = () => {
                                   <span className="text-right">
                                     <strong>
                                       <span className="fs-15 font-weight-bold">
-                                        {total}
-                                        <span>đ</span>
+                                        {convertCurrency(total)}
                                       </span>
                                     </strong>
                                   </span>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { convertCurrency } from "@/services/helper";
 
 const Order = () => {
   const [carts, setCarts] = useState([]);
@@ -139,9 +140,8 @@ const Order = () => {
                                       data-title="Giá"
                                     >
                                       <span nh-cart-price={350000}>
-                                        {item.price}
+                                        {convertCurrency(item.price)}
                                       </span>
-                                      <span className="currency-symbol">đ</span>
                                     </div>
                                     <div
                                       data-title="Số lượng"
@@ -199,9 +199,8 @@ const Order = () => {
                                   data-title="Tiền"
                                 >
                                   <span nh-cart-total-item={350000}>
-                                    {item.quality * item.price}
+                                    {convertCurrency(item.quality * item.price)}
                                   </span>
-                                  <span className="currency-symbol">đ</span>
                                 </div>
                               </div>
                             </div>
@@ -227,8 +226,9 @@ const Order = () => {
                           <div>
                             <b>
                               <span className="price-amount fs-16 fs-lg-18 font-weight-bold color-hightlight">
-                                <span nh-cart-total>{total}</span>
-                                <span className="currency-symbol">đ</span>
+                                <span nh-cart-total>
+                                  {convertCurrency(total)}
+                                </span>
                               </span>
                             </b>
                           </div>

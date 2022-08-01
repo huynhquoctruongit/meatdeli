@@ -1,5 +1,21 @@
 import Link from "next/link";
+import { searchProd } from "@/geters/home";
+import { apollo } from "@/api/index";
+// export async function getStaticProps() {
+//   const result = await apollo.query({ query: searchProd });
+//   const home = {};
+//   Object.keys(result?.data || {}).map((key) => {
+//     const element = result?.data[key];
+//     home[key] = element?.nodes || element?.posts || [];
+//   });
+//   const { products } = home;
+
+//   return {
+//     props: { 1: "2" },
+//   };
+// }
 const Search = () => {
+  // console.log(props,'props');
   return (
     <div>
       <div nh-row="x7o5ch9" className>

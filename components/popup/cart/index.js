@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { convertCurrency } from "@/services/helper";
+
 const Card = ({ open, setOpen, isChangeCart }) => {
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -99,7 +101,7 @@ const Card = ({ open, setOpen, isChangeCart }) => {
                     <div className="quantity">
                       <span className="mr-5">{item.quality}</span>x
                       <span className="price-amount ml-5">
-                        {item.price}
+                        {convertCurrency(item.price)}
                         <span className="currency-symbol">đ</span>
                       </span>
                       <div className="d-flex align-items-center mb-10">
@@ -154,10 +156,7 @@ const Card = ({ open, setOpen, isChangeCart }) => {
           <div className="entire-bottom-minicart bg-white px-10 px-md-30">
             <div className="total-price mb-10 clearfix">
               <label>Giá tạm tính: </label>
-              <div className="price-amount">
-                {total}
-                <span className="currency-symbol">đ</span>
-              </div>
+              <div className="price-amount">{convertCurrency(total)}</div>
             </div>
             <div className="mini-cart-btn">
               <Link href="/order/cart-info">
@@ -168,8 +167,13 @@ const Card = ({ open, setOpen, isChangeCart }) => {
                   Xem Giỏ hàng
                 </div>
               </Link>
-              <Link href="/order/info">
-                <div className="btn-checkout btn-submit">Thanh toán</div>
+              <Link href="/order/checkout">
+                <div
+                  onClick={() => setOpen(false)}
+                  className="btn-checkout btn-submit"
+                >
+                  Thanh toán
+                </div>
               </Link>
             </div>
           </div>

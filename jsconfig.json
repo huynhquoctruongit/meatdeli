@@ -6,7 +6,7 @@
       "@/libs/*": ["./libs/*"],
       "@/api/*": ["./api-client/*"],
       "@/hooks/*": ["./hooks/*"],
-      "@/service/*": ["./service/*"],
+      "@/services/*": ["./services/*"],
       "@/geters/*": ["./geters/*"]
     }
   }

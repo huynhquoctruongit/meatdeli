@@ -373,7 +373,7 @@ const ProductDetail = () => {
                               </Link>
                               <Link
                                 nh-btn-action="add-cart"
-                                nh-redirect="/order/info"
+                                nh-redirect="/order/checkout"
                                 href="#"
                                 className="add-to-cart add-to-cart-buy rounded"
                               >

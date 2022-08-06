@@ -38,7 +38,7 @@ const ProductDetail = ({ product, productCategories }) => {
                 <nav className="breadcrumbs-section py-15">
                   <Link href="/">Trang chủ</Link>
                   <Link href="/thit-bo-my">
-                    {product?.productCategories?.nodes?.[0]?.name}
+                    <span>{product?.productCategories?.nodes?.[0]?.name}</span>
                   </Link>
                   <h1>
                     <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">

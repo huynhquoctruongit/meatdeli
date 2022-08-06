@@ -1,10 +1,34 @@
 import React, { useState } from "react";
 import CartModal from "../../components/popup/cart";
 import Link from "next/link";
+import { convertCurrency } from "@/services/helper";
+import { useMutation, gql } from "@apollo/client";
+import { v4 as uuidv4 } from "uuid";
 const Products = ({ products }) => {
   console.log(products, "products");
   const [isCartModal, setCardModal] = useState(false);
   const [isChangeCart, setChangeCart] = useState(false);
+
+  const orderData = {
+    clientMutationId: uuidv4(),
+    shipping: {
+      lastName: "Trưởng",
+      address1: "Xóm Bắc, thôn Liêm Thuận, xã Phước Thuận, huyện Tuy Phước",
+      postcode: "70000",
+      email: "huynhquoctruongit@gmail.com",
+      phone: "0964353011",
+    },
+    billing: {
+      lastName: "Trưởng",
+      address1: "Xóm Bắc, thôn Liêm Thuận, xã Phước Thuận, huyện Tuy Phước",
+      postcode: "70000",
+      email: "huynhquoctruongit@gmail.com",
+      phone: "0964353011",
+    },
+    paymentMethod: "cod",
+    isPaid: false,
+  };
+
   const addToCart = (data) => {
     setCardModal(true);
     setChangeCart(!isChangeCart);
@@ -29,7 +53,9 @@ const Products = ({ products }) => {
       listCart.push(...(dataCart || []), data);
       localStorage.setItem("cart", JSON.stringify(listCart));
     }
+
   };
+
   return (
     <>
       <CartModal
@@ -236,12 +262,10 @@ const Products = ({ products }) => {
                               <div className="product-rating-price">
                                 <div className="price">
                                   <span className="price-amount">
-                                    {item?.price}
-                                    <span className="currency-symbol">đ</span>
+                                    {convertCurrency(item?.price)}
                                   </span>
                                   <div className="price-amount old-price">
-                                    {item?.regularPrice}
-                                    <span className="currency-symbol">đ</span>
+                                    {convertCurrency(item?.regularPrice)}
                                   </div>
                                 </div>
                               </div>
@@ -253,8 +277,9 @@ const Products = ({ products }) => {
                                     img: item?.image?.sourceUrl,
                                     name: item.name,
                                     price: item?.price,
-                                    tag : item.productTags?.nodes?.[0]?.name,
+                                    tag: item.productTags?.nodes?.[0]?.name,
                                     quality: 1,
+                                    databaseId: item.databaseId,
                                     url:
                                       +"/product-detail/" +
                                       item?.image?.sourceUrl,

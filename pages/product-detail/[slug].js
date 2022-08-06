@@ -1,6 +1,39 @@
 import React, { Component } from "react";
 import Link from "next/link";
-const ProductDetail = () => {
+import { productGQL, productDetailGQL } from "@/geters/products";
+import { apollo } from "@/api/index";
+import { convertCurrency } from "@/services/helper";
+export async function getStaticPaths() {
+  const { data } = await apollo.query({ query: productGQL });
+  const paths = data?.products?.nodes?.map((element) => ({
+    params: { slug: element.slug },
+  }));
+  return {
+    paths: paths,
+    fallback: true,
+  };
+}
+export async function getStaticProps({ params }) {
+  const result = await apollo.query({
+    query: productDetailGQL,
+    variables: { slug: params.slug },
+  });
+  const { product } = result?.data;
+
+  if (!product) return { notfound: true };
+  const productCategories = product?.productCategories?.nodes[0]?.products;
+
+  return {
+    props: { product, productCategories },
+    // revalidate: timeCache,
+  };
+}
+const ProductDetail = ({ product, productCategories }) => {
+  const { name, databaseId, status, description, image } = product;
+  const { name: nameCate } = product.productCategories?.nodes?.[0];
+  const { price, salePrice } =
+    product.productCategories?.nodes?.[0]?.products?.nodes?.[0];
+  console.log(product, "product");
   return (
     <div>
       <div nh-row="5eckual" className="bg-white mb-20">
@@ -10,13 +43,10 @@ const ProductDetail = () => {
               <div nh-block="mz4eo5d" nh-block-cache="false" className>
                 <nav className="breadcrumbs-section py-15">
                   <Link href="/">Trang chủ</Link>
-                  <Link href="/thit-nhap-khau">Thịt nhập khẩu</Link>
-                  <Link href="/thit-bo-my">Thịt bò Mỹ</Link>
+                  <Link href="/thit-bo-my">{nameCate}</Link>
                   <h1>
                     <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
-                      <span>
-                        Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)
-                      </span>
+                      <span>{name}</span>
                     </Link>
                   </h1>
                 </nav>
@@ -77,8 +107,8 @@ const ProductDetail = () => {
                                     <div className="inner-image">
                                       <img
                                         className="img-fluid"
-                                        src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-1.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        src={image.sourceUrl}
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -100,7 +130,7 @@ const ProductDetail = () => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-2.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -122,7 +152,7 @@ const ProductDetail = () => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-3.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -144,7 +174,7 @@ const ProductDetail = () => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-4.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -161,7 +191,7 @@ const ProductDetail = () => {
                               </button>
                             </div>
                           </div>
-                          <div className="col-lg-12 col-12 mb-md-20">
+                          {/* <div className="col-lg-12 col-12 mb-md-20">
                             <div
                               nh-slider-thumbs
                               nh-owl-slick='{"slidesToShow":4,"slidesToScroll":1,"vertical":false,"arrows":true,"asNavFor":".slider-main","focusOnSelect":true,"infinite":false,"responsive":[{"breakpoint":992,"settings":{"vertical":false,"slidesToShow":4,"slidesToScroll":1}},{"breakpoint":600,"settings":{"vertical":false,"slidesToShow":3,"slidesToScroll":1}},{"breakpoint":480,"settings":{"vertical":false,"slidesToShow":3,"slidesToScroll":1}}]}'
@@ -197,7 +227,7 @@ const ProductDetail = () => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-1_thumb_150.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -212,7 +242,7 @@ const ProductDetail = () => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-2_thumb_150.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -227,7 +257,7 @@ const ProductDetail = () => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-3_thumb_150.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -242,7 +272,7 @@ const ProductDetail = () => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-4_thumb_150.jpg"
-                                        alt="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                                        alt={name}
                                       />
                                     </div>
                                   </div>
@@ -258,7 +288,7 @@ const ProductDetail = () => {
                                 Next
                               </button>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                       <div className="social-share mb-20">
@@ -295,17 +325,17 @@ const ProductDetail = () => {
                       >
                         <div className="bg-white rounded-10 mb-10 p-15">
                           <h2 className="product-title-detail fs-17 fs-md-24 font-weight-bold">
-                            Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)
+                            {name}
                           </h2>
                           <div className="code-review-link d-flex align-items-center flex-nowrap align-items-center">
                             <div className="code fs-14 color-gray">
                               <span>Mã SP:</span>
-                              <span nh-label-code={2020016}>2020016</span>
+                              <span nh-label-code={2020016}>{databaseId}</span>
                             </div>
                             <div className="color-main">
                               <span className="color-gray px-10">|</span>
                               <span className="color-gray">Tình trạng: </span>
-                              Còn hàng
+                              {status === "publish" ? "Còn hàng" : "Hết hàng"}
                             </div>
                           </div>
                           <div className="price ">
@@ -314,23 +344,24 @@ const ProductDetail = () => {
                               nh-label-price={359000}
                               className="price-amount fs-24 color-hightlight"
                             >
-                              <span nh-label-value>359,000</span>
-                              <span className="currency-symbol">đ</span>
+                              <span nh-label-value>
+                                {convertCurrency(salePrice)}
+                              </span>
                             </span>
                             <span
                               nh-label-price-special={399000}
                               className="price-amount old-price"
                             >
-                              <span nh-label-value>399,000</span>
-                              <span className="currency-symbol">đ</span>
+                              <span nh-label-value>
+                                {convertCurrency(price)}
+                              </span>
                             </span>
                             <span className="discount-detail">10%</span>
                           </div>
                         </div>
-                        <div className="bg-white rounded-10 mb-10 p-15" />
                         <div className="entire-cart ">
                           <div className="bg-white rounded-10 mb-10 p-15">
-                            <div className="d-flex align-items-center mb-10">
+                            {/* <div className="d-flex align-items-center mb-10">
                               <strong className="fs-16 pr-15">Số lượng:</strong>
                               <div
                                 nh-quantity-product="wrap"
@@ -355,7 +386,7 @@ const ProductDetail = () => {
                                   <i className="iconsax isax-add" />
                                 </span>
                               </div>
-                            </div>
+                            </div> */}
                             <p className="font-italic color-gray m-0">
                               Do đặc tính sản phẩm nên trọng lượng thực tế có
                               thể chênh lệch so với số lượng bạn đặt hàng.
@@ -391,265 +422,15 @@ const ProductDetail = () => {
                 </div>
                 <div className="bg-white rounded-5 mb-10 p-15">
                   <div id="product-information" className="initialized">
-                    <div className="copy__inner">
-                      <p style={{ textAlign: "justify" }}>
-                        <strong>
-                          <em>Bắp hoa bò Mỹ</em>
-                        </strong>
-                        <em>
-                          <span style={{ fontWeight: 400 }}>
-                            {" "}
-                            hạng USDA Choice là món ăn giàu giá trị dinh dưỡng.
-                            Phần thịt có vị ngọt tự nhiên lại có mùi thơm đặc
-                            trưng nên ngay cả những người kén ăn cũng khó có thể
-                            lắc đầu chối từ.
-                          </span>
-                        </em>
-                      </p>
-                      <h1 style={{ textAlign: "justify" }}>
-                        <strong>
-                          Bắp hoa bò Mỹ - Loại thịt gây ấn tượng bởi cái tên mỹ
-                          miều
-                        </strong>
-                      </h1>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Bắp hoa bò Mỹ là cái tên xuất phát từ hình dáng bên
-                          ngoài của miếng thịt. Sau khi được thái mỏng, từng lát
-                          thịt trông giống như những bông hoa nhỏ nhắn vô cùng
-                          xinh xắn.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Thịt bắp hoa bò Mỹ là phần được lọc ra từ chân trước
-                          của con bò nên thớ thịt có đặc điểm là nhỏ và rất săn
-                          chắc.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Phần thịt này có màu đỏ sẫm và được bao quanh bởi các
-                          màng gân có màu trắng cực kỳ cuốn hút. Khi dùng tay ấn
-                          nhẹ, bạn sẽ cảm nhận rõ sự đàn hồi của miếng thịt, thớ
-                          thịt chắc, mẩy khi ăn lại rất ngọt và mềm.
-                        </span>
-                      </p>
-                      <h2 style={{ textAlign: "justify" }}>
-                        <strong>
-                          Tại sao thịt bắp hoa bò Mỹ lại được yêu thích?
-                        </strong>
-                      </h2>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Thưởng thức thịt bắp hoa bò Mỹ khoái vô cùng. Vì hoàn
-                          toàn là phần cơ nạc nên ngay cả khi ăn nhiều thì cũng
-                          không hề có cảm giác bị ngấy giống như những loại thịt
-                          khác.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Khi chế biến, thịt bắp hoa bò Mỹ có vịt ngọt đậm đà
-                          khó cưỡng lại đi kèm với mùi hương rất đặc trưng khiến
-                          cho bất kỳ ai sau khi thưởng thức cũng đều bị nghiền.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Thịt bắp hoa bò Mỹ dù nạc nhưng lại không hề dai chút
-                          nào. Ngược lại, phần gân mỏng trong từng miếng thịt
-                          đem đến cảm giác ngon giòn khó cưỡng.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          So với những phần thịt còn lại trên con bò, thịt bắp
-                          hoa bò Mỹ giàu giá trị dinh dưỡng hơn cả. Một số lợi
-                          ích cơ thể sẽ nhận được khi thưởng thức món ăn bổ
-                          dưỡng này thường xuyên như:
-                        </span>
-                      </p>
-                      <ul style={{ textAlign: "justify" }}>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Ngăn ngừa nguy cơ bị thoái hóa nhất là ở những người
-                            cao tuổi nhờ vào lượng protein rồi rào.
-                          </span>
-                        </li>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Lượng sắt có trong thịt bắp hoa bò Mỹ giúp bổ sung
-                            máu hiệu quả và tăng cường sức đề kháng cho cơ thể.
-                          </span>
-                        </li>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Hàm lượng kẽm, axit amin cùng các loại vitamin khác
-                            giúp thịt bò hoa Mỹ trở thành thực phẩm được ưu tiên
-                            lựa chọn để bồi bổ cơ thể khi có dấu hiệu suy nhược,
-                            mệt mỏi.
-                          </span>
-                        </li>
-                      </ul>
-                      <h2 style={{ textAlign: "justify" }}>
-                        <strong>
-                          Những món ngon từ bắp hoa bò Mỹ nên thử một lần trong
-                          đời
-                        </strong>
-                      </h2>
-                      <h3 style={{ textAlign: "justify" }}>
-                        <strong>Bắp hoa bò Mỹ ngâm mắm chua ngọt</strong>
-                      </h3>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Nếu như được một lần thưởng thức món bắp hoa bò Mỹ
-                          ngâm mắm chua ngọt chắc chắn bạn sẽ muốn được thưởng
-                          thức nhiều hơn nữa.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Vị chua ngọt thanh cùng với vị mặn của nước mắm tạo ra
-                          một hương vị cực kỳ cuốn hút cho món ăn. Khi đưa vào
-                          miệng, miếng thịt giòn thật giòn đem đến cảm giác
-                          thích thú vô cùng.
-                        </span>
-                      </p>
-                      <h3 style={{ textAlign: "justify" }}>
-                        <strong>Nộm bắp hoa bò Mỹ với hoa chuối</strong>
-                      </h3>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Vị bùi bùi của hoa chuối khi kết hợp với vị ngọt đậm
-                          đà của bắp hoa bò Mỹ cùng những hương liệu đi kèm như
-                          rau thơm, lạc rang sẽ tạo ra một món ăn khiến ai cũng
-                          phải mê mẩn, say đắm.
-                        </span>
-                      </p>
-                      <h3 style={{ textAlign: "justify" }}>
-                        <strong>Bắp hoa bò Mỹ nấu khế</strong>
-                      </h3>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Miếng thịt bắp hoa bò Mỹ được quyện trong vị chua
-                          thanh của những quả khế chua đem đến một món ăn hấp
-                          dẫn cho những ngày hè oi ả.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Cách chế biến món bắp hoa bò Mỹ rất đơn giản. Bắp hoa
-                          bò Mỹ sau khi được tẩm ướp cùng tỏi, gừng, gia vị thì
-                          được xào qua rồi nấu cùng những miếng khế. Chỉ qua vài
-                          thao tác đơn giản bạn đã có món ăn vô cùng tuyệt cho
-                          cả gia đình.
-                        </span>
-                      </p>
-                      <h3 style={{ textAlign: "justify" }}>
-                        <strong>Bún bắp hoa bò Mỹ</strong>
-                        <span style={{ fontWeight: 400 }}></span>
-                      </h3>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Vào những ngày chán cơm thì món bún bắp hoa bò Mỹ là
-                          gợi ý hoàn hảo cho gia đình bạn.
-                        </span>
-                      </p>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Hương vị của bát bún bắp hoa bò Mỹ thật sự rất khó
-                          quên. Bát bún nóng hổi bày ra trước mắt với phần nước
-                          dùng ngọt đậm đà cùng những miếng thịt bắp bò chín mềm
-                          thấm đã gia vị lôi cuốn vô cùng.
-                        </span>
-                      </p>
-                      <h2 style={{ textAlign: "justify" }}>
-                        <strong>
-                          Cách để chọn được một miếng thịt bắp hoa bò Mỹ tươi
-                          ngon
-                        </strong>
-                      </h2>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Thịt bắp hoa bò Mỹ tươi ngon, chất lượng phải đảm bảo
-                          các yêu cầu sau:
-                        </span>
-                      </p>
-                      <ul style={{ textAlign: "justify" }}>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Miếng thịt có màu đỏ tươi.
-                          </span>
-                        </li>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>Thớ thịt nhỏ.</span>
-                        </li>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Miếng thịt không lạnh. Sờ vào không có cảm giác bị
-                            nhớt hay dính tay.
-                          </span>
-                        </li>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Khi ấn tay vào miếng thịt sẽ có sự đàn hồi rõ ràng.
-                          </span>
-                        </li>
-                      </ul>
-                      <p style={{ textAlign: "justify" }}>
-                        <span style={{ fontWeight: 400 }}>
-                          Nếu bạn vẫn thấy thật khó để lựa chọn được một miếng
-                          thịt{" "}
-                        </span>
-                        <strong>
-                          <em>bắp hoa bò Mỹ</em>
-                        </strong>
-                        <span style={{ fontWeight: 400 }}>
-                          {" "}
-                          chất lượng thì hãy liên hệ với 5sFood theo địa chỉ sau
-                          nhé:
-                        </span>
-                      </p>
-                      <ul style={{ textAlign: "justify" }}>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Địa chỉ mua hàng trực tiếp: 124 Lò Đúc, Hai Bà
-                            Trưng, Hà Nội.
-                          </span>
-                        </li>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Website: 5sfood.vn.
-                          </span>
-                        </li>
-                        <li style={{ fontWeight: 400 }} aria-level={1}>
-                          <span style={{ fontWeight: 400 }}>
-                            Điện thoại: 0869.836.236.
-                          </span>
-                        </li>
-                      </ul>
-                      <p style={{ textAlign: "justify" }}>
-                        <em>
-                          <span style={{ fontWeight: 400 }}>
-                            Thử một lần thưởng thức{" "}
-                          </span>
-                        </em>
-                        <strong>
-                          <em>bắp hoa bò Mỹ</em>
-                        </strong>
-                        <em>
-                          <span style={{ fontWeight: 400 }}>
-                            , chắc chắn bạn sẽ bị nghiền giống như 5sfood đó!
-                          </span>
-                        </em>
-                      </p>
-                    </div>
-                    <div className="copy__gradient" />
+                    <div
+                      className="copy__inner"
+                      dangerouslySetInnerHTML={{ __html: description }}
+                    ></div>
+                    {/* <div className="copy__gradient" /> */}
                   </div>
-                  <div className="text-center">
+                  {/* <div className="text-center">
                     <span className="more-less">Đọc tiếp</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

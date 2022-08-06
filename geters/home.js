@@ -5,6 +5,7 @@ export const homeGQL = gql`
       nodes {
         name
         slug
+        databaseId
         productTags {
           nodes {
             name
@@ -37,6 +38,17 @@ export const searchProd = gql`
         name
         description
         totalSales
+      }
+    }
+  }
+`;
+export const getCustomer = gql`
+  query Home {
+    customers {
+      nodes {
+        sessionToken
+        email
+        firstName
       }
     }
   }

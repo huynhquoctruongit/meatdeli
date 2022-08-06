@@ -1,33 +1,115 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { useMutation } from "@apollo/client";
-import { callPostCart } from "@/geters/submit-cart";
-import axios from "axios";
-import { print } from "graphql";
+import { useMutation, gql } from "@apollo/client";
+import { createCartFunc } from "@/geters/submit-cart";
 import { convertCurrency } from "@/services/helper";
+import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/router";
 const CheckoutCart = () => {
+  const router = useRouter();
   const [carts, setCarts] = useState([]);
   const [total, setTotal] = useState(0);
+  const [value, setValue] = useState({});
+  const [order, setOrder] = useState({});
+  const [meta, setMeta] = useState([]);
+  const [dataCartSubmit, addCartData] = useState([]);
   const [isTabPayment, tabPayment] = useState(false);
+
   const openTabPayment = (status) => {
     tabPayment(status);
   };
+  const getValue = (type, elm, item) => {
+    if (item) {
+      setMeta({
+        data: { ...meta.data, [type]: elm.target.value },
+        id: item.databaseId,
+      });
+    }
 
+    setValue({
+      ...value,
+      [type]: elm.target.value,
+    });
+  };
   useEffect(() => {
     let localCart = localStorage.getItem("cart");
     setCarts(
       localCart !== "null" && localCart !== null && JSON.parse(localCart)
     );
   }, []);
-  const [callPostReview] = useMutation(callPostCart, {
-    variables: {
-      addressText: "ho hoan kiem",
-    },
-  });
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
+  useEffect(() => {
+    if (
+      value?.full_name &&
+      value?.addressShipping &&
+      value?.email &&
+      value?.phone
+    ) {
+      const orderData = {
+        shipping: {
+          lastName: value?.full_name,
+          address1: value?.addressShipping,
+          postcode: "70000",
+          email: value?.email,
+          phone: value?.phone,
+        },
+        billing: {
+          lastName: value?.full_name,
+          address1: value?.address,
+          email: value?.email,
+          phone: value?.phone,
+          postcode: "70000",
+        },
+        customerNote: value?.note,
+        paymentMethod: isTabPayment ? "bacs" : "cod",
+      };
+      setOrder(orderData);
+    }
+  }, [value]);
 
+  const params = {
+    clientMutationId: uuidv4(),
+    shipping: order.shipping,
+    billing: order.billing,
+    customerNote: order.customerNote,
+    paymentMethod: order.paymentMethod,
+    lineItems: dataCartSubmit,
+  };
+
+  useEffect(() => {
+    if (carts) {
+      const carts_submit = [];
+      carts.map((item) => {
+        const amount = item.price * item.quality;
+        carts_submit.push({
+          productId: item.databaseId,
+          name: item.name,
+          quantity: item.quality,
+          total: amount.toString(),
+          metaData:
+            meta.id === item.databaseId
+              ? Object.keys(meta.data).map(function (key, index) {
+                  return { key: key, value: meta.data[key] };
+                })
+              : [],
+        });
+      });
+      console.log(carts_submit, "carts_submit");
+      addCartData(carts_submit);
+    }
+  }, [carts, meta]);
+  const [createCart, { data: resOrder, loading, error: errorOrder }] =
+    useMutation(createCartFunc, {
+      variables: {
+        input: params,
+      },
+    });
+
+  useEffect(() => {
+    if (!errorOrder && resOrder) {
+      localStorage.removeItem("cart");
+      router.push("/result-order");
+    }
+  }, [resOrder, errorOrder]);
   const deleteProduct = (id) => {
     let localCart = JSON.parse(localStorage.getItem("cart"));
     var filteredItems = localCart.filter((itemVal) => itemVal.id !== id);
@@ -45,25 +127,7 @@ const CheckoutCart = () => {
   }, [carts]);
 
   const submitOrder = () => {
-    callPostReview();
-    // axios
-    //   .post(
-    //     "https://delimeat.vn/?graphql",
-    //     {
-    //       query: print(GRAPHQL_QUERY),
-    //       credentials: "include",
-    //       variables: {
-    //         commentOn: 12,
-    //         rating: 5,
-    //         content: 'test',
-    //         author: 'valueComment.author',
-    //         authorEmail: 'truonghq@galaxy.com.vn',
-    //         date: Date.now().toString(),
-    //       },
-    //     },
-    //   )
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err));
+    createCart();
   };
 
   const changeQuality = (type, item) => {
@@ -132,6 +196,7 @@ const CheckoutCart = () => {
                                     name="full_name"
                                     type="text"
                                     placeholder="Họ và tên *"
+                                    onInput={(e) => getValue("full_name", e)}
                                   />
                                 </div>
                                 <div className="row">
@@ -142,6 +207,7 @@ const CheckoutCart = () => {
                                         name="email"
                                         type="text"
                                         placeholder="Email"
+                                        onInput={(e) => getValue("email", e)}
                                       />
                                     </div>
                                   </div>
@@ -152,6 +218,7 @@ const CheckoutCart = () => {
                                         name="phone"
                                         type="text"
                                         placeholder="Số điện thoại *"
+                                        onInput={(e) => getValue("phone", e)}
                                       />
                                     </div>
                                   </div>
@@ -162,6 +229,7 @@ const CheckoutCart = () => {
                                     name="address"
                                     placeholder="Địa chỉ *"
                                     type="text"
+                                    onInput={(e) => getValue("address", e)}
                                   />
                                 </div>
                                 <div className="row">
@@ -286,6 +354,9 @@ const CheckoutCart = () => {
                                     name="address"
                                     placeholder="Địa chỉ nhận hàng *"
                                     type="text"
+                                    onInput={(e) =>
+                                      getValue("addressShipping", e)
+                                    }
                                   />
                                 </div>
                               </div>
@@ -295,6 +366,7 @@ const CheckoutCart = () => {
                               <label>Ghi chú</label>
                               <div className="form-additional">
                                 <textarea
+                                  onInput={(e) => getValue("note", e)}
                                   className="bg-white border form-control rounded input-hover"
                                   name="note"
                                   rows={2}
@@ -538,14 +610,23 @@ const CheckoutCart = () => {
                                                       data-size={10}
                                                       data-live-search={1}
                                                       tabIndex={-98}
+                                                      onInput={(e) =>
+                                                        getValue(
+                                                          "Sơ chế",
+                                                          e,
+                                                          item
+                                                        )
+                                                      }
                                                     >
                                                       <option selected disabled>
                                                         Sơ chế
                                                       </option>
-                                                      <option value={1}>
+                                                      <option value={"Xay"}>
                                                         Xay
                                                       </option>
-                                                      <option value={2}>
+                                                      <option
+                                                        value={"Chặt khúc"}
+                                                      >
                                                         Chặt khúc
                                                       </option>
                                                     </select>
@@ -578,7 +659,7 @@ const CheckoutCart = () => {
                                                 </div>
 
                                                 <div className="mt-3 dropdown bootstrap-select form-controls input-hover">
-                                                  <div className="d-flex">
+                                                  <div className="d-flex justify-content-center align-items-center">
                                                     <span
                                                       style={{
                                                         width: "40%",
@@ -593,23 +674,32 @@ const CheckoutCart = () => {
                                                       data-size={10}
                                                       data-live-search={1}
                                                       tabIndex={-98}
+                                                      onInput={(e) =>
+                                                        getValue(
+                                                          "Khẩu vị",
+                                                          e,
+                                                          item
+                                                        )
+                                                      }
                                                     >
                                                       <option selected disabled>
                                                         Khẩu vị
                                                       </option>
-                                                      <option value={1}>
+                                                      <option value={"Rất nạc"}>
                                                         Rất nạc
                                                       </option>
-                                                      <option value={2}>
+                                                      <option value={"Nạc"}>
                                                         Nạc
                                                       </option>
-                                                      <option value={2}>
+                                                      <option
+                                                        value={"Trung bình"}
+                                                      >
                                                         Trung bình
                                                       </option>
-                                                      <option value={2}>
+                                                      <option value={"Mỡ"}>
                                                         Mỡ
                                                       </option>
-                                                      <option value={2}>
+                                                      <option value={"Rất mỡ"}>
                                                         Rất mỡ
                                                       </option>
                                                     </select>
@@ -638,6 +728,33 @@ const CheckoutCart = () => {
                                                         role="presentation"
                                                       />
                                                     </div>
+                                                  </div>
+                                                </div>
+                                                <div className="text-sm-start mt-3 dropdown bootstrap-select form-controls input-hover">
+                                                  <div className="d-flex justify-content-center align-items-center">
+                                                    <span
+                                                      style={{
+                                                        width: "40%",
+                                                      }}
+                                                    >
+                                                      Món ăn
+                                                    </span>
+                                                    <input
+                                                      id="order-coupon-code"
+                                                      type="text"
+                                                      style={{
+                                                        fontSize: "10px",
+                                                      }}
+                                                      onInput={(e) =>
+                                                        getValue(
+                                                          "Món ăn",
+                                                          e,
+                                                          item
+                                                        )
+                                                      }
+                                                      className="text-sm-start bg-white border form-control rounded input-hover"
+                                                      placeholder="Món ăn dự kiến của bạn"
+                                                    />
                                                   </div>
                                                 </div>
                                               </div>

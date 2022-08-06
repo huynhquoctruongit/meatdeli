@@ -11,38 +11,71 @@ import {
   ApolloProvider,
   useQuery,
   HttpLink,
+  ApolloLink,
   gql,
+  createHttpLink,
 } from "@apollo/client";
-const apolloClient = new ApolloClient({
-  uri: 'https://delimeat.vn/?graphql',
-  cache: new InMemoryCache()
+
+/**
+ * Middleware operation
+ * If we have a session token in localStorage, add it to the GraphQL request as a Session header.
+ */
+export const middleware = new ApolloLink((operation, forward) => {
+  /**
+   * If session data exist in local storage, set value as session header.
+   */
+  const session = localStorage.getItem("woo-session");
+  if (session) {
+    operation.setContext(({ headers = {} }) => ({
+      headers: {
+        "woocommerce-session": `Session ${session}`,
+      },
+    }));
+  }
+
+  return forward(operation);
 });
-// const apolloClient = new ApolloClient({
-//   cache: new InMemoryCache(),
-//   link: new HttpLink({
-//     uri: "https://delimeat.vn/?graphql",
-//     headers: {
-//       "Content-Type": "application/json; charset=UTF-8",
-//       "Access-Control-Allow-Origin": "http://localhost:3000",
-//       "Access-Control-Allow-Credentials": true,
-//       "Request-Method": "POST",
-//       "Remote-Address" : "103.28.36.155:443",
-//       "Access-control-Allow-Headers":
-//         "Authorization, Content-Type, woocommerce-session, graphql_cors_settings",
-//       "Access-Control-Expose-Headers": "woocommerce-session",
-//       "Access-control-Max-Age": 600,
-//       "Referrer-Policy": "strict-origin-when-cross-origin",
-//       // "Cache-Control:" : "no-cache, must-revalidate, max-age=0",
-//       "Woocommerce-Session":
-//         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0OjMwMDAiLCJpYXQiOjE2NTkzMzU0NjIsIm5iZiI6MTY1OTMzNTQ2MiwiZXhwIjoxNjU5NTA4MjYyLCJkYXRhIjp7ImN1c3RvbWVyX2lkIjoxfX0.jQoz4XB7JvN_pQ0zEr0s9dhqdOmmcFVWLcD2wO-tnlA",
-//       // "X-Content-Type-Options:" : "nosniff",
-//       // "X-Robots-Tag" : "noindex"
-//     },
-//     credentials: "include",
-//     // fetchOptions: {
-//     //   mode: 'no-cors'
-//     // }
-//   }),
+
+/**
+ * Afterware operation
+ * This catches the incoming session token and stores it in localStorage, for future GraphQL requests.
+ */
+export const afterware = new ApolloLink((operation, forward) => {
+  return forward(operation).map((response) => {
+    /**
+     * Check for session header and update session in local storage accordingly.
+     */
+    const context = operation.getContext();
+    const {
+      response: { headers },
+    } = context;
+    const session = headers.get("woocommerce-session");
+    if (session) {
+      if (localStorage.getItem("woo-session") !== session) {
+        localStorage.setItem("woo-session", headers.get("woocommerce-session"));
+      }
+    }
+
+    return response;
+  });
+});
+const apolloClient = new ApolloClient({
+  // uri: "https://delimeat.vn/?graphql",
+  // link: middleware.concat(afterware.concat(HttpLink)),
+  link: middleware.concat(
+    afterware.concat(
+      createHttpLink({
+        uri: `https://delimeat.vn/?graphql`,
+        fetch: fetch,
+      })
+    )
+  ),
+  cache: new InMemoryCache(),
+});
+// const client = new ApolloClient({
+//   link: middleware.concat(afterware.concat(HttpLink)),
+//   cache : new InMemoryCache(),,
+//   clientState: {},
 // });
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

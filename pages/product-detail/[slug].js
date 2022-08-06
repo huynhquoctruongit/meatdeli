@@ -6,7 +6,7 @@ import { convertCurrency } from "@/services/helper";
 export async function getStaticPaths() {
   const { data } = await apollo.query({ query: productGQL });
   const paths = data?.products?.nodes?.map((element) => ({
-    params: { slug: element.slug },
+    params: { slug: element?.slug },
   }));
   return {
     paths: paths,
@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const result = await apollo.query({
     query: productDetailGQL,
-    variables: { slug: params.slug },
+    variables: { slug: params?.slug },
   });
   const { product } = result?.data;
 

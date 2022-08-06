@@ -25,7 +25,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { product, productCategories },
-    // revalidate: timeCache,
   };
 }
 const ProductDetail = ({ product, productCategories }) => {

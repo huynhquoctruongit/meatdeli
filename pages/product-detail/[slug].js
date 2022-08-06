@@ -28,7 +28,6 @@ export async function getStaticProps({ params }) {
   };
 }
 const ProductDetail = ({ product, productCategories }) => {
-  
   return (
     <div>
       <div nh-row="5eckual" className="bg-white mb-20">
@@ -39,7 +38,7 @@ const ProductDetail = ({ product, productCategories }) => {
                 <nav className="breadcrumbs-section py-15">
                   <Link href="/">Trang chủ</Link>
                   <Link href="/thit-bo-my">
-                    {product?.productCategories?.nodes?.[0]?.nameCate}
+                    {product?.productCategories?.nodes?.[0]?.name}
                   </Link>
                   <h1>
                     <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">

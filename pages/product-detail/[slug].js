@@ -28,8 +28,6 @@ export async function getStaticProps({ params }) {
   };
 }
 const ProductDetail = ({ product, productCategories }) => {
-  console.log(product,'product');
-  const { databaseId, status, description, image } = product;
   const { name: nameCate } = product?.productCategories?.nodes?.[0];
   const { price, salePrice } =
     product.productCategories?.nodes?.[0]?.products?.nodes?.[0];
@@ -107,7 +105,7 @@ const ProductDetail = ({ product, productCategories }) => {
                                     <div className="inner-image">
                                       <img
                                         className="img-fluid"
-                                        src={image.sourceUrl}
+                                        src={product?.image.sourceUrl}
                                         alt={product?.name}
                                       />
                                     </div>
@@ -325,17 +323,21 @@ const ProductDetail = ({ product, productCategories }) => {
                       >
                         <div className="bg-white rounded-10 mb-10 p-15">
                           <h2 className="product-title-detail fs-17 fs-md-24 font-weight-bold">
-                          {product?.name}
+                            {product?.name}
                           </h2>
                           <div className="code-review-link d-flex align-items-center flex-nowrap align-items-center">
                             <div className="code fs-14 color-gray">
                               <span>Mã SP:</span>
-                              <span nh-label-code={2020016}>{databaseId}</span>
+                              <span nh-label-code={2020016}>
+                                {product?.databaseId}
+                              </span>
                             </div>
                             <div className="color-main">
                               <span className="color-gray px-10">|</span>
                               <span className="color-gray">Tình trạng: </span>
-                              {status === "publish" ? "Còn hàng" : "Hết hàng"}
+                              {product?.status === "publish"
+                                ? "Còn hàng"
+                                : "Hết hàng"}
                             </div>
                           </div>
                           <div className="price ">
@@ -424,7 +426,7 @@ const ProductDetail = ({ product, productCategories }) => {
                   <div id="product-information" className="initialized">
                     <div
                       className="copy__inner"
-                      dangerouslySetInnerHTML={{ __html: description }}
+                      dangerouslySetInnerHTML={{ __html: product?.description }}
                     ></div>
                     {/* <div className="copy__gradient" /> */}
                   </div>

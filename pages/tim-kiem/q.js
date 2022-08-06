@@ -4,28 +4,13 @@ import { apollo } from "@/api/index";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export async function getStaticProps(context) {
-  console.log(context);
-  const result = await apollo.query({ query: searchProd });
-  const home = {};
-  Object.keys(result?.data || {}).map((key) => {
-    const element = result?.data[key];
-    home[key] = element?.nodes || element?.posts || [];
-  });
-  const { products } = home;
-
-  return {
-    props: { 1: "2" },
-  };
-}
 const Search = () => {
   const router = useRouter();
-
   // console.log(props,'props');\
-  const [value,setValue]=useState("")
-  const onChangeValue=(e)=>{
-    setValue(e.target.value)
-  }
+  const [value, setValue] = useState("");
+  const onChangeValue = (e) => {
+    setValue(e.target.value);
+  };
   return (
     <div>
       <div nh-row="x7o5ch9" className>
@@ -35,22 +20,27 @@ const Search = () => {
               <div nh-block="dhlnwsf" nh-block-cache="true" className>
                 <div className="my-50">
                   <h2 className="title-section mt-30 text-center">Tìm kiếm</h2>
-                 
-                    <div className="input-group">
-                      <input
-                        nh-auto-suggest="product"
-                        placeholder="Từ khóa tìm kiếm"
-                        type="text"
-                        className="form-control"
-                        onChange={onChangeValue}
-                        value={value}
-                      />
-                      <div className="input-group-append">
-                        <button onClick={()=>{router.push(`/tim-kiem/${value}`)}} className="btn btn-submit">
-                          Tìm kiếm
-                        </button>
-                      </div>
+
+                  <div className="input-group">
+                    <input
+                      nh-auto-suggest="product"
+                      placeholder="Từ khóa tìm kiếm"
+                      type="text"
+                      className="form-control"
+                      onChange={onChangeValue}
+                      value={value}
+                    />
+                    <div className="input-group-append">
+                      <button
+                        onClick={() => {
+                          router.push(`/tim-kiem/${value}`);
+                        }}
+                        className="btn btn-submit"
+                      >
+                        Tìm kiếm
+                      </button>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>

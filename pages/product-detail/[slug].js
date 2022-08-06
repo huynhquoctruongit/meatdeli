@@ -28,8 +28,9 @@ export async function getStaticProps({ params }) {
   };
 }
 const ProductDetail = ({ product, productCategories }) => {
+  console.log(product,'product');
   const { name, databaseId, status, description, image } = product;
-  const { name: nameCate } = product.productCategories?.nodes?.[0];
+  const { name: nameCate } = product?.productCategories?.nodes?.[0];
   const { price, salePrice } =
     product.productCategories?.nodes?.[0]?.products?.nodes?.[0];
   console.log(product, "product");

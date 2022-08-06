@@ -29,7 +29,7 @@ export async function getStaticProps({ params }) {
 }
 const ProductDetail = ({ product, productCategories }) => {
   console.log(product,'product');
-  const { name, databaseId, status, description, image } = product;
+  const { databaseId, status, description, image } = product;
   const { name: nameCate } = product?.productCategories?.nodes?.[0];
   const { price, salePrice } =
     product.productCategories?.nodes?.[0]?.products?.nodes?.[0];
@@ -46,7 +46,7 @@ const ProductDetail = ({ product, productCategories }) => {
                   <Link href="/thit-bo-my">{nameCate}</Link>
                   <h1>
                     <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
-                      <span>{name}</span>
+                      <span>{product?.name}</span>
                     </Link>
                   </h1>
                 </nav>
@@ -108,7 +108,7 @@ const ProductDetail = ({ product, productCategories }) => {
                                       <img
                                         className="img-fluid"
                                         src={image.sourceUrl}
-                                        alt={name}
+                                        alt={product?.name}
                                       />
                                     </div>
                                   </div>
@@ -130,7 +130,7 @@ const ProductDetail = ({ product, productCategories }) => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-2.jpg"
-                                        alt={name}
+                                        alt={product?.name}
                                       />
                                     </div>
                                   </div>
@@ -152,7 +152,7 @@ const ProductDetail = ({ product, productCategories }) => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-3.jpg"
-                                        alt={name}
+                                        alt={product?.name}
                                       />
                                     </div>
                                   </div>
@@ -174,7 +174,7 @@ const ProductDetail = ({ product, productCategories }) => {
                                       <img
                                         className="img-fluid"
                                         src="https://cdn.5sfood.vn/media/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-4.jpg"
-                                        alt={name}
+                                        alt={product?.name}
                                       />
                                     </div>
                                   </div>
@@ -325,7 +325,7 @@ const ProductDetail = ({ product, productCategories }) => {
                       >
                         <div className="bg-white rounded-10 mb-10 p-15">
                           <h2 className="product-title-detail fs-17 fs-md-24 font-weight-bold">
-                            {name}
+                          {product?.name}
                           </h2>
                           <div className="code-review-link d-flex align-items-center flex-nowrap align-items-center">
                             <div className="code fs-14 color-gray">

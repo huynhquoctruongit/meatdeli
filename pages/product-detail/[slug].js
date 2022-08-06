@@ -28,10 +28,7 @@ export async function getStaticProps({ params }) {
   };
 }
 const ProductDetail = ({ product, productCategories }) => {
-  const { name: nameCate } = product?.productCategories?.nodes?.[0];
-  const { price, salePrice } =
-    product.productCategories?.nodes?.[0]?.products?.nodes?.[0];
-  console.log(product, "product");
+  
   return (
     <div>
       <div nh-row="5eckual" className="bg-white mb-20">
@@ -41,7 +38,9 @@ const ProductDetail = ({ product, productCategories }) => {
               <div nh-block="mz4eo5d" nh-block-cache="false" className>
                 <nav className="breadcrumbs-section py-15">
                   <Link href="/">Trang chủ</Link>
-                  <Link href="/thit-bo-my">{nameCate}</Link>
+                  <Link href="/thit-bo-my">
+                    {product?.productCategories?.nodes?.[0]?.nameCate}
+                  </Link>
                   <h1>
                     <Link href="/thit-bap-hoa-bo-my-hang-usda-choice-loai-cao-cap">
                       <span>{product?.name}</span>
@@ -189,104 +188,6 @@ const ProductDetail = ({ product, productCategories }) => {
                               </button>
                             </div>
                           </div>
-                          {/* <div className="col-lg-12 col-12 mb-md-20">
-                            <div
-                              nh-slider-thumbs
-                              nh-owl-slick='{"slidesToShow":4,"slidesToScroll":1,"vertical":false,"arrows":true,"asNavFor":".slider-main","focusOnSelect":true,"infinite":false,"responsive":[{"breakpoint":992,"settings":{"vertical":false,"slidesToShow":4,"slidesToScroll":1}},{"breakpoint":600,"settings":{"vertical":false,"slidesToShow":3,"slidesToScroll":1}},{"breakpoint":480,"settings":{"vertical":false,"slidesToShow":3,"slidesToScroll":1}}]}'
-                              className="slider-thumbs slick-initialized slick-slider"
-                              loaded={1}
-                            >
-                              <button
-                                className="slick-prev slick-arrow slick-disabled"
-                                aria-label="Previous"
-                                type="button"
-                                aria-disabled="true"
-                                style={{}}
-                              >
-                                Previous
-                              </button>
-                              <div className="slick-list draggable">
-                                <div
-                                  className="slick-track"
-                                  style={{
-                                    opacity: 1,
-                                    width: "488px",
-                                    transform: "translate3d(0px, 0px, 0px)",
-                                  }}
-                                >
-                                  <div
-                                    className="thumb-item slick-slide slick-current slick-active"
-                                    style={{ width: "92px" }}
-                                    data-slick-index={0}
-                                    aria-hidden="false"
-                                    tabIndex={0}
-                                  >
-                                    <div className="ratio-3-2">
-                                      <img
-                                        className="img-fluid"
-                                        src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-1_thumb_150.jpg"
-                                        alt={name}
-                                      />
-                                    </div>
-                                  </div>
-                                  <div
-                                    className="thumb-item slick-slide slick-active"
-                                    style={{ width: "92px" }}
-                                    data-slick-index={1}
-                                    aria-hidden="false"
-                                    tabIndex={0}
-                                  >
-                                    <div className="ratio-3-2">
-                                      <img
-                                        className="img-fluid"
-                                        src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-2_thumb_150.jpg"
-                                        alt={name}
-                                      />
-                                    </div>
-                                  </div>
-                                  <div
-                                    className="thumb-item slick-slide slick-active"
-                                    style={{ width: "92px" }}
-                                    data-slick-index={2}
-                                    aria-hidden="false"
-                                    tabIndex={0}
-                                  >
-                                    <div className="ratio-3-2">
-                                      <img
-                                        className="img-fluid"
-                                        src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-3_thumb_150.jpg"
-                                        alt={name}
-                                      />
-                                    </div>
-                                  </div>
-                                  <div
-                                    className="thumb-item slick-slide"
-                                    style={{ width: "92px" }}
-                                    data-slick-index={3}
-                                    aria-hidden="true"
-                                    tabIndex={-1}
-                                  >
-                                    <div className="ratio-3-2">
-                                      <img
-                                        className="img-fluid"
-                                        src="https://cdn.5sfood.vn/thumbs/san-pham-5s/bap-hoa-bo-my/choice-loai-cao-cap-thit-bap-hoa-bo-my-hang-usda-4_thumb_150.jpg"
-                                        alt={name}
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <button
-                                className="slick-next slick-arrow"
-                                aria-label="Next"
-                                type="button"
-                                style={{}}
-                                aria-disabled="false"
-                              >
-                                Next
-                              </button>
-                            </div>
-                          </div> */}
                         </div>
                       </div>
                       <div className="social-share mb-20">
@@ -347,7 +248,10 @@ const ProductDetail = ({ product, productCategories }) => {
                               className="price-amount fs-24 color-hightlight"
                             >
                               <span nh-label-value>
-                                {convertCurrency(salePrice)}
+                                {convertCurrency(
+                                  product?.productCategories?.nodes?.[0]
+                                    ?.products?.nodes?.[0]?.salePrice
+                                )}
                               </span>
                             </span>
                             <span
@@ -355,7 +259,10 @@ const ProductDetail = ({ product, productCategories }) => {
                               className="price-amount old-price"
                             >
                               <span nh-label-value>
-                                {convertCurrency(price)}
+                                {convertCurrency(
+                                  product?.productCategories?.nodes?.[0]
+                                    ?.products?.nodes?.[0]?.price
+                                )}
                               </span>
                             </span>
                             <span className="discount-detail">10%</span>

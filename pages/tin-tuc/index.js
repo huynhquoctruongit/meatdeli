@@ -83,7 +83,6 @@ const News = ({ news }) => {
                                 nh-lazy="image"
                                 className="img-fluid rounded-10"
                                 src={item.featuredImage?.node?.sourceUrl}
-                                className="attachment-medium size-medium wp-post-image lazy-load-active"
                                 alt={item.title}
                                 loading="lazy"
                                 srcSet={item.featuredImage?.node?.srcSet}

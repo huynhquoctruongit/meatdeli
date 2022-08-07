@@ -1,6 +1,27 @@
 import { gql } from "@apollo/client";
+
 export const homeGQL = gql`
   query Home {
+    productCategories {
+      nodes {
+        name
+        id
+        description
+        slug
+        children {
+          nodes {
+            slug
+            name
+            id
+          }
+        }
+        image {
+          sourceUrl
+          srcSet
+          altText
+        }
+      }
+    }
     products {
       nodes {
         name

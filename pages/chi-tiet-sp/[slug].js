@@ -312,7 +312,7 @@ const ProductDetail = ({ product, productCategories }) => {
                               </Link>
                               <Link
                                 nh-btn-action="add-cart"
-                                nh-redirect="/order/checkout"
+                                nh-redirect="/don-hang/thanh-toan"
                                 href="#"
                                 className="add-to-cart add-to-cart-buy rounded"
                               >

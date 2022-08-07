@@ -5,7 +5,7 @@ import { convertCurrency } from "@/services/helper";
 import { useMutation, gql } from "@apollo/client";
 import { v4 as uuidv4 } from "uuid";
 const Products = ({ products }) => {
-  console.log(products, "products");
+  
   const [isCartModal, setCardModal] = useState(false);
   const [isChangeCart, setChangeCart] = useState(false);
 
@@ -53,7 +53,6 @@ const Products = ({ products }) => {
       listCart.push(...(dataCart || []), data);
       localStorage.setItem("cart", JSON.stringify(listCart));
     }
-
   };
 
   return (
@@ -231,65 +230,68 @@ const Products = ({ products }) => {
                 <div className="section-product-scoll">
                   <div className="row">
                     {products?.map((item, index) => (
-                      <div key={index}>
-                        <div className="col-lg-3 col-sm-4 col-6 col-custom">
-                          <div className="product-item bg-white rounded-15">
-                            <div className="inner-image">
-                              <div className="product-status" />
-                              <div className="product-status-right">
-                                <span className="giam-gia bg-product-status">
-                                  Giảm 10%
+                      <div
+                        key={index}
+                        className="col-lg-3 col-sm-4 col-6 col-custom"
+                      >
+                        <div className="product-item bg-white rounded-15">
+                          <div className="inner-image">
+                            <div className="product-status" />
+                            <div className="product-status-right">
+                              <span className="giam-gia bg-product-status">
+                                Giảm 10%
+                              </span>
+                            </div>
+                            <div className="wrp-effect-change-img ratio-custome">
+                              <Link
+                                href={`/chi-tiet-sp/${item?.slug}`}
+                                title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
+                              >
+                                <img
+                                  className="img-fluid rounded-12"
+                                  alt={item.image.slug}
+                                  src={item?.image?.sourceUrl}
+                                  style={{}}
+                                />
+                              </Link>
+                            </div>
+                          </div>
+                          <div className="inner-content">
+                            <h4 className="product-title">
+                              <Link href={`/chi-tiet-sp/${item?.slug}`}>
+                                {item.name}
+                              </Link>
+                            </h4>
+                            <div className="product-rating-price">
+                              <div className="price">
+                                <span className="price-amount">
+                                  {convertCurrency(item?.price)}
                                 </span>
-                              </div>
-                              <div className="wrp-effect-change-img ratio-custome">
-                                <Link
-                                  href={`/product-detail/${item?.slug}`}
-                                  title="Thịt bắp hoa bò Mỹ hạng USDA Choice (loại cao cấp)"
-                                >
-                                  <img
-                                    className="img-fluid rounded-12"
-                                    alt={item.image.slug}
-                                    src={item?.image?.sourceUrl}
-                                    style={{}}
-                                  />
-                                </Link>
+                                <div className="price-amount old-price">
+                                  {convertCurrency(item?.regularPrice)}
+                                </div>
                               </div>
                             </div>
-                            <div className="inner-content">
-                              <h4 className="product-title">
-                                <Link href={item.image.slug}>{item.name}</Link>
-                              </h4>
-                              <div className="product-rating-price">
-                                <div className="price">
-                                  <span className="price-amount">
-                                    {convertCurrency(item?.price)}
-                                  </span>
-                                  <div className="price-amount old-price">
-                                    {convertCurrency(item?.regularPrice)}
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                className="mt-5 mt-lg-10"
-                                onClick={() =>
-                                  addToCart({
-                                    id: item.image.slug,
-                                    img: item?.image?.sourceUrl,
-                                    name: item.name,
-                                    price: item?.price,
-                                    tag: item.productTags?.nodes?.[0]?.name,
-                                    quality: 1,
-                                    databaseId: item.databaseId,
-                                    url:
-                                      +"/product-detail/" +
-                                      item?.image?.sourceUrl,
-                                  })
-                                }
-                              >
-                                <div className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center">
-                                  <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
-                                  Thêm giỏ hàng
-                                </div>
+                            <div
+                              className="mt-5 mt-lg-10"
+                              onClick={() =>
+                                addToCart({
+                                  id: item.image.slug,
+                                  img: item?.image?.sourceUrl,
+                                  name: item.name,
+                                  price: item?.price,
+                                  tag: item.productTags?.nodes?.[0]?.name,
+                                  quality: 1,
+                                  databaseId: item.databaseId,
+                                  url:
+                                    +"/chi-tiet-sp/" +
+                                    item?.image?.sourceUrl,
+                                })
+                              }
+                            >
+                              <div className="btn-product-action fs-14 fs-xl-16 bg-hightlight w-100 text-center rounded text-white d-block d-flex align-items-center justify-content-center">
+                                <i className="iconsax isax-add fs-22 fs-xl-24 pr-lg-10 pr-5" />{" "}
+                                Thêm giỏ hàng
                               </div>
                             </div>
                           </div>

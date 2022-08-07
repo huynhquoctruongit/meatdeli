@@ -234,7 +234,7 @@ const Order = () => {
                           </div>
                         </div>
                         <div className="proceed-to-checkout text-uppercase fs-16">
-                          <Link href="/order/checkout">
+                          <Link href="/don-hang/thanh-toan">
                             <div
                               nh-cart-action="checkout"
                               className="btn-checkout bg-main-1 btn-1a color-white d-block m-auto px-25 py-10 rounded text-center"

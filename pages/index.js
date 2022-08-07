@@ -17,15 +17,14 @@ export async function getStaticProps() {
     const element = result?.data[key];
     home[key] = element?.nodes || element?.posts || [];
   });
-  const { products } = home;
+  const { products, productCategories } = home;
 
   return {
-    props: { products },
+    props: { products, productCategories },
     revalidate: 60,
   };
 }
-export default function Home({ products }) {
-  console.log(products,'products');
+export default function Home({ products,productCategories }) {
   var settings = {
     arrows: true,
     infinite: false,
@@ -46,7 +45,7 @@ export default function Home({ products }) {
 
       <Banner1></Banner1>
       <Policy></Policy>
-      <Category></Category>
+      <Category productCategories={productCategories}></Category>
       <FlashSale products={products}></FlashSale>
       {/* <Banner2></Banner2> */}
 

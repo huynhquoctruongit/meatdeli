@@ -1,15 +1,33 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import CartModal from "../../components/popup/cart";
-const Header = () => {
+import { useRouter } from "next/router";
+const Header = ({ productCategories }) => {
+  console.log(productCategories, "productCategories");
+  const router = useRouter();
   const [isCartModal, setCardModal] = useState(false);
   const [isOpenMenu, setOpenMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [value, setValue] = useState("");
+  const { q } = router.query;
   const openMenu = () => {
     setOpenMenu(!isOpenMenu);
   };
   const addToCart = () => {
     setCardModal(true);
   };
+  const onChangeValue = (e) => {
+    setValue(e.target.value);
+  };
+  const onSearch = () => {
+    if (q !== value) {
+      router.push(`/tim-kiem/${value}`);
+      setLoading(true);
+    }
+  };
+  useEffect(() => {
+    setLoading(false);
+  }, [q]);
   return (
     <header>
       <CartModal open={isCartModal} setOpen={setCardModal}></CartModal>
@@ -52,211 +70,68 @@ const Header = () => {
                       </div>
                     </div>
                     <ul>
-                      <Link href="/category/thit-nhap-khau">
-                        <li
-                          onClick={() => openMenu()}
-                          className="position-relative has-child "
-                        >
-                          <div>
-                            <>
-                              <span className="icon-name-marker">
-                                <img
-                                  src="https://cdn.5sfood.vn/media/category/sirloin-steak.svg"
-                                  alt="Thịt nhập khẩu"
-                                  className="marker-image"
+                      {productCategories.map((item, index) => {
+                        if (item?.children?.nodes.length > 0) {
+                          return (
+                            <Link href={`/category/${item.slug}`}>
+                              <li
+                                onClick={() => openMenu()}
+                                className="position-relative"
+                              >
+                                <div>
+                                  <>
+                                    <span className="icon-name-marker">
+                                      <img
+                                        src={item.image.sourceUrl}
+                                        alt="Thịt nhập khẩu"
+                                        className="marker-image"
+                                      />
+                                    </span>
+                                    <span className="text-name">
+                                      {item?.name}
+                                    </span>
+                                    <span className="iconsax isax-arrow-down-1" />
+                                  </>
+                                </div>
+                                <span
+                                  className="grower"
+                                  nh-toggle="y3pn0xs4ia"
                                 />
-                              </span>
-                              <span className="text-name">Thịt nhập khẩu</span>
-                              <span className="iconsax isax-arrow-down-1" />
-                            </>
-                          </div>
-                          <span className="grower" nh-toggle="y3pn0xs4ia" />
-                          <ul
-                            nh-toggle-element="y3pn0xs4ia"
-                            className="entry-menu dropdown"
-                          >
-                            <li className=" ">
-                              <div className="menu-link" href="/thit-bo-my">
-                                Thịt bò Mỹ
-                              </div>
-                            </li>
-                            <li className=" ">
-                              <div className="menu-link" href="/thit-bo-uc">
-                                Thịt bò Úc
-                              </div>
-                            </li>
-                            <li className=" ">
-                              <div
-                                className="menu-link"
-                                href="/thit-bo-nhat-ban"
-                              >
-                                Thịt bò Nhật Bản
-                              </div>
-                            </li>
-                          </ul>
-                        </li>
-                      </Link>
-                      <Link href="category/hai-san-nhap-khau">
-                        <li
-                          onClick={() => openMenu()}
-                          className="position-relative has-child "
-                        >
-                          <div>
-                            <span className="icon-name-marker">
-                              <img
-                                src="https://cdn.5sfood.vn/media/category/lobster.svg"
-                                alt="Hải sản nhập khẩu"
-                                className="marker-image"
-                              />
-                            </span>
-                            <span className="text-name">Hải sản nhập khẩu</span>
-                            <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                          <span className="grower" nh-toggle="fb65ayohq3" />
-                          <ul
-                            nh-toggle-element="fb65ayohq3"
-                            className="entry-menu dropdown"
-                          >
-                            <li className=" ">
-                              <div
-                                className="menu-link"
-                                href="/hai-san-viet-nam"
-                              >
-                                Hải sản Việt Nam
-                              </div>
-                            </li>
-                            <li className=" ">
-                              <div
-                                className="menu-link"
-                                href="/hai-san-nhat-ban"
-                              >
-                                Hải sản Nhật Bản
-                              </div>
-                            </li>
-                            <li className=" ">
-                              <div className="menu-link" href="/hai-san-nauy">
-                                Hải sản Nauy
-                              </div>
-                            </li>
-                          </ul>
-                        </li>
-                      </Link>
-                      <Link href="category//set-box-tien-loi">
-                        <li
-                          onClick={() => openMenu()}
-                          className="position-relative has-child"
-                        >
-                          <div>
-                            <span className="icon-name-marker">
-                              <img
-                                src="https://cdn.5sfood.vn/media/category/hot-pot.svg"
-                                alt="Set box tiện lợi"
-                                className="marker-image"
-                              />
-                            </span>
-                            <span className="text-name">Set box tiện lợi</span>
-                            <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                        </li>
-                      </Link>
-                      <Link href="category/nuoc-sot-gia-vi">
-                        <li
-                          onClick={() => openMenu()}
-                          className="position-relative has-child "
-                        >
-                          <div>
-                            <span className="icon-name-marker">
-                              <img
-                                src="https://cdn.5sfood.vn/media/category/spices.svg"
-                                alt="Nước sốt, gia vị"
-                                className="marker-image"
-                              />
-                            </span>
-                            <span className="text-name">Nước sốt, gia vị</span>
-                            <span className="iconsax isax-arrow-down-1" />
-                          </div>
-                          <span className="grower" nh-toggle="w3orm7yhp4" />
-                          <ul
-                            nh-toggle-element="w3orm7yhp4"
-                            className="entry-menu dropdown"
-                          >
-                            <li className=" ">
-                              <a
-                                className="menu-link"
-                                href="/nuoc-sot-gia-vi-nhat-ban"
-                              >
-                                Nước sốt - Gia vị Nhật Bản
-                              </a>
-                            </li>
-                            <li className=" ">
-                              <a
-                                className="menu-link"
-                                href="/nuoc-sot-gia-vi-han-quoc"
-                              >
-                                Nước sốt - Gia vị Hàn Quốc
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </Link>
-                      <Link href="category/dau-an-bo-phomai">
-                        <li
-                          onClick={() => openMenu()}
-                          className="position-relative has-child"
-                        >
-                          <div href="/dau-an-bo-phomai">
-                            <>
-                              <span className="icon-name-marker">
-                                <img
-                                  src="https://cdn.5sfood.vn/media/category/drink.svg"
-                                  alt="Dầu ăn, Bơ & Phomai"
-                                  className="marker-image"
-                                />
-                              </span>
-                              <span className="text-name">
-                                Dầu ăn, Bơ &amp; Phomai
-                              </span>
-                              <span className="iconsax isax-arrow-down-1" />
-                            </>
-                          </div>
-                        </li>
-                      </Link>
-                      <Link href="category/rau-cu-qua-my">
-                        <li onClick={() => openMenu()}>
-                          <div>
-                            <>
-                              <span className="icon-name-marker">
-                                <img
-                                  src="https://cdn.5sfood.vn/media/category/kitchenware.svg"
-                                  alt="Rau củ quả & Mỳ"
-                                  className="marker-image"
-                                />
-                              </span>
-                              <span className="text-name">
-                                Rau củ quả &amp; Mỳ
-                              </span>
-                              <span className="iconsax isax-arrow-down-1" />
-                            </>
-                          </div>
-                        </li>
-                      </Link>
-                      <Link href="category/san-pham-khac">
-                        <li onClick={() => openMenu()}>
-                          <div>
-                            <>
-                              <span className="icon-name-marker">
-                                <img
-                                  src="https://cdn.5sfood.vn/media/category/cooking.svg"
-                                  alt="Sản phẩm khác"
-                                  className="marker-image"
-                                />
-                              </span>
-                              <span className="text-name">Sản phẩm khác</span>
-                              <span className="iconsax isax-arrow-down-1" />
-                            </>
-                          </div>
-                        </li>
-                      </Link>
+                                <ul
+                                  nh-toggle-element="y3pn0xs4ia"
+                                  className="entry-menu dropdown"
+                                >
+                                  <li className=" ">
+                                    <div
+                                      className="menu-link"
+                                      href="/thit-bo-my"
+                                    >
+                                      Thịt bò Mỹ
+                                    </div>
+                                  </li>
+                                  <li className=" ">
+                                    <div
+                                      className="menu-link"
+                                      href="/thit-bo-uc"
+                                    >
+                                      Thịt bò Úc
+                                    </div>
+                                  </li>
+                                  <li className=" ">
+                                    <div
+                                      className="menu-link"
+                                      href="/thit-bo-nhat-ban"
+                                    >
+                                      Thịt bò Nhật Bản
+                                    </div>
+                                  </li>
+                                </ul>
+                              </li>
+                            </Link>
+                          );
+                        }
+                      })}
+
                       <li onClick={() => openMenu()}>
                         <div href="/">
                           <>
@@ -412,22 +287,30 @@ const Header = () => {
             <div className="col-12">
               <div nh-block="lbfcmv6">
                 <div className="form-search px-xl-20">
-                  <form action="/tim-kiem" method="get" autoComplete="off">
-                    <div className="input-group ">
-                      <div className="icon-search  position-relative">
-                        <input
-                          nh-auto-suggest="product"
-                          name="keyword"
-                          placeholder="Bạn đang cần tìm mua gì?"
-                          type="text"
-                          className="form-control bg-white"
-                        />
-                        <button className="btn position-absolute" type="submit">
+                  <div className="input-group ">
+                    <div className="icon-search  position-relative">
+                      <input
+                        nh-auto-suggest="product"
+                        placeholder="Bạn đang cần tìm mua gì?"
+                        type="text"
+                        className="form-control bg-white"
+                        onChange={onChangeValue}
+                      />
+                      <button
+                        onClick={() => {
+                          onSearch();
+                        }}
+                        className="btn position-absolute"
+                        type="button"
+                      >
+                        {loading ? (
+                          "Vui lòng đợi..."
+                        ) : (
                           <i className="iconsax isax-search-normal-1 fs-24 " />
-                        </button>
-                      </div>
+                        )}
+                      </button>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>

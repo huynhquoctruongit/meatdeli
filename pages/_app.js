@@ -5,6 +5,8 @@ import Headseo from "../components/seo-header";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { motion } from "framer-motion";
+import { homeGQL } from "@/geters/home";
+import { apollo } from "@/api/index";
 import {
   ApolloClient,
   InMemoryCache,
@@ -72,12 +74,24 @@ const apolloClient = new ApolloClient({
   ),
   cache: new InMemoryCache(),
 });
-// const client = new ApolloClient({
-//   link: middleware.concat(afterware.concat(HttpLink)),
-//   cache : new InMemoryCache(),,
-//   clientState: {},
-// });
-function MyApp({ Component, pageProps }) {
+
+const isServer = () => typeof window === "undefined";
+
+const getPosts = async () => {
+  const result = await apollo.query({ query: homeGQL });
+  return result;
+};
+
+MyApp.getInitialProps = async (context) => {
+  if (isServer()) {
+    return { result: await getPosts() };
+  } else {
+    return {
+      result: null,
+    };
+  }
+};
+function MyApp({ Component, pageProps, result }) {
   const router = useRouter();
   const asPath = router.asPath;
 
@@ -90,7 +104,7 @@ function MyApp({ Component, pageProps }) {
     <ApolloProvider client={apolloClient}>
       <Headseo />
       <div id="wrapper" className="is-mobile">
-        <Header />
+        <Header productCategories={result?.data?.productCategories?.nodes} />
         <Component {...pageProps} key={asPath} />
         <Footer />
       </div>

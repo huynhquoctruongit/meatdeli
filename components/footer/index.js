@@ -103,7 +103,7 @@ export default class index extends Component {
                       </Link>
                     </div>
                     <div className="toolbar-item">
-                      <Link href="/tim-kiem">
+                      <Link href="/tim-kiem/page">
                         <div>
                           <i className="iconsax isax-search-normal-1" />
                           <span>Tìm Kiếm</span>

@@ -159,7 +159,7 @@ const Card = ({ open, setOpen, isChangeCart }) => {
               <div className="price-amount">{convertCurrency(total)}</div>
             </div>
             <div className="mini-cart-btn">
-              <Link href="/order/cart-info">
+              <Link href="/don-hang/thong-tin">
                 <div
                   className="btn-cart-info btn-submit"
                   onClick={() => setOpen(false)}
@@ -167,7 +167,7 @@ const Card = ({ open, setOpen, isChangeCart }) => {
                   Xem Giỏ hàng
                 </div>
               </Link>
-              <Link href="/order/checkout">
+              <Link href="/don-hang/thanh-toan">
                 <div
                   onClick={() => setOpen(false)}
                   className="btn-checkout btn-submit"

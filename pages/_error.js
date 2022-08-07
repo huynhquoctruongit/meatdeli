@@ -1,15 +1,15 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Custom404() {
   return (
     <div>
-      {/* <img className="w-[45rem] mx-auto" src="/images/not-found.jpg" alt="" /> */}
-
-      <div className="text-center" style={{ minHeight: '50vh' }}>
+      <div className="text-center p-4" style={{ minHeight: "50vh" }}>
         <h2>
-          Không tìm thấy trang bạn yêu cầu, vui lòng trở về
+          Xin lỗi, chức năng này đang phát triển vui lòng quay lại
           <Link href="/" passHref>
-            <a className="text-blue-600"> Trang chủ</a>
+            <a className="text-blue-600" style={{ color: "#1084E7" }}>
+              {" "}Trang chủ
+            </a>
           </Link>
         </h2>
       </div>

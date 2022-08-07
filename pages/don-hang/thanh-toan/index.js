@@ -12,8 +12,10 @@ const CheckoutCart = () => {
   const [value, setValue] = useState({});
   const [order, setOrder] = useState({});
   const [meta, setMeta] = useState([]);
+  const [loadingPage, setLoading] = useState(false);
   const [dataCartSubmit, addCartData] = useState([]);
   const [isTabPayment, tabPayment] = useState(false);
+  const [disable, setDisale] = useState(true);
 
   const openTabPayment = (status) => {
     tabPayment(status);
@@ -41,9 +43,10 @@ const CheckoutCart = () => {
     if (
       value?.full_name &&
       value?.addressShipping &&
-      value?.email &&
+      value?.address &&
       value?.phone
     ) {
+      setDisale(false);
       const orderData = {
         shipping: {
           lastName: value?.full_name,
@@ -107,7 +110,7 @@ const CheckoutCart = () => {
   useEffect(() => {
     if (!errorOrder && resOrder) {
       localStorage.removeItem("cart");
-      router.push("/result-order");
+      router.push("/ket-qua-dat-hang");
     }
   }, [resOrder, errorOrder]);
   const deleteProduct = (id) => {
@@ -127,6 +130,7 @@ const CheckoutCart = () => {
   }, [carts]);
 
   const submitOrder = () => {
+    setLoading(true);
     createCart();
   };
 
@@ -176,7 +180,7 @@ const CheckoutCart = () => {
                 </div>
                 <div className="container">
                   <div className="checkout-section">
-                    <form id="order-info" method="post" noValidate="novalidate">
+                    <form id="order-info">
                       <div className="row">
                         <div id="order-info-left" className="col-lg-8 col-md-6">
                           <div className="billing-details">
@@ -881,14 +885,16 @@ const CheckoutCart = () => {
                                 </div>
                               </div>
                               <div className="checkout-payment bg-white mb-10 px-15 pb-15">
-                                <span
+                                <button
+                                  type="button"
+                                  disabled={disable}
                                   onClick={() => submitOrder()}
                                   nh-btn-action="create-order"
                                   className="btn bg-hightlight btn-1a color-white px-25 py-10 w-100 rounded text-uppercase fs-16"
                                 >
-                                  Đặt hàng
-                                </span>
-                                <Link href="/order/cart-info">
+                                  {loadingPage ? "Vui lòng đợi..." : "Đặt hàng"}
+                                </button>
+                                <Link href="/don-hang/thong-tin">
                                   <div
                                     title="Quay lại giỏ hàng"
                                     className="order-back fs-14 d-flex align-items-center color-main mt-15"

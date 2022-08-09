@@ -8,7 +8,7 @@ const Banner1 = ({ productCategories }) => {
           <div className="col-12">
             <div nh-block="tocxsd0" nh-block-cache="true" className>
               <div className="row">
-                {productCategories.map((item, index) => {
+                {productCategories?.map((item, index) => {
                   if (item?.children?.nodes.length > 0) {
                     return (
                       <div className="col-lg-3 col-md-3 col-3">

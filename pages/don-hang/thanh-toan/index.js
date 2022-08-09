@@ -15,11 +15,17 @@ const CheckoutCart = () => {
   const [loadingPage, setLoading] = useState(false);
   const [dataCartSubmit, addCartData] = useState([]);
   const [isTabPayment, tabPayment] = useState(false);
+  const [isTabAddress, tabAddress] = useState(false);
+  const [locationUser, setLocationUser] = useState(null);
   const [disable, setDisale] = useState(true);
 
   const openTabPayment = (status) => {
     tabPayment(status);
   };
+  const openTabAddress = (status) => {
+    tabAddress(status);
+  };
+
   const getValue = (type, elm, item) => {
     if (item) {
       setMeta({
@@ -96,7 +102,6 @@ const CheckoutCart = () => {
               : [],
         });
       });
-      console.log(carts_submit, "carts_submit");
       addCartData(carts_submit);
     }
   }, [carts, meta]);
@@ -156,6 +161,59 @@ const CheckoutCart = () => {
     localStorage.setItem("cart", JSON.stringify(merge));
     setCarts(merge);
   };
+  useEffect(() => {
+    // var result = document.getElementById("json-result");
+    const Http = new XMLHttpRequest();
+    var bdcApi = "https://api.bigdatacloud.net/data/reverse-geocode-client";
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        bdcApi =
+          bdcApi +
+          "?latitude=" +
+          position.coords.latitude +
+          "&longitude=" +
+          position.coords.longitude +
+          "&localityLanguage=vn";
+        getApi(bdcApi);
+      },
+      (err) => {
+        getApi(bdcApi);
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      }
+    );
+  }, []);
+  function getApi(bdcApi) {
+    const Http = new XMLHttpRequest();
+    console.log(bdcApi, "bdcApi");
+    Http.open("GET", bdcApi);
+    Http.send();
+    Http.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        setLocationUser(this.responseText);
+      }
+    };
+  }
+  const address = [
+    "Tăng Nhơn Phú, Quận 9",
+    "Cộng Hoà, Tân Bình",
+    "Khu Sala, Quận 2",
+  ];
+  useEffect(() => {
+    if (locationUser) {
+      const addressUser = JSON.parse(locationUser);
+      console.log(addressUser,'addressUser');
+      address.map((item) => {
+        if (item.indexOf(addressUser.locality) > -1) {
+          console.log(item, "item");
+        }
+      });
+    }
+    
+  }, [locationUser]);
   if (!carts) return null;
   return (
     <div>
@@ -352,16 +410,213 @@ const CheckoutCart = () => {
                                     </div>
                                   </div> */}
                                 </div>
+                                <div className="mb-3">
+                                  <strong>Thông tin giao nhận </strong>
+                                </div>
                                 <div className="form-group validate-form">
-                                  <input
-                                    className="bg-white border form-control rounded input-hover"
-                                    name="address"
-                                    placeholder="Địa chỉ nhận hàng *"
-                                    type="text"
-                                    onInput={(e) =>
-                                      getValue("addressShipping", e)
-                                    }
-                                  />
+                                  <div className="payment-method mb-10 bg-white rounded p-15">
+                                    <div className="d-flex align-content-stretch flex-wrap ">
+                                      <ul className="nav w-100" role="tablist">
+                                        <li
+                                          className="nav-item clearfix mb-10"
+                                          onClick={() => openTabAddress(false)}
+                                        >
+                                          <div
+                                            nh-gateway-item="cod"
+                                            className={`nav-link color-black d-flex  align-items-center border px-15 ${
+                                              !isTabAddress ? "active" : ""
+                                            }`}
+                                            data-toggle="tab"
+                                            role="tab"
+                                          >
+                                            <div className="inner-icon position-relative  mr-15">
+                                              <img
+                                                className="img-fluid rti-abs-contain"
+                                                src="https://5sfood.vn/templates/fashion02/assets/img/payment/cod.png"
+                                                alt="cod"
+                                              />
+                                            </div>
+                                            <div className="inner-label text-left">
+                                              Nhận tại HUB
+                                              <div className="content-payment fs-14 font-weight-normal">
+                                                (Free shiping)
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        {!isTabAddress && (
+                                          <div className="tab-content w-100 mt-3">
+                                            <div
+                                              id="cod"
+                                              className="tab-pane"
+                                              role="tabpanel"
+                                            ></div>
+                                            <div
+                                              id="bank"
+                                              className="tab-pane active"
+                                              role="tabpanel"
+                                            >
+                                              <h3 className="title-checkout color-black">
+                                                <b>Địa chỉ gợi ý</b>
+                                              </h3>
+                                              <div className="entry-bank mb-30">
+                                                <table className="table w-100 mb-15">
+                                                </table>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
+                                        <li
+                                          className="nav-item clearfix mb-10"
+                                          onClick={() => openTabAddress(true)}
+                                        >
+                                          <div
+                                            nh-gateway-item="bank"
+                                            className={`nav-link color-black d-flex  align-items-center border px-15 ${
+                                              isTabAddress ? "active" : ""
+                                            }`}
+                                            data-toggle="tab"
+                                            role="tab"
+                                          >
+                                            <div className="inner-icon position-relative  mr-15">
+                                              <img
+                                                className="img-fluid rti-abs-contain"
+                                                src="https://5sfood.vn/templates/fashion02/assets/img/payment/bank.png"
+                                                alt="bank"
+                                              />
+                                            </div>
+                                            <div className="inner-label text-left">
+                                              Nhận tại nhà
+                                              <div className="content-payment fs-14 font-weight-normal">
+                                                <Link href="/chinh-sach-giao-nhan">
+                                                  (Chính sách giao nhận)
+                                                </Link>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                      {isTabAddress && (
+                                        <div className="tab-content w-100 mt-3">
+                                          <div
+                                            id="cod"
+                                            className="tab-pane"
+                                            role="tabpanel"
+                                          ></div>
+                                          <div
+                                            id="bank"
+                                            className="tab-pane active"
+                                            role="tabpanel"
+                                          >
+                                            <h3 className="title-checkout color-black">
+                                              <b>Địa chỉ nhận hàng</b>
+                                            </h3>
+                                            <div className="entry-bank mb-30">
+                                              <table className="table w-100 mb-15">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>Tỉnh/TP</td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        name="address"
+                                                        placeholder="Tỉnh"
+                                                        type="text"
+                                                        onInput={(e) =>
+                                                          getValue(
+                                                            "addressShipping",
+                                                            e
+                                                          )
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Quận/Huyện</td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        name="address"
+                                                        placeholder="Quận/Huyện"
+                                                        type="text"
+                                                        onInput={(e) =>
+                                                          getValue(
+                                                            "addressShipping",
+                                                            e
+                                                          )
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Phường/Xã</td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        name="address"
+                                                        placeholder="Phường/Xã"
+                                                        type="text"
+                                                        onInput={(e) =>
+                                                          getValue(
+                                                            "addressShipping",
+                                                            e
+                                                          )
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Đường/Thôn</td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        name="address"
+                                                        placeholder="Đường/Thôn"
+                                                        type="text"
+                                                        onInput={(e) =>
+                                                          getValue(
+                                                            "addressShipping",
+                                                            e
+                                                          )
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Số nhà/Xóm</td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        name="address"
+                                                        placeholder="Số nhà/Xóm"
+                                                        type="text"
+                                                        onInput={(e) =>
+                                                          getValue(
+                                                            "addressShipping",
+                                                            e
+                                                          )
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )}
+                                    </div>
+                                    <input
+                                      name="payment_gateway"
+                                      defaultValue
+                                      type="hidden"
+                                    />
+                                    <input
+                                      name="code"
+                                      defaultValue
+                                      type="hidden"
+                                    />
+                                  </div>
                                 </div>
                               </div>
                               <p>* Bắt buộc</p>

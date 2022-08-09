@@ -3,7 +3,6 @@ import Link from "next/link";
 import CartModal from "../../components/popup/cart";
 import { useRouter } from "next/router";
 const Header = ({ productCategories }) => {
-  console.log(productCategories, "productCategories");
   const router = useRouter();
   const [isCartModal, setCardModal] = useState(false);
   const [isOpenMenu, setOpenMenu] = useState(false);
@@ -70,7 +69,7 @@ const Header = ({ productCategories }) => {
                       </div>
                     </div>
                     <ul>
-                      {productCategories.map((item, index) => {
+                      {productCategories?.map((item, index) => {
                         if (item?.children?.nodes.length > 0) {
                           return (
                             <Link href={`/category/${item.slug}`}>

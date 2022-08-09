@@ -18,6 +18,7 @@ const CheckoutCart = () => {
   const [isTabAddress, tabAddress] = useState(false);
   const [locationUser, setLocationUser] = useState(null);
   const [disable, setDisale] = useState(true);
+  const [addressUser, setAddressUser] = useState("");
 
   const openTabPayment = (status) => {
     tabPayment(status);
@@ -188,7 +189,6 @@ const CheckoutCart = () => {
   }, []);
   function getApi(bdcApi) {
     const Http = new XMLHttpRequest();
-    console.log(bdcApi, "bdcApi");
     Http.open("GET", bdcApi);
     Http.send();
     Http.onreadystatechange = function () {
@@ -198,21 +198,20 @@ const CheckoutCart = () => {
     };
   }
   const address = [
-    "Tăng Nhơn Phú, Quận 9",
+    "An Lợi Đông, Quận 2",
     "Cộng Hoà, Tân Bình",
     "Khu Sala, Quận 2",
   ];
   useEffect(() => {
     if (locationUser) {
-      const addressUser = JSON.parse(locationUser);
-      console.log(addressUser,'addressUser');
+      const userIp = JSON.parse(locationUser);
       address.map((item) => {
-        if (item.indexOf(addressUser.locality) > -1) {
-          console.log(item, "item");
+        const trans = item.toLowerCase();
+        if (trans.search(userIp.locality.toLowerCase()) > -1) {
+          setAddressUser(item);
         }
       });
     }
-    
   }, [locationUser]);
   if (!carts) return null;
   return (
@@ -456,13 +455,32 @@ const CheckoutCart = () => {
                                               className="tab-pane active"
                                               role="tabpanel"
                                             >
-                                              <h3 className="title-checkout color-black">
-                                                <b>Địa chỉ gợi ý</b>
-                                              </h3>
-                                              <div className="entry-bank mb-30">
-                                                <table className="table w-100 mb-15">
-                                                </table>
+                                              <div className="title-checkout color-black mb-3">
+                                                <span className="fs-14 font-weight-bold">
+                                                  <input
+                                                    type="radio"
+                                                    name="addressUser"
+                                                    className="mr-2"
+                                                  />
+                                                  Địa điểm gợi ý :{" "}
+                                                </span>
+                                                <span className="fs-14">
+                                                  {addressUser}
+                                                </span>
                                               </div>
+                                              {/* <div className="title-checkout color-black">
+                                                <span className="fs-14 font-weight-bold">
+                                                  <input
+                                                    type="radio"
+                                                    name="addressUser"
+                                                    className="mr-2"
+                                                  />
+                                                  Địa điểm gợi ý :{" "}
+                                                </span>
+                                                <span className="fs-14">
+                                                  {addressUser}
+                                                </span>
+                                              </div> */}
                                             </div>
                                           </div>
                                         )}
@@ -485,9 +503,9 @@ const CheckoutCart = () => {
                                                 alt="bank"
                                               />
                                             </div>
-                                            <div className="inner-label text-left">
-                                              Nhận tại nhà
-                                              <div className="content-payment fs-14 font-weight-normal">
+                                            <div className="d-flex justify-content-between inner-label text-left">
+                                              <p>Nhận tại nhà </p>
+                                              <div className="content-payment fs-14 ml-2 font-weight-normal">
                                                 <Link href="/chinh-sach-giao-nhan">
                                                   (Chính sách giao nhận)
                                                 </Link>

@@ -74,3 +74,20 @@ export const getCustomer = gql`
     }
   }
 `;
+export const getInfoCompayny = gql`
+  query Home {
+    user(id: 1, idType: DATABASE_ID) {
+      info_page {
+        address
+        companyname
+        email
+        phone
+        taxdate
+        taxnumber
+      }
+      avatar {
+        url
+      }
+    }
+  }
+`;

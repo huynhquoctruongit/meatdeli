@@ -8,6 +8,8 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { shippingClass } from "@/geters/shipping";
 import { apollo } from "@/api/index";
+import { useForm } from "react-hook-form";
+import moment from "moment";
 export async function getStaticProps() {
   const result = await apollo.query({ query: shippingClass });
   const hubs = {};
@@ -19,6 +21,13 @@ export async function getStaticProps() {
   return { props: { hubs } };
 }
 const CheckoutCart = ({ hubs }) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  console.log(errors, "errors");
   const listHubs = hubs?.shippingClasses;
   const router = useRouter();
   const [carts, setCarts] = useState([]);
@@ -37,7 +46,7 @@ const CheckoutCart = ({ hubs }) => {
   const [wards, setWards] = useState(null);
   const [addressUser, setAddressUser] = useState("");
   const [addressSelect, setAddressSelect] = useState({});
-  const [checked, setCheckedSuggest] = useState(false);
+  const [checked, setCheckedSuggest] = useState(true);
   const [listHUB, setListHUB] = useState([]);
 
   const openTabPayment = (status) => {
@@ -82,8 +91,9 @@ const CheckoutCart = ({ hubs }) => {
       addressSelect.district +
       " " +
       addressSelect.province;
-    const addressText = document.getElementById("addressSuggest")?.checked
-      ? "Địa chỉ gợi ý : " + addressUser[0]
+    const addressText = document.getElementById("addressSuggest")?.checked;
+    const localAddress = localStorage.getItem("addressOrder")
+      ? "Địa chỉ gợi ý : " + (localAddress || addressUser[0])
       : "Địa chỉ nhận tại nhà : " + inputAddess;
     if (value?.full_name && value?.phone) {
       setDisale(false);
@@ -94,6 +104,9 @@ const CheckoutCart = ({ hubs }) => {
             ? "Địa chỉ nhận tại HUB : " + value.addressHUB
             : addressText,
           phone: value?.phoneShiping,
+          state:
+            "Thời gian nhận hàng : " +
+            moment(value?.date).format("DD/MM/YYYY, h:mm"),
         },
         billing: {
           lastName: value?.full_name,
@@ -166,8 +179,29 @@ const CheckoutCart = ({ hubs }) => {
     setTotal(totalTemp);
   }, [carts]);
 
-  const submitOrder = () => {
+  const submitOrder = (e) => {
+    e.preventDefault();
     setLoading(true);
+    const inputAddess =
+      value?.village +
+      " " +
+      value.street +
+      " " +
+      addressSelect.ward +
+      " " +
+      addressSelect.district +
+      " " +
+      addressSelect.province;
+    const addressText = document.getElementById("addressSuggest")?.checked
+      ? addressUser[0]
+      : inputAddess;
+
+    const addressOrder = document.getElementById("addressSelect")?.checked
+      ? value.addressHUB
+      : addressText;
+    if (addressOrder) {
+      localStorage.setItem("addressOrder", addressOrder);
+    }
     createCart();
   };
 
@@ -281,25 +315,59 @@ const CheckoutCart = ({ hubs }) => {
   }
 
   useEffect(() => {
-    if (locationUser) {
-      const userIp = JSON.parse(locationUser);
-      setAddressUser(findString(userIp.locality));
+    const localAddress = localStorage.getItem("addressOrder");
+    if (localAddress) {
+      setAddressUser(findString(localAddress));
+    } else {
+      if (locationUser) {
+        const userIp = JSON.parse(locationUser);
+        setAddressUser(findString(userIp.locality));
+      }
     }
   }, [locationUser]);
   const findString = (string) => {
     var item_match = [];
     if (string) {
       listHubs?.map((item) => {
-        if (string.toLowerCase().indexOf(item.name.toLowerCase()) > -1) {
+        if (kmpSearch(string, item.name) !== -1) {
           item_match.push(item.name);
         }
-        if (item.name.toLowerCase().indexOf(string.toLowerCase()) > -1) {
-          item_match.push(item.name);
-        }
+        // else{
+        // }
+        // if (kmpSearch()string.toLowerCase().includes(item.name.toLowerCase())) {
+        //   item_match.push(item.name);
+        // } else {
+        //   if (item.name.toLowerCase().includes(string.toLowerCase())) {
+        //     item_match.push(item.name);
+        //   }
+        // }
       });
     }
     return item_match;
   };
+  function kmpSearch(pattern, text) {
+    var first = pattern.toLowerCase();
+    var last = text.toLowerCase();
+    if (first.length == 0) return 0; // Immediate match
+
+    var lsp = [0]; // Base case
+    for (var i = 1; i < first.length; i++) {
+      var j = lsp[i - 1];
+      while (j > 0 && first[i] !== first[j]) j = lsp[j - 1];
+      if (first[i] === first[j]) j++;
+      lsp.push(j);
+    }
+
+    var j = 0;
+    for (var i = 0; i < last.length; i++) {
+      while (j > 0 && last[i] != first[j]) j = lsp[j - 1];
+      if (last[i] == first[j]) {
+        j++;
+        if (j == first.length) return i - (j - 1);
+      }
+    }
+    return -1;
+  }
 
   if (!carts) return null;
   return (
@@ -325,7 +393,11 @@ const CheckoutCart = ({ hubs }) => {
                 </div>
                 <div className="container">
                   <div className="checkout-section">
-                    <form id="order-info">
+                    <form
+                      onSubmit={handleSubmit((e) => submitOrder(e))}
+                      id="order-info"
+                      name="google-sheet"
+                    >
                       <div className="row">
                         <div id="order-info-left" className="col-lg-8 col-md-6">
                           <div className="billing-details">
@@ -345,6 +417,7 @@ const CheckoutCart = ({ hubs }) => {
                                     name="full_name"
                                     type="text"
                                     placeholder="Họ và tên *"
+                                    required
                                     onInput={(e) => getValue("full_name", e)}
                                   />
                                 </div>
@@ -366,6 +439,7 @@ const CheckoutCart = ({ hubs }) => {
                                         className="bg-white border form-control rounded input-hover"
                                         name="phone"
                                         type="text"
+                                        required
                                         placeholder="Số điện thoại *"
                                         onInput={(e) => getValue("phone", e)}
                                       />
@@ -427,7 +501,8 @@ const CheckoutCart = ({ hubs }) => {
                                                       name="radio-address"
                                                       className="mr-2"
                                                       id="addressSuggest"
-                                                      defaulChecked={checked}
+                                                      key="1"
+                                                      defaultChecked={checked}
                                                       onChange={(e) =>
                                                         selectAddress(
                                                           e,
@@ -441,6 +516,11 @@ const CheckoutCart = ({ hubs }) => {
                                                     </span>
                                                   </label>
                                                 </span>
+                                                {errors?.message?.test && (
+                                                  <span>
+                                                    This field is required
+                                                  </span>
+                                                )}
                                               </div>
                                               <div className="title-checkout color-black">
                                                 <span className="fs-14 font-weight-bold">
@@ -448,7 +528,8 @@ const CheckoutCart = ({ hubs }) => {
                                                     <input
                                                       type="radio"
                                                       name="radio-address"
-                                                      defaulChecked={!checked}
+                                                      defaultChecked={!checked}
+                                                      key="2"
                                                       className="mr-2"
                                                       id="addressSelect"
                                                       onChange={(e) =>
@@ -461,11 +542,15 @@ const CheckoutCart = ({ hubs }) => {
                                                     Tự chọn địa điểm của bạn :
                                                   </label>
                                                 </span>
-                                                <div className="entry-bank mb-30">
+                                                <div
+                                                  className={`entry-bank mb-30 ${
+                                                    checked ? "disable-tab" : ""
+                                                  }`}
+                                                >
                                                   <table className="table w-100 mb-15">
                                                     <tbody>
                                                       <tr>
-                                                        <td>Tỉnh/TP</td>
+                                                        <td>Tỉnh/TP *</td>
                                                         <td>
                                                           <select
                                                             name="city_id"
@@ -502,7 +587,7 @@ const CheckoutCart = ({ hubs }) => {
                                                         </td>
                                                       </tr>
                                                       <tr>
-                                                        <td>Quận/Huyện</td>
+                                                        <td>Quận/Huyện *</td>
                                                         <td>
                                                           <select
                                                             name="city_id"
@@ -540,7 +625,7 @@ const CheckoutCart = ({ hubs }) => {
                                                       </tr>
                                                       <tr>
                                                         {/* wards */}
-                                                        <td>Phường/Xã</td>
+                                                        <td>Phường/Xã *</td>
                                                         <td>
                                                           <select
                                                             name="city_id"
@@ -577,12 +662,14 @@ const CheckoutCart = ({ hubs }) => {
                                                         </td>
                                                       </tr>
                                                       <tr>
-                                                        <td>Đường/Thôn</td>
+                                                        <td>
+                                                          Đường / Thôn / Xóm *
+                                                        </td>
                                                         <td>
                                                           <input
                                                             className="bg-white border form-control rounded input-hover"
                                                             name="street"
-                                                            placeholder="Đường/Thôn"
+                                                            placeholder="Đường / Thôn / Xóm"
                                                             type="text"
                                                             onInput={(e) =>
                                                               getValue(
@@ -594,12 +681,14 @@ const CheckoutCart = ({ hubs }) => {
                                                         </td>
                                                       </tr>
                                                       <tr>
-                                                        <td>Số nhà/Xóm</td>
+                                                        <td>
+                                                          Địa chỉ chi tiết *
+                                                        </td>
                                                         <td>
                                                           <input
                                                             className="bg-white border form-control rounded input-hover"
                                                             name="village"
-                                                            placeholder="Số nhà/Xóm"
+                                                            placeholder="Địa chỉ chi tiết"
                                                             type="text"
                                                             onInput={(e) =>
                                                               getValue(
@@ -692,14 +781,18 @@ const CheckoutCart = ({ hubs }) => {
                                                 <tbody>
                                                   <tr>
                                                     <td>
-                                                      Số điện thoại nhận hàng
+                                                      Số điện thoại nhận hàng *
                                                     </td>
                                                     <td>
                                                       <input
                                                         className="bg-white border form-control rounded input-hover"
-                                                        name="phoneShiping"
+                                                        // name="phoneShiping"
                                                         placeholder="Số điện thoại nhận hàng"
                                                         type="text"
+                                                        name="phoneShiping"
+                                                        {...register("test2", {
+                                                          required: true,
+                                                        })}
                                                         onInput={(e) =>
                                                           getValue(
                                                             "phoneShiping",
@@ -710,7 +803,7 @@ const CheckoutCart = ({ hubs }) => {
                                                     </td>
                                                   </tr>
                                                   <tr>
-                                                    <td>Tỉnh/TP</td>
+                                                    <td>Tỉnh/TP *</td>
                                                     <td>
                                                       <select
                                                         name="city_id"
@@ -743,7 +836,7 @@ const CheckoutCart = ({ hubs }) => {
                                                     </td>
                                                   </tr>
                                                   <tr>
-                                                    <td>Quận/Huyện</td>
+                                                    <td>Quận/Huyện *</td>
                                                     <td>
                                                       <select
                                                         name="city_id"
@@ -777,7 +870,7 @@ const CheckoutCart = ({ hubs }) => {
                                                   </tr>
                                                   <tr>
                                                     {/* wards */}
-                                                    <td>Phường/Xã</td>
+                                                    <td>Phường/Xã *</td>
                                                     <td>
                                                       <select
                                                         name="city_id"
@@ -808,12 +901,12 @@ const CheckoutCart = ({ hubs }) => {
                                                     </td>
                                                   </tr>
                                                   <tr>
-                                                    <td>Đường/Thôn</td>
+                                                    <td>Đường / Thôn / Xóm *</td>
                                                     <td>
                                                       <input
                                                         className="bg-white border form-control rounded input-hover"
                                                         name="street"
-                                                        placeholder="Đường/Thôn"
+                                                        placeholder="Đường / Thôn / Xóm"
                                                         type="text"
                                                         onInput={(e) =>
                                                           getValue("street", e)
@@ -822,12 +915,12 @@ const CheckoutCart = ({ hubs }) => {
                                                     </td>
                                                   </tr>
                                                   <tr>
-                                                    <td>Số nhà/Xóm</td>
+                                                    <td>Địa chỉ chi tiết *</td>
                                                     <td>
                                                       <input
                                                         className="bg-white border form-control rounded input-hover"
                                                         name="village"
-                                                        placeholder="Số nhà/Xóm"
+                                                        placeholder="Địa chỉ chi tiết"
                                                         type="text"
                                                         onInput={(e) =>
                                                           getValue("village", e)
@@ -841,6 +934,16 @@ const CheckoutCart = ({ hubs }) => {
                                           </div>
                                         </div>
                                       )}
+                                      <div className="mb-10 mt-20">
+                                        <p className="mb-2">
+                                          Thời gian nhận hàng :
+                                        </p>
+                                        <input
+                                          onInput={(e) => getValue("date", e)}
+                                          type="datetime-local"
+                                          name="date"
+                                        />
+                                      </div>
                                     </div>
                                     <input
                                       name="payment_gateway"
@@ -1232,7 +1335,7 @@ const CheckoutCart = ({ hubs }) => {
                                                         width: "40%",
                                                       }}
                                                     >
-                                                      Món ăn
+                                                      Ghi chú khác
                                                     </span>
                                                     <input
                                                       id="order-coupon-code"
@@ -1242,7 +1345,7 @@ const CheckoutCart = ({ hubs }) => {
                                                       }}
                                                       onInput={(e) =>
                                                         getValue(
-                                                          "Món ăn",
+                                                          "Ghi chú khác",
                                                           e,
                                                           item
                                                         )
@@ -1377,9 +1480,9 @@ const CheckoutCart = ({ hubs }) => {
                               </div>
                               <div className="checkout-payment bg-white mb-10 px-15 pb-15">
                                 <button
-                                  type="button"
+                                  type="submit"
                                   disabled={disable}
-                                  onClick={() => submitOrder()}
+                                  onClick={(e) => submitOrder(e)}
                                   nh-btn-action="create-order"
                                   className="btn bg-hightlight btn-1a color-white px-25 py-10 w-100 rounded text-uppercase fs-16"
                                 >

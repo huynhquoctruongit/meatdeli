@@ -2,13 +2,24 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import CartModal from "../../components/popup/cart";
 import { useRouter } from "next/router";
-const Header = ({ productCategories }) => {
+const Header = ({ productCategories, infoSettings }) => {
   const router = useRouter();
   const [isCartModal, setCardModal] = useState(false);
   const [isOpenMenu, setOpenMenu] = useState(false);
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState("");
   const { q } = router.query;
+  const dataCate =
+    productCategories || JSON.parse(localStorage.getItem("productCategories"));
+  var infoSet = null;
+  if (typeof window !== "undefined" && !infoSettings) {
+    infoSet =
+      localStorage.getItem("infoSettings") !== "undefined"
+        ? JSON.parse(localStorage.getItem("infoSettings"))
+        : "";
+  } else {
+    infoSet = infoSettings;
+  }
   const openMenu = () => {
     setOpenMenu(!isOpenMenu);
   };
@@ -69,7 +80,7 @@ const Header = ({ productCategories }) => {
                       </div>
                     </div>
                     <ul>
-                      {productCategories?.map((item, index) => {
+                      {dataCate?.map((item, index) => {
                         if (item?.children?.nodes.length > 0) {
                           return (
                             <Link href={`/category/${item.slug}`}>
@@ -190,7 +201,7 @@ const Header = ({ productCategories }) => {
                   <Link href="/">
                     <img
                       className="img-fluid"
-                      src="https://5sfood.vn/templates/fashion02/assets/media/template/group_1633.svg"
+                      src={infoSet?.avatar?.url}
                       alt="logo"
                     />
                   </Link>

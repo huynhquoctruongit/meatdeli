@@ -5,7 +5,7 @@ import Headseo from "../components/seo-header";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { motion } from "framer-motion";
-import { homeGQL } from "@/geters/home";
+import { homeGQL, getInfoCompayny } from "@/geters/home";
 import { apollo } from "@/api/index";
 import {
   ApolloClient,
@@ -84,14 +84,20 @@ const getPosts = async () => {
 
 MyApp.getInitialProps = async (context) => {
   if (isServer()) {
-    return { result: await getPosts() };
+    const result = await apollo.query({ query: getInfoCompayny });
+    const infoSettings = result.data.user;
+    return { result: await getPosts(), infoSettings: infoSettings };
   } else {
     return {
       result: null,
     };
   }
 };
-function MyApp({ Component, pageProps, result }) {
+
+function MyApp({ Component, pageProps, result, infoSettings }) {
+  if (typeof window !== "undefined" && infoSettings) {
+    localStorage.setItem("infoSettings", JSON.stringify(infoSettings));
+  }
   const router = useRouter();
   const asPath = router.asPath;
 
@@ -104,9 +110,12 @@ function MyApp({ Component, pageProps, result }) {
     <ApolloProvider client={apolloClient}>
       <Headseo />
       <div id="wrapper" className="is-mobile">
-        <Header productCategories={result?.data?.productCategories?.nodes} />
-        <Component {...pageProps} key={asPath} />
-        <Footer />
+        <Header
+          productCategories={result?.data?.productCategories?.nodes}
+          infoSettings={infoSettings}
+        />
+        <Component {...pageProps} key={asPath} infoSettings={infoSettings} />
+        <Footer infoSettings={infoSettings} />
       </div>
     </ApolloProvider>
   );

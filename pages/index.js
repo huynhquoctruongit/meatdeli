@@ -24,7 +24,14 @@ export async function getStaticProps() {
     revalidate: 60,
   };
 }
-export default function Home({ products,productCategories }) {
+export default function Home({ products, productCategories }) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(
+      "productCategories",
+      JSON.stringify(productCategories)
+    );
+  }
+
   var settings = {
     arrows: true,
     infinite: false,

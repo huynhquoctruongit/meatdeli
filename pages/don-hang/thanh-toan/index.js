@@ -97,13 +97,13 @@ const CheckoutCart = ({ hubs }) => {
       : "Địa chỉ nhận tại nhà : " + inputAddess;
     if (value?.full_name && value?.phone) {
       setDisale(false);
+      const address1_get = document.getElementById("addressSelect")?.checked
+        ? "Địa chỉ nhận tại HUB : " + value.addressHUB
+        : addressText;
       const orderData = {
         shipping: {
           lastName: value?.full_name,
-          address1:
-            (document.getElementById("addressSelect")?.checked
-              ? "Địa chỉ nhận tại HUB : " + value.addressHUB
-              : addressText) || "",
+          address1: address1_get !== true && address1_get ? address1_get : "",
           phone: value?.phoneShiping,
           state:
             "Thời gian nhận hàng : " +

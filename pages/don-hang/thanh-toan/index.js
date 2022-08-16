@@ -27,7 +27,6 @@ const CheckoutCart = ({ hubs }) => {
     watch,
     formState: { errors },
   } = useForm();
-  console.log(errors, "errors");
   const listHubs = hubs?.shippingClasses;
   const router = useRouter();
   const [carts, setCarts] = useState([]);
@@ -76,6 +75,35 @@ const CheckoutCart = ({ hubs }) => {
     );
   }, []);
   useEffect(() => {
+    if (value?.full_name && value?.phone) {
+      if (!isTabAddress) {
+        if (document.getElementById("addressSelect")?.checked) {
+          if (value.addressHUB) {
+            setDisale(false);
+          } else {
+            setDisale(true);
+          }
+        } else {
+          if (document.getElementById("addressSuggest")?.checked) {
+            setDisale(false);
+          }
+        }
+      } else {
+        setDisale(true);
+        if (
+          value?.village &&
+          addressSelect.ward &&
+          addressSelect.district &&
+          addressSelect.province
+        ) {
+          setDisale(false);
+        } else {
+          setDisale(true);
+        }
+      }
+    }
+  }, [value, addressSelect, isTabAddress]);
+  useEffect(() => {
     if (document.getElementById("addressSuggest")?.checked) {
       setCheckedSuggest(true);
     } else {
@@ -84,41 +112,42 @@ const CheckoutCart = ({ hubs }) => {
     const inputAddess =
       value?.village +
       " " +
-      value.street +
+      value?.street +
       " " +
-      addressSelect.ward +
+      addressSelect?.ward +
       " " +
-      addressSelect.district +
+      addressSelect?.district +
       " " +
-      addressSelect.province;
-    const addressText = document.getElementById("addressSuggest")?.checked;
-    const localAddress = localStorage.getItem("addressOrder")
-      ? "Địa chỉ gợi ý : " + (localAddress || addressUser[0])
-      : "Địa chỉ nhận tại nhà : " + inputAddess;
-    if (value?.full_name && value?.phone) {
-      setDisale(false);
-      const address1_get = document.getElementById("addressSelect")?.checked
-        ? "Địa chỉ nhận tại HUB : " + value.addressHUB
-        : addressText;
-      const orderData = {
-        shipping: {
-          lastName: value?.full_name,
-          address1: address1_get !== true && address1_get ? address1_get : "",
-          phone: value?.phoneShiping,
-          state:
-            "Thời gian nhận hàng : " +
-            moment(value?.date).format("DD/MM/YYYY, h:mm"),
-        },
-        billing: {
-          lastName: value?.full_name,
-          email: value?.email,
-          phone: value?.phone,
-        },
-        customerNote: value?.note,
-        paymentMethod: isTabPayment ? "bacs" : "cod",
-      };
-      setOrder(orderData);
-    }
+      addressSelect?.province;
+    const addressText = document.getElementById("addressSuggest")?.value;
+
+    const localAddress =
+      localStorage.getItem("addressOrder") || addressUser[0]
+        ? "Địa chỉ gợi ý : " + localAddress
+        : "Địa chỉ nhận tại nhà : " + inputAddess;
+
+    const address1_get = document.getElementById("addressSelect")?.checked
+      ? "Địa chỉ nhận tại HUB : " + value.addressHUB
+      : addressText;
+    const orderData = {
+      shipping: {
+        lastName: value?.full_name,
+        address1: address1_get ? address1_get : inputAddess,
+        phone: value?.phoneShiping,
+        state:
+          "Thời gian nhận hàng : " +
+          moment(value?.date).format("DD/MM/YYYY, h:mm"),
+      },
+      billing: {
+        lastName: value?.full_name,
+        email: value?.email,
+        phone: value?.phone,
+      },
+      customerNote: value?.note,
+      paymentMethod: isTabPayment ? "bacs" : "cod",
+    };
+    console.log(orderData, "orderData");
+    setOrder(orderData);
   }, [value, addressSelect]);
 
   const params = {
@@ -186,13 +215,13 @@ const CheckoutCart = ({ hubs }) => {
     const inputAddess =
       value?.village +
       " " +
-      value.street +
+      value?.street +
       " " +
-      addressSelect.ward +
+      addressSelect?.ward +
       " " +
-      addressSelect.district +
+      addressSelect?.district +
       " " +
-      addressSelect.province;
+      addressSelect?.province;
     const addressText = document.getElementById("addressSuggest")?.checked
       ? addressUser[0]
       : inputAddess;
@@ -318,11 +347,13 @@ const CheckoutCart = ({ hubs }) => {
   useEffect(() => {
     const localAddress = localStorage.getItem("addressOrder");
     if (localAddress) {
-      setAddressUser(findString(localAddress));
+      setAddressUser(localAddress);
     } else {
       if (locationUser) {
         const userIp = JSON.parse(locationUser);
-        setAddressUser(findString(userIp.locality));
+        const ip =
+          userIp.locality + ", " + userIp?.localityInfo?.administrative[3].name;
+        setAddressUser(findString(ip));
       }
     }
   }, [locationUser]);
@@ -400,692 +431,6 @@ const CheckoutCart = ({ hubs }) => {
                       name="google-sheet"
                     >
                       <div className="row">
-                        <div id="order-info-left" className="col-lg-8 col-md-6">
-                          <div className="billing-details">
-                            <div className="d-flex justify-content-between align-items-center mb-10">
-                              <h3 className="fs-16 mb-0">
-                                <b>Thông tin đặt hàng</b>
-                              </h3>
-                            </div>
-                            <div className="inner-col-1 mb-15 p-15 bg-white rounded-5">
-                              <div className="mb-3">
-                                <strong>Thông tin khách hàng </strong>
-                              </div>
-                              <div className="form-billing">
-                                <div className="form-group validate-form">
-                                  <input
-                                    className="bg-white border form-control rounded input-hover"
-                                    name="full_name"
-                                    type="text"
-                                    placeholder="Họ và tên *"
-                                    required
-                                    onInput={(e) => getValue("full_name", e)}
-                                  />
-                                </div>
-                                <div className="row">
-                                  <div className="col-lg-8 col-12">
-                                    <div className="form-group validate-form">
-                                      <input
-                                        className="bg-white border form-control rounded input-hover"
-                                        name="email"
-                                        type="text"
-                                        placeholder="Email"
-                                        onInput={(e) => getValue("email", e)}
-                                      />
-                                    </div>
-                                  </div>
-                                  <div className="col-lg-4 col-12">
-                                    <div className="form-group validate-form">
-                                      <input
-                                        className="bg-white border form-control rounded input-hover"
-                                        name="phone"
-                                        type="text"
-                                        required
-                                        placeholder="Số điện thoại *"
-                                        onInput={(e) => getValue("phone", e)}
-                                      />
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <div className="mb-3">
-                                  <strong>Thông tin giao nhận </strong>
-                                </div>
-                                <div className="form-group validate-form">
-                                  <div className="payment-method mb-10 bg-white rounded p-15">
-                                    <div className="d-flex align-content-stretch flex-wrap ">
-                                      <ul className="nav w-100" role="tablist">
-                                        <li
-                                          className="nav-item clearfix mb-10"
-                                          onClick={() => openTabAddress(false)}
-                                        >
-                                          <div
-                                            nh-gateway-item="cod"
-                                            className={`nav-link color-black d-flex  align-items-center border px-15 ${
-                                              !isTabAddress ? "active" : ""
-                                            }`}
-                                            data-toggle="tab"
-                                            role="tab"
-                                          >
-                                            <div className="inner-icon position-relative  mr-15">
-                                              <img
-                                                className="img-fluid rti-abs-contain"
-                                                src="https://cdn4.iconfinder.com/data/icons/business-883/64/35-512.png"
-                                                alt="cod"
-                                              />
-                                            </div>
-                                            <div className="inner-label text-left">
-                                              Nhận tại HUB
-                                              <div className="content-payment fs-14 font-weight-normal">
-                                                (Free shiping)
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-                                        {!isTabAddress && (
-                                          <div className="tab-content w-100 mt-3">
-                                            <div
-                                              id="cod"
-                                              className="tab-pane"
-                                              role="tabpanel"
-                                            ></div>
-                                            <div
-                                              id="bank"
-                                              className="tab-pane active"
-                                              role="tabpanel"
-                                            >
-                                              <div className="title-checkout color-black mb-3">
-                                                <span className="fs-14 font-weight-bold">
-                                                  <label>
-                                                    <input
-                                                      type="radio"
-                                                      name="radio-address"
-                                                      className="mr-2"
-                                                      id="addressSuggest"
-                                                      key="1"
-                                                      defaultChecked={checked}
-                                                      onChange={(e) =>
-                                                        selectAddress(
-                                                          e,
-                                                          "addressSuggest"
-                                                        )
-                                                      }
-                                                    />
-                                                    Địa điểm gợi ý :{" "}
-                                                    <span className="fs-14">
-                                                      {addressUser}
-                                                    </span>
-                                                  </label>
-                                                </span>
-                                                {errors?.message?.test && (
-                                                  <span>
-                                                    This field is required
-                                                  </span>
-                                                )}
-                                              </div>
-                                              <div className="title-checkout color-black">
-                                                <span className="fs-14 font-weight-bold">
-                                                  <label>
-                                                    <input
-                                                      type="radio"
-                                                      name="radio-address"
-                                                      defaultChecked={!checked}
-                                                      key="2"
-                                                      className="mr-2"
-                                                      id="addressSelect"
-                                                      onChange={(e) =>
-                                                        selectAddress(
-                                                          e,
-                                                          "addressSelect"
-                                                        )
-                                                      }
-                                                    />
-                                                    Tự chọn địa điểm của bạn :
-                                                  </label>
-                                                </span>
-                                                <div
-                                                  className={`entry-bank mb-30 ${
-                                                    checked ? "disable-tab" : ""
-                                                  }`}
-                                                >
-                                                  <table className="table w-100 mb-15">
-                                                    <tbody>
-                                                      <tr>
-                                                        <td>Tỉnh/TP *</td>
-                                                        <td>
-                                                          <select
-                                                            name="city_id"
-                                                            id="city_id"
-                                                            className="form-control selectpicker input-hover"
-                                                            data-size={10}
-                                                            data-live-search={1}
-                                                            tabIndex={-98}
-                                                            onChange={(e) =>
-                                                              selectAddress(
-                                                                e,
-                                                                "province"
-                                                              )
-                                                            }
-                                                          >
-                                                            <option value>
-                                                              -- Tỉnh thành --
-                                                            </option>
-                                                            {provinces?.map(
-                                                              (item) => (
-                                                                <option
-                                                                  key={
-                                                                    item.code
-                                                                  }
-                                                                  value={
-                                                                    item.code
-                                                                  }
-                                                                >
-                                                                  {item.name}
-                                                                </option>
-                                                              )
-                                                            )}
-                                                          </select>
-                                                        </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td>Quận/Huyện *</td>
-                                                        <td>
-                                                          <select
-                                                            name="city_id"
-                                                            id="city_id"
-                                                            className="form-control selectpicker input-hover"
-                                                            data-size={10}
-                                                            data-live-search={1}
-                                                            tabIndex={-98}
-                                                            onChange={(e) =>
-                                                              selectAddress(
-                                                                e,
-                                                                "district"
-                                                              )
-                                                            }
-                                                          >
-                                                            <option value>
-                                                              -- Quận/Huyện --
-                                                            </option>
-                                                            {districts?.map(
-                                                              (item) => (
-                                                                <option
-                                                                  key={
-                                                                    item.code
-                                                                  }
-                                                                  value={
-                                                                    item.code
-                                                                  }
-                                                                >
-                                                                  {item.name}
-                                                                </option>
-                                                              )
-                                                            )}
-                                                          </select>
-                                                        </td>
-                                                      </tr>
-                                                      <tr>
-                                                        {/* wards */}
-                                                        <td>Phường/Xã *</td>
-                                                        <td>
-                                                          <select
-                                                            name="city_id"
-                                                            id="city_id"
-                                                            className="form-control selectpicker input-hover"
-                                                            data-size={10}
-                                                            data-live-search={1}
-                                                            tabIndex={-98}
-                                                            onChange={(e) =>
-                                                              selectAddress(
-                                                                e,
-                                                                "ward"
-                                                              )
-                                                            }
-                                                          >
-                                                            <option value>
-                                                              -- Phường/Xã --
-                                                            </option>
-                                                            {wards?.map(
-                                                              (item) => (
-                                                                <option
-                                                                  key={
-                                                                    item.code
-                                                                  }
-                                                                  value={
-                                                                    item.code
-                                                                  }
-                                                                >
-                                                                  {item.name}
-                                                                </option>
-                                                              )
-                                                            )}
-                                                          </select>
-                                                        </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td>
-                                                          Đường / Thôn / Xóm *
-                                                        </td>
-                                                        <td>
-                                                          <input
-                                                            className="bg-white border form-control rounded input-hover"
-                                                            name="street"
-                                                            placeholder="Đường / Thôn / Xóm"
-                                                            type="text"
-                                                            onInput={(e) =>
-                                                              getValue(
-                                                                "street",
-                                                                e
-                                                              )
-                                                            }
-                                                          />
-                                                        </td>
-                                                      </tr>
-                                                      <tr>
-                                                        <td>
-                                                          Địa chỉ chi tiết *
-                                                        </td>
-                                                        <td>
-                                                          <input
-                                                            className="bg-white border form-control rounded input-hover"
-                                                            name="village"
-                                                            placeholder="Địa chỉ chi tiết"
-                                                            type="text"
-                                                            onInput={(e) =>
-                                                              getValue(
-                                                                "village",
-                                                                e
-                                                              )
-                                                            }
-                                                          />
-                                                        </td>
-                                                      </tr>
-                                                    </tbody>
-                                                  </table>
-                                                </div>
-                                                <p>
-                                                  Danh sách các điểm điểm gần
-                                                  khu bạn:
-                                                </p>
-                                                {listHUB?.map((item, index) => (
-                                                  <div key={index}>
-                                                    <label htmlFor={index}>
-                                                      <input
-                                                        type="radio"
-                                                        name="hub"
-                                                        className="mr-2"
-                                                        id={index}
-                                                        value={item}
-                                                        onInput={(e) =>
-                                                          getValue(
-                                                            "addressHUB",
-                                                            e
-                                                          )
-                                                        }
-                                                      />
-                                                      {item}
-                                                    </label>
-                                                  </div>
-                                                ))}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        )}
-                                        <li
-                                          className="nav-item clearfix mb-10"
-                                          onClick={() => openTabAddress(true)}
-                                        >
-                                          <div
-                                            nh-gateway-item="bank"
-                                            className={`nav-link color-black d-flex  align-items-center border px-15 ${
-                                              isTabAddress ? "active" : ""
-                                            }`}
-                                            data-toggle="tab"
-                                            role="tab"
-                                          >
-                                            <div className="inner-icon position-relative  mr-15">
-                                              <img
-                                                className="img-fluid rti-abs-contain"
-                                                src="http://ksit.com.vn/wp-content/uploads/2017/07/Home-icon.png"
-                                                alt="bank"
-                                              />
-                                            </div>
-                                            <div className="d-flex justify-content-between mt-3 inner-label text-left">
-                                              <p>Nhận tại nhà </p>
-                                              <div className="content-payment fs-14 ml-2 font-weight-normal">
-                                                (Chính sách giao nhận)
-                                                {/* <Link href="/chinh-sach-giao-nhan">
-                                                  (Chính sách giao nhận)
-                                                </Link> */}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </li>
-                                      </ul>
-                                      {isTabAddress && (
-                                        <div className="tab-content w-100 mt-3">
-                                          <div
-                                            id="cod"
-                                            className="tab-pane"
-                                            role="tabpanel"
-                                          ></div>
-                                          <div
-                                            id="bank"
-                                            className="tab-pane active"
-                                            role="tabpanel"
-                                          >
-                                            <h3 className="title-checkout color-black">
-                                              <b>Thông tin nhận hàng</b>
-                                            </h3>
-                                            <div className="entry-bank mb-30">
-                                              <table className="table w-100 mb-15">
-                                                <tbody>
-                                                  <tr>
-                                                    <td>
-                                                      Số điện thoại nhận hàng *
-                                                    </td>
-                                                    <td>
-                                                      <input
-                                                        className="bg-white border form-control rounded input-hover"
-                                                        // name="phoneShiping"
-                                                        placeholder="Số điện thoại nhận hàng"
-                                                        type="text"
-                                                        name="phoneShiping"
-                                                        {...register("test2", {
-                                                          required: true,
-                                                        })}
-                                                        onInput={(e) =>
-                                                          getValue(
-                                                            "phoneShiping",
-                                                            e
-                                                          )
-                                                        }
-                                                      />
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Tỉnh/TP *</td>
-                                                    <td>
-                                                      <select
-                                                        name="city_id"
-                                                        id="city_id"
-                                                        className="form-control selectpicker input-hover"
-                                                        data-size={10}
-                                                        data-live-search={1}
-                                                        tabIndex={-98}
-                                                        onChange={(e) =>
-                                                          selectAddress(
-                                                            e,
-                                                            "province"
-                                                          )
-                                                        }
-                                                      >
-                                                        <option value>
-                                                          -- Tỉnh thành --
-                                                        </option>
-                                                        {provinces?.map(
-                                                          (item) => (
-                                                            <option
-                                                              key={item.code}
-                                                              value={item.code}
-                                                            >
-                                                              {item.name}
-                                                            </option>
-                                                          )
-                                                        )}
-                                                      </select>
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Quận/Huyện *</td>
-                                                    <td>
-                                                      <select
-                                                        name="city_id"
-                                                        id="city_id"
-                                                        className="form-control selectpicker input-hover"
-                                                        data-size={10}
-                                                        data-live-search={1}
-                                                        tabIndex={-98}
-                                                        onChange={(e) =>
-                                                          selectAddress(
-                                                            e,
-                                                            "district"
-                                                          )
-                                                        }
-                                                      >
-                                                        <option value>
-                                                          -- Quận/Huyện --
-                                                        </option>
-                                                        {districts?.map(
-                                                          (item) => (
-                                                            <option
-                                                              key={item.code}
-                                                              value={item.code}
-                                                            >
-                                                              {item.name}
-                                                            </option>
-                                                          )
-                                                        )}
-                                                      </select>
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    {/* wards */}
-                                                    <td>Phường/Xã *</td>
-                                                    <td>
-                                                      <select
-                                                        name="city_id"
-                                                        id="city_id"
-                                                        className="form-control selectpicker input-hover"
-                                                        data-size={10}
-                                                        data-live-search={1}
-                                                        tabIndex={-98}
-                                                        onChange={(e) =>
-                                                          selectAddress(
-                                                            e,
-                                                            "ward"
-                                                          )
-                                                        }
-                                                      >
-                                                        <option value>
-                                                          -- Phường/Xã --
-                                                        </option>
-                                                        {wards?.map((item) => (
-                                                          <option
-                                                            key={item.code}
-                                                            value={item.code}
-                                                          >
-                                                            {item.name}
-                                                          </option>
-                                                        ))}
-                                                      </select>
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>
-                                                      Đường / Thôn / Xóm *
-                                                    </td>
-                                                    <td>
-                                                      <input
-                                                        className="bg-white border form-control rounded input-hover"
-                                                        name="street"
-                                                        placeholder="Đường / Thôn / Xóm"
-                                                        type="text"
-                                                        onInput={(e) =>
-                                                          getValue("street", e)
-                                                        }
-                                                      />
-                                                    </td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>Địa chỉ chi tiết *</td>
-                                                    <td>
-                                                      <input
-                                                        className="bg-white border form-control rounded input-hover"
-                                                        name="village"
-                                                        placeholder="Địa chỉ chi tiết"
-                                                        type="text"
-                                                        onInput={(e) =>
-                                                          getValue("village", e)
-                                                        }
-                                                      />
-                                                    </td>
-                                                  </tr>
-                                                </tbody>
-                                              </table>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      )}
-                                      <div className="mb-10 mt-20">
-                                        <p className="mb-2">
-                                          Thời gian nhận hàng :
-                                        </p>
-                                        <input
-                                          onInput={(e) => getValue("date", e)}
-                                          type="datetime-local"
-                                          name="date"
-                                        />
-                                      </div>
-                                    </div>
-                                    <input
-                                      name="payment_gateway"
-                                      defaultValue
-                                      type="hidden"
-                                    />
-                                    <input
-                                      name="code"
-                                      defaultValue
-                                      type="hidden"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <p>* Bắt buộc</p>
-                            </div>
-                            <div className="inner-col-2 mt-5 mb-15 p-15 bg-white rounded-5">
-                              <label>Ghi chú</label>
-                              <div className="form-additional">
-                                <textarea
-                                  onInput={(e) => getValue("note", e)}
-                                  className="bg-white border form-control rounded input-hover"
-                                  name="note"
-                                  rows={2}
-                                  cols={5}
-                                  defaultValue={""}
-                                />
-                              </div>
-                            </div>
-                            <div className="payment-method mb-10 bg-white rounded p-15">
-                              <div className="d-flex align-content-stretch flex-wrap ">
-                                <ul className="nav w-100" role="tablist">
-                                  <li
-                                    className="nav-item clearfix mb-10"
-                                    onClick={() => openTabPayment(false)}
-                                  >
-                                    <div
-                                      nh-gateway-item="cod"
-                                      className={`nav-link color-black d-flex  align-items-center border px-15 ${
-                                        !isTabPayment ? "active" : ""
-                                      }`}
-                                      data-toggle="tab"
-                                      role="tab"
-                                    >
-                                      <div className="inner-icon position-relative  mr-15">
-                                        <img
-                                          className="img-fluid rti-abs-contain"
-                                          src="https://5sfood.vn/templates/fashion02/assets/img/payment/cod.png"
-                                          alt="cod"
-                                        />
-                                      </div>
-                                      <div className="inner-label text-left">
-                                        Thanh toán sau khi nhận hàng (COD)
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li
-                                    className="nav-item clearfix mb-10"
-                                    onClick={() => openTabPayment(true)}
-                                  >
-                                    <div
-                                      nh-gateway-item="bank"
-                                      className={`nav-link color-black d-flex  align-items-center border px-15 ${
-                                        isTabPayment ? "active" : ""
-                                      }`}
-                                      data-toggle="tab"
-                                      role="tab"
-                                    >
-                                      <div className="inner-icon position-relative  mr-15">
-                                        <img
-                                          className="img-fluid rti-abs-contain"
-                                          src="https://5sfood.vn/templates/fashion02/assets/img/payment/bank.png"
-                                          alt="bank"
-                                        />
-                                      </div>
-                                      <div className="inner-label text-left">
-                                        Thanh toán qua chuyển khoản
-                                        <div className="content-payment fs-14 font-weight-normal">
-                                          <p>
-                                            Freeship bán kính 5km khi chuyển
-                                            khoản đơn hàng từ 600k
-                                          </p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </li>
-                                </ul>
-                                {isTabPayment && (
-                                  <div className="tab-content w-100 mt-3">
-                                    <div
-                                      id="cod"
-                                      className="tab-pane"
-                                      role="tabpanel"
-                                    ></div>
-                                    <div
-                                      id="bank"
-                                      className="tab-pane active"
-                                      role="tabpanel"
-                                    >
-                                      <h3 className="title-checkout color-black">
-                                        <b>Tài khoản ngân hàng</b>
-                                      </h3>
-                                      <div className="entry-bank mb-30">
-                                        <table className="table w-100 mb-15">
-                                          <tbody>
-                                            <tr>
-                                              <td>Tên ngân hàng</td>
-                                              <td>
-                                                <b>Ngân hàng Vietcombank</b>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>Chủ tài khoản</td>
-                                              <td>
-                                                <b>Bùi Văn Toàn</b>
-                                              </td>
-                                            </tr>
-                                            <tr>
-                                              <td>Số tài khoản</td>
-                                              <td>
-                                                <b>0021 0020 63897</b>
-                                              </td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </div>
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                              <input
-                                name="payment_gateway"
-                                defaultValue
-                                type="hidden"
-                              />
-                              <input name="code" defaultValue type="hidden" />
-                            </div>
-                          </div>
-                        </div>
                         <div
                           id="order-info-right"
                           className="col-lg-4 col-md-6"
@@ -1095,14 +440,11 @@ const CheckoutCart = ({ hubs }) => {
                               <thead>
                                 <tr>
                                   <th className="text-left bg-white border-0 color-text p-0">
-                                    <h3 className="fs-16 mb-0 d-flex justify-content-between">
-                                      <b>Sản phẩm đã chọn : 1</b>
+                                    <h3 className="fs-16 mb-3 d-flex justify-content-between">
+                                      <b>Sản phẩm đã chọn</b>
                                       <b>Giá</b>
                                     </h3>
                                   </th>
-                                  {/* <th className="text-right bg-white border-0 color-text fs-16 font-weight-bold p-0">
-                                    Giá
-                                  </th> */}
                                 </tr>
                               </thead>
                               <tbody>
@@ -1382,7 +724,7 @@ const CheckoutCart = ({ hubs }) => {
                           <div className="order-review">
                             <div className="entry-order-review">
                               <div className="cart-drop-botoom">
-                                <div id="accordion-order">
+                                {/* <div id="accordion-order">
                                   <div className="card bg-white rounded  mb-10">
                                     <div className="card-header">
                                       <div
@@ -1456,7 +798,7 @@ const CheckoutCart = ({ hubs }) => {
                                     defaultValue
                                     type="hidden"
                                   />
-                                </div>
+                                </div> */}
                               </div>
                               <div className="product-order-info-right-bottom  bg-white rounded p-15">
                                 <div className="d-flex justify-content-between mb-15">
@@ -1481,26 +823,7 @@ const CheckoutCart = ({ hubs }) => {
                                   </span>
                                 </div>
                               </div>
-                              <div className="checkout-payment bg-white mb-10 px-15 pb-15">
-                                <button
-                                  type="submit"
-                                  disabled={disable}
-                                  onClick={(e) => submitOrder(e)}
-                                  nh-btn-action="create-order"
-                                  className="btn bg-hightlight btn-1a color-white px-25 py-10 w-100 rounded text-uppercase fs-16"
-                                >
-                                  {loadingPage ? "Vui lòng đợi..." : "Đặt hàng"}
-                                </button>
-                                <Link href="/don-hang/thong-tin">
-                                  <div
-                                    title="Quay lại giỏ hàng"
-                                    className="order-back fs-14 d-flex align-items-center color-main mt-15"
-                                  >
-                                    <i className="iconsax isax-arrow-left mr-5" />
-                                    Quay lại giỏ hàng
-                                  </div>
-                                </Link>
-                              </div>
+
                               <div className="note-order-review rounded-5 px-15 py-10 mb-15 text-center color-main d-flex">
                                 <div
                                   nh-block="tqsf4rh"
@@ -1525,6 +848,712 @@ const CheckoutCart = ({ hubs }) => {
                                   </div>
                                 </div>
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="order-info-left" className="col-lg-8 col-md-6">
+                          <div className="billing-details">
+                            <div className="d-flex justify-content-between align-items-center mb-10">
+                              <h3 className="fs-16 mb-0">
+                                <b>Thông tin đặt hàng</b>
+                              </h3>
+                            </div>
+                            <div className="inner-col-1 mb-15 p-15 bg-white rounded-5">
+                              <div className="mb-3">
+                                <strong>Thông tin khách hàng </strong>
+                              </div>
+                              <div className="form-billing">
+                                <div className="form-group validate-form">
+                                  <input
+                                    className="bg-white border form-control rounded input-hover"
+                                    name="full_name"
+                                    type="text"
+                                    placeholder="Họ và tên *"
+                                    required
+                                    onInput={(e) => getValue("full_name", e)}
+                                  />
+                                </div>
+                                <div className="row">
+                                  <div className="col-lg-8 col-12">
+                                    <div className="form-group validate-form">
+                                      <input
+                                        className="bg-white border form-control rounded input-hover"
+                                        name="email"
+                                        type="text"
+                                        placeholder="Email"
+                                        onInput={(e) => getValue("email", e)}
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="col-lg-4 col-12">
+                                    <div className="form-group validate-form">
+                                      <input
+                                        className="bg-white border form-control rounded input-hover"
+                                        name="phone"
+                                        type="text"
+                                        required
+                                        placeholder="Số điện thoại *"
+                                        onInput={(e) => getValue("phone", e)}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div className="mb-3">
+                                  <strong>Thông tin giao nhận </strong>
+                                </div>
+                                <div className="form-group validate-form">
+                                  <div className="payment-method mb-10 bg-white rounded p-15">
+                                    <div className="d-flex align-content-stretch flex-wrap ">
+                                      <ul className="nav w-100" role="tablist">
+                                        <li
+                                          className="nav-item clearfix mb-10"
+                                          onClick={() => openTabAddress(false)}
+                                        >
+                                          <div
+                                            nh-gateway-item="cod"
+                                            className={`nav-link color-black d-flex  align-items-center border px-15 ${
+                                              !isTabAddress ? "active" : ""
+                                            }`}
+                                            data-toggle="tab"
+                                            role="tab"
+                                          >
+                                            <div className="inner-icon position-relative  mr-15">
+                                              <img
+                                                className="img-fluid rti-abs-contain"
+                                                src="https://cdn4.iconfinder.com/data/icons/business-883/64/35-512.png"
+                                                alt="cod"
+                                              />
+                                            </div>
+                                            <div className="inner-label text-left">
+                                              Nhận tại HUB
+                                              <div className="content-payment fs-14 font-weight-normal">
+                                                (Free shiping)
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        {!isTabAddress && (
+                                          <div className="tab-content w-100 mt-3">
+                                            <div
+                                              id="cod"
+                                              className="tab-pane"
+                                              role="tabpanel"
+                                            ></div>
+                                            <div
+                                              id="bank"
+                                              className="tab-pane active"
+                                              role="tabpanel"
+                                            >
+                                              <div className="title-checkout color-black mb-3">
+                                                <span className="fs-14 font-weight-bold">
+                                                  <label>
+                                                    <input
+                                                      type="radio"
+                                                      name="radio-address"
+                                                      className="mr-2"
+                                                      id="addressSuggest"
+                                                      key={addressUser}
+                                                      value={addressUser}
+                                                      disabled={!addressUser[0]}
+                                                      defaultChecked={checked}
+                                                      onChange={(e) =>
+                                                        selectAddress(
+                                                          e,
+                                                          "addressSuggest"
+                                                        )
+                                                      }
+                                                    />
+                                                    Địa điểm gợi ý :{" "}
+                                                    <span className="fs-14">
+                                                      {addressUser}
+                                                    </span>
+                                                  </label>
+                                                </span>
+                                                {errors?.message?.test && (
+                                                  <span>
+                                                    This field is required
+                                                  </span>
+                                                )}
+                                              </div>
+                                              <div className="title-checkout color-black">
+                                                <span className="fs-14 font-weight-bold">
+                                                  <label>
+                                                    <input
+                                                      type="radio"
+                                                      name="radio-address"
+                                                      defaultChecked={!checked}
+                                                      key="2"
+                                                      className="mr-2"
+                                                      id="addressSelect"
+                                                      onChange={(e) =>
+                                                        selectAddress(
+                                                          e,
+                                                          "addressSelect"
+                                                        )
+                                                      }
+                                                    />
+                                                    Tự chọn địa điểm của bạn :
+                                                  </label>
+                                                </span>
+                                                <div
+                                                  className={`entry-bank mb-30 ${
+                                                    checked ? "disable-tab" : ""
+                                                  }`}
+                                                >
+                                                  <table className="table w-100 mb-15">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td>Tỉnh/TP *</td>
+                                                        <td>
+                                                          <select
+                                                            name="city_id"
+                                                            id="city_id"
+                                                            className="form-control selectpicker input-hover"
+                                                            data-size={10}
+                                                            data-live-search={1}
+                                                            tabIndex={-98}
+                                                            onChange={(e) =>
+                                                              selectAddress(
+                                                                e,
+                                                                "province"
+                                                              )
+                                                            }
+                                                          >
+                                                            <option value>
+                                                              -- Tỉnh thành --
+                                                            </option>
+                                                            {provinces?.map(
+                                                              (item) => (
+                                                                <option
+                                                                  key={
+                                                                    item.name
+                                                                  }
+                                                                  name={
+                                                                    item.name
+                                                                  }
+                                                                  value={
+                                                                    item.code
+                                                                  }
+                                                                >
+                                                                  {item.name}
+                                                                </option>
+                                                              )
+                                                            )}
+                                                          </select>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>Quận/Huyện *</td>
+                                                        <td>
+                                                          <select
+                                                            name="city_id"
+                                                            id="city_id"
+                                                            className="form-control selectpicker input-hover"
+                                                            data-size={10}
+                                                            data-live-search={1}
+                                                            tabIndex={-98}
+                                                            onChange={(e) =>
+                                                              selectAddress(
+                                                                e,
+                                                                "district"
+                                                              )
+                                                            }
+                                                          >
+                                                            <option value>
+                                                              -- Quận/Huyện --
+                                                            </option>
+                                                            {districts?.map(
+                                                              (item) => (
+                                                                <option
+                                                                  key={
+                                                                    item.name
+                                                                  }
+                                                                  value={
+                                                                    item.code
+                                                                  }
+                                                                >
+                                                                  {item.name}
+                                                                </option>
+                                                              )
+                                                            )}
+                                                          </select>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        {/* wards */}
+                                                        <td>Phường/Xã *</td>
+                                                        <td>
+                                                          <select
+                                                            name="city_id"
+                                                            id="city_id"
+                                                            className="form-control selectpicker input-hover"
+                                                            data-size={10}
+                                                            data-live-search={1}
+                                                            tabIndex={-98}
+                                                            onChange={(e) =>
+                                                              selectAddress(
+                                                                e,
+                                                                "ward"
+                                                              )
+                                                            }
+                                                          >
+                                                            <option value>
+                                                              -- Phường/Xã --
+                                                            </option>
+                                                            {wards?.map(
+                                                              (item) => (
+                                                                <option
+                                                                  key={
+                                                                    item.name
+                                                                  }
+                                                                  value={
+                                                                    item.code
+                                                                  }
+                                                                >
+                                                                  {item.name}
+                                                                </option>
+                                                              )
+                                                            )}
+                                                          </select>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          Đường / Thôn / Xóm{" "}
+                                                        </td>
+                                                        <td>
+                                                          <input
+                                                            className="bg-white border form-control rounded input-hover"
+                                                            name="street"
+                                                            placeholder="Đường / Thôn / Xóm"
+                                                            type="text"
+                                                            onInput={(e) =>
+                                                              getValue(
+                                                                "street",
+                                                                e
+                                                              )
+                                                            }
+                                                          />
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>
+                                                          Địa chỉ chi tiết *
+                                                        </td>
+                                                        <td>
+                                                          <input
+                                                            className="bg-white border form-control rounded input-hover"
+                                                            name="village"
+                                                            placeholder="Địa chỉ chi tiết"
+                                                            type="text"
+                                                            onInput={(e) =>
+                                                              getValue(
+                                                                "village",
+                                                                e
+                                                              )
+                                                            }
+                                                          />
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                  <p>
+                                                    Danh sách các điểm điểm gần
+                                                    khu bạn:
+                                                  </p>
+                                                  {listHUB?.map(
+                                                    (item, index) => (
+                                                      <div key={index}>
+                                                        <label htmlFor={index}>
+                                                          <input
+                                                            type="radio"
+                                                            name="hub"
+                                                            className="mr-2"
+                                                            id={index}
+                                                            value={item}
+                                                            onInput={(e) =>
+                                                              getValue(
+                                                                "addressHUB",
+                                                                e
+                                                              )
+                                                            }
+                                                          />
+                                                          {item}
+                                                        </label>
+                                                      </div>
+                                                    )
+                                                  )}
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
+                                        <li
+                                          className="nav-item clearfix mb-10"
+                                          onClick={() => openTabAddress(true)}
+                                        >
+                                          <div
+                                            nh-gateway-item="bank"
+                                            className={`nav-link color-black d-flex  align-items-center border px-15 ${
+                                              isTabAddress ? "active" : ""
+                                            }`}
+                                            data-toggle="tab"
+                                            role="tab"
+                                          >
+                                            <div className="inner-icon position-relative  mr-15">
+                                              <img
+                                                className="img-fluid rti-abs-contain"
+                                                src="http://ksit.com.vn/wp-content/uploads/2017/07/Home-icon.png"
+                                                alt="bank"
+                                              />
+                                            </div>
+                                            <div className="d-flex justify-content-between mt-3 inner-label text-left">
+                                              <p>Nhận tại nhà </p>
+                                              <div className="content-payment fs-14 ml-2 font-weight-normal">
+                                                (Chính sách giao nhận)
+                                                {/* <Link href="/chinh-sach-giao-nhan">
+                                                  (Chính sách giao nhận)
+                                                </Link> */}
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                      {isTabAddress && (
+                                        <div className="tab-content w-100 mt-3">
+                                          <div
+                                            id="cod"
+                                            className="tab-pane"
+                                            role="tabpanel"
+                                          ></div>
+                                          <div
+                                            id="bank"
+                                            className="tab-pane active"
+                                            role="tabpanel"
+                                          >
+                                            <h3 className="title-checkout color-black">
+                                              <b>Thông tin nhận hàng</b>
+                                            </h3>
+                                            <div className="entry-bank mb-30">
+                                              <table className="table w-100 mb-15">
+                                                <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      Số điện thoại nhận hàng
+                                                    </td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        // name="phoneShiping"
+                                                        placeholder="Số điện thoại nhận hàng"
+                                                        type="text"
+                                                        name="phoneShiping"
+                                                        {...register("test2", {
+                                                          required: true,
+                                                        })}
+                                                        onInput={(e) =>
+                                                          getValue(
+                                                            "phoneShiping",
+                                                            e
+                                                          )
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Tỉnh/TP *</td>
+                                                    <td>
+                                                      <select
+                                                        name="city_id"
+                                                        id="city_id"
+                                                        className="form-control selectpicker input-hover"
+                                                        data-size={10}
+                                                        data-live-search={1}
+                                                        tabIndex={-98}
+                                                        onChange={(e) =>
+                                                          selectAddress(
+                                                            e,
+                                                            "province"
+                                                          )
+                                                        }
+                                                      >
+                                                        <option value>
+                                                          -- Tỉnh thành --
+                                                        </option>
+                                                        {provinces?.map(
+                                                          (item) => (
+                                                            <option
+                                                              name={item.name}
+                                                              key={item.name}
+                                                              value={item}
+                                                            >
+                                                              {item.name}
+                                                            </option>
+                                                          )
+                                                        )}
+                                                      </select>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Quận/Huyện *</td>
+                                                    <td>
+                                                      <select
+                                                        name="city_id"
+                                                        id="city_id"
+                                                        className="form-control selectpicker input-hover"
+                                                        data-size={10}
+                                                        data-live-search={1}
+                                                        tabIndex={-98}
+                                                        onChange={(e) =>
+                                                          selectAddress(
+                                                            e,
+                                                            "district"
+                                                          )
+                                                        }
+                                                      >
+                                                        <option value>
+                                                          -- Quận/Huyện --
+                                                        </option>
+                                                        {districts?.map(
+                                                          (item) => (
+                                                            <option
+                                                              key={item.name}
+                                                              value={item.code}
+                                                            >
+                                                              {item.name}
+                                                            </option>
+                                                          )
+                                                        )}
+                                                      </select>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    {/* wards */}
+                                                    <td>Phường/Xã *</td>
+                                                    <td>
+                                                      <select
+                                                        name="city_id"
+                                                        id="city_id"
+                                                        className="form-control selectpicker input-hover"
+                                                        data-size={10}
+                                                        data-live-search={1}
+                                                        tabIndex={-98}
+                                                        onChange={(e) =>
+                                                          selectAddress(
+                                                            e,
+                                                            "ward"
+                                                          )
+                                                        }
+                                                      >
+                                                        <option value>
+                                                          -- Phường/Xã --
+                                                        </option>
+                                                        {wards?.map((item) => (
+                                                          <option
+                                                            key={item.name}
+                                                            value={item.code}
+                                                          >
+                                                            {item.name}
+                                                          </option>
+                                                        ))}
+                                                      </select>
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Đường / Thôn / Xóm</td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        name="street"
+                                                        placeholder="Đường / Thôn / Xóm"
+                                                        type="text"
+                                                        onInput={(e) =>
+                                                          getValue("street", e)
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>Địa chỉ chi tiết *</td>
+                                                    <td>
+                                                      <input
+                                                        className="bg-white border form-control rounded input-hover"
+                                                        name="village"
+                                                        placeholder="Địa chỉ chi tiết"
+                                                        type="text"
+                                                        onInput={(e) =>
+                                                          getValue("village", e)
+                                                        }
+                                                      />
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )}
+                                      <div className="mb-10 mt-20">
+                                        <p className="mb-2">
+                                          Thời gian nhận hàng :
+                                        </p>
+                                        <input
+                                          onInput={(e) => getValue("date", e)}
+                                          type="datetime-local"
+                                          name="date"
+                                        />
+                                      </div>
+                                    </div>
+                                    <input
+                                      name="payment_gateway"
+                                      defaultValue
+                                      type="hidden"
+                                    />
+                                    <input
+                                      name="code"
+                                      defaultValue
+                                      type="hidden"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <p>* Bắt buộc</p>
+                            </div>
+                            <div className="inner-col-2 mt-5 mb-15 p-15 bg-white rounded-5">
+                              <label>Ghi chú</label>
+                              <div className="form-additional">
+                                <textarea
+                                  onInput={(e) => getValue("note", e)}
+                                  className="bg-white border form-control rounded input-hover"
+                                  name="note"
+                                  rows={2}
+                                  cols={5}
+                                  defaultValue={""}
+                                />
+                              </div>
+                            </div>
+                            <div className="payment-method mb-10 bg-white rounded p-15">
+                              <div className="d-flex align-content-stretch flex-wrap ">
+                                <ul className="nav w-100" role="tablist">
+                                  <li
+                                    className="nav-item clearfix mb-10"
+                                    onClick={() => openTabPayment(false)}
+                                  >
+                                    <div
+                                      nh-gateway-item="cod"
+                                      className={`nav-link color-black d-flex  align-items-center border px-15 ${
+                                        !isTabPayment ? "active" : ""
+                                      }`}
+                                      data-toggle="tab"
+                                      role="tab"
+                                    >
+                                      <div className="inner-icon position-relative  mr-15">
+                                        <img
+                                          className="img-fluid rti-abs-contain"
+                                          src="https://5sfood.vn/templates/fashion02/assets/img/payment/cod.png"
+                                          alt="cod"
+                                        />
+                                      </div>
+                                      <div className="inner-label text-left">
+                                        Thanh toán sau khi nhận hàng (COD)
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li
+                                    className="nav-item clearfix mb-10"
+                                    onClick={() => openTabPayment(true)}
+                                  >
+                                    <div
+                                      nh-gateway-item="bank"
+                                      className={`nav-link color-black d-flex  align-items-center border px-15 ${
+                                        isTabPayment ? "active" : ""
+                                      }`}
+                                      data-toggle="tab"
+                                      role="tab"
+                                    >
+                                      <div className="inner-icon position-relative  mr-15">
+                                        <img
+                                          className="img-fluid rti-abs-contain"
+                                          src="https://5sfood.vn/templates/fashion02/assets/img/payment/bank.png"
+                                          alt="bank"
+                                        />
+                                      </div>
+                                      <div className="inner-label text-left">
+                                        Thanh toán qua chuyển khoản
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                                {isTabPayment && (
+                                  <div className="tab-content w-100 mt-3">
+                                    <div
+                                      id="cod"
+                                      className="tab-pane"
+                                      role="tabpanel"
+                                    ></div>
+                                    <div
+                                      id="bank"
+                                      className="tab-pane active"
+                                      role="tabpanel"
+                                    >
+                                      <h3 className="title-checkout color-black">
+                                        <b>Tài khoản ngân hàng</b>
+                                      </h3>
+                                      <div className="entry-bank mb-30">
+                                        <table className="table w-100 mb-15">
+                                          <tbody>
+                                            <tr>
+                                              <td>Tên ngân hàng</td>
+                                              <td>
+                                                <b>Ngân hàng Vietcombank</b>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>Chủ tài khoản</td>
+                                              <td>
+                                                <b>Bùi Văn Toàn</b>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td>Số tài khoản</td>
+                                              <td>
+                                                <b>0021 0020 63897</b>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                              <input
+                                name="payment_gateway"
+                                defaultValue
+                                type="hidden"
+                              />
+                              <input name="code" defaultValue type="hidden" />
+                            </div>
+                            <div className="checkout-payment bg-white mb-10 px-15 pb-15">
+                              <button
+                                type="submit"
+                                disabled={disable}
+                                onClick={(e) => submitOrder(e)}
+                                nh-btn-action="create-order"
+                                className="btn bg-hightlight btn-1a color-white px-25 py-10 w-100 rounded text-uppercase fs-16"
+                              >
+                                {loadingPage ? "Vui lòng đợi..." : "Đặt hàng"}
+                              </button>
+                              <Link href="/don-hang/thong-tin">
+                                <div
+                                  title="Quay lại giỏ hàng"
+                                  className="order-back fs-14 d-flex align-items-center color-main mt-15"
+                                >
+                                  <i className="iconsax isax-arrow-left mr-5" />
+                                  Quay lại giỏ hàng
+                                </div>
+                              </Link>
                             </div>
                           </div>
                         </div>

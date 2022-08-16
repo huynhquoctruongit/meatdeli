@@ -100,9 +100,10 @@ const CheckoutCart = ({ hubs }) => {
       const orderData = {
         shipping: {
           lastName: value?.full_name,
-          address1: document.getElementById("addressSelect")?.checked
-            ? "Địa chỉ nhận tại HUB : " + value.addressHUB
-            : addressText,
+          address1:
+            (document.getElementById("addressSelect")?.checked
+              ? "Địa chỉ nhận tại HUB : " + value.addressHUB
+              : addressText) || "",
           phone: value?.phoneShiping,
           state:
             "Thời gian nhận hàng : " +
@@ -901,7 +902,9 @@ const CheckoutCart = ({ hubs }) => {
                                                     </td>
                                                   </tr>
                                                   <tr>
-                                                    <td>Đường / Thôn / Xóm *</td>
+                                                    <td>
+                                                      Đường / Thôn / Xóm *
+                                                    </td>
                                                     <td>
                                                       <input
                                                         className="bg-white border form-control rounded input-hover"

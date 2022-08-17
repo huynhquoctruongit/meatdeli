@@ -1290,7 +1290,7 @@ const CheckoutCart = ({ hubs }) => {
                                                             <option
                                                               name={item.name}
                                                               key={item.name}
-                                                              value={item}
+                                                              value={item.code}
                                                             >
                                                               {item.name}
                                                             </option>

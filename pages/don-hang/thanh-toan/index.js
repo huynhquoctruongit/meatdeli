@@ -111,14 +111,14 @@ const CheckoutCart = ({ hubs }) => {
     }
     const inputAddess =
       value?.village +
-      " " +
+      ", " +
       value?.street +
-      " " +
-      addressSelect?.ward +
-      " " +
-      addressSelect?.district +
-      " " +
-      addressSelect?.province;
+      ", " +
+      getText(document.getElementById("ward")) +
+      ", " +
+      getText(document.getElementById("district")) +
+      ", " +
+      getText(document.getElementById("province"));
     const addressText = document.getElementById("addressSuggest")?.value;
 
     const localAddress =
@@ -146,10 +146,14 @@ const CheckoutCart = ({ hubs }) => {
       customerNote: value?.note,
       paymentMethod: isTabPayment ? "bacs" : "cod",
     };
-    console.log(orderData, "orderData");
+    console.log(orderData,'orderData');
+
     setOrder(orderData);
   }, [value, addressSelect]);
 
+  const getText = (select) => {
+    return select.options[select.selectedIndex].text;
+  };
   const params = {
     clientMutationId: uuidv4(),
     shipping: order.shipping,
@@ -1008,7 +1012,7 @@ const CheckoutCart = ({ hubs }) => {
                                                         <td>
                                                           <select
                                                             name="city_id"
-                                                            id="city_id"
+                                                            id="province"
                                                             className="form-control selectpicker input-hover"
                                                             data-size={10}
                                                             data-live-search={1}
@@ -1027,7 +1031,7 @@ const CheckoutCart = ({ hubs }) => {
                                                               (item) => (
                                                                 <option
                                                                   key={
-                                                                    item.name
+                                                                    item.code
                                                                   }
                                                                   name={
                                                                     item.name
@@ -1048,7 +1052,7 @@ const CheckoutCart = ({ hubs }) => {
                                                         <td>
                                                           <select
                                                             name="city_id"
-                                                            id="city_id"
+                                                            id="district"
                                                             className="form-control selectpicker input-hover"
                                                             data-size={10}
                                                             data-live-search={1}
@@ -1067,7 +1071,7 @@ const CheckoutCart = ({ hubs }) => {
                                                               (item) => (
                                                                 <option
                                                                   key={
-                                                                    item.name
+                                                                    item.code
                                                                   }
                                                                   value={
                                                                     item.code
@@ -1086,7 +1090,7 @@ const CheckoutCart = ({ hubs }) => {
                                                         <td>
                                                           <select
                                                             name="city_id"
-                                                            id="city_id"
+                                                            id="ward"
                                                             className="form-control selectpicker input-hover"
                                                             data-size={10}
                                                             data-live-search={1}
@@ -1105,7 +1109,7 @@ const CheckoutCart = ({ hubs }) => {
                                                               (item) => (
                                                                 <option
                                                                   key={
-                                                                    item.name
+                                                                    item.code
                                                                   }
                                                                   value={
                                                                     item.code
@@ -1266,7 +1270,7 @@ const CheckoutCart = ({ hubs }) => {
                                                     <td>
                                                       <select
                                                         name="city_id"
-                                                        id="city_id"
+                                                        id="province"
                                                         className="form-control selectpicker input-hover"
                                                         data-size={10}
                                                         data-live-search={1}
@@ -1300,7 +1304,7 @@ const CheckoutCart = ({ hubs }) => {
                                                     <td>
                                                       <select
                                                         name="city_id"
-                                                        id="city_id"
+                                                        id="district"
                                                         className="form-control selectpicker input-hover"
                                                         data-size={10}
                                                         data-live-search={1}
@@ -1334,7 +1338,7 @@ const CheckoutCart = ({ hubs }) => {
                                                     <td>
                                                       <select
                                                         name="city_id"
-                                                        id="city_id"
+                                                        id="ward"
                                                         className="form-control selectpicker input-hover"
                                                         data-size={10}
                                                         data-live-search={1}

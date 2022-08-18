@@ -146,7 +146,6 @@ const CheckoutCart = ({ hubs }) => {
       customerNote: value?.note,
       paymentMethod: isTabPayment ? "bacs" : "cod",
     };
-    console.log(orderData,'orderData');
 
     setOrder(orderData);
   }, [value, addressSelect]);
@@ -218,14 +217,14 @@ const CheckoutCart = ({ hubs }) => {
     setLoading(true);
     const inputAddess =
       value?.village +
-      " " +
+      ", " +
       value?.street +
-      " " +
-      addressSelect?.ward +
-      " " +
-      addressSelect?.district +
-      " " +
-      addressSelect?.province;
+      ", " +
+      getText(document.getElementById("ward")) +
+      ", " +
+      getText(document.getElementById("district")) +
+      ", " +
+      getText(document.getElementById("province"));
     const addressText = document.getElementById("addressSuggest")?.checked
       ? addressUser[0]
       : inputAddess;
@@ -294,24 +293,46 @@ const CheckoutCart = ({ hubs }) => {
       ...addressSelect,
       [type]: item.target.value,
     });
+    if (type === "province") {
+      setDistricts();
+    }
   };
   useEffect(() => {
-    const name_province = provinces?.find(
+    var name_province = provinces?.find(
       (item) => item.code == addressSelect.province
     );
-    const name_district = districts?.find(
+    var name_district = districts?.find(
       (item) => item.code == addressSelect.district
     );
+    console.log(districts, "districts");
     const name_ward = wards?.find((item) => item.code == addressSelect.ward);
-    if (findString(name_district?.name)) {
+    const query = name_district || name_province;
+    if (name_district) {
       setListHUB(findString(name_district?.name));
+    } else {
+      setListHUB(findString(trimLessString(name_province?.name)));
     }
-    if (!name_district?.name) {
-      if (findString(name_province?.name)) {
-        setListHUB(findString(name_province?.name));
+    // if (findString(name_district?.name)) {
+    //   setListHUB(findString(name_district?.name));
+    // } else {
+    //   console.log('jorn');
+    //   if (findString(name_province?.name)) {
+    //     setListHUB(findString(trimLessString(name_province?.name)));
+    //   }
+    // }
+  }, [addressSelect]);
+
+  const trimLessString = (string) => {
+    if (string) {
+      if (string === "Thành phố Hà Nội") {
+        return "Hà Nội";
+      } else {
+        if (string.includes("Tỉnh ")) {
+          return string.replace("Tỉnh ", "");
+        }
       }
     }
-  }, [addressSelect]);
+  };
   useEffect(() => {
     // var result = document.getElementById("json-result");
     const Http = new XMLHttpRequest();

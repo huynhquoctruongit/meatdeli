@@ -17,7 +17,23 @@ const Footer = ({ productCategories, infoSettings }) => {
   const openMenu = () => {
     setOpenMenu(!isOpenMenu);
   };
+  useEffect(() => {
+    var m = "tỉnh hà giang, hà nội".split(" ");
 
+    var n = "thuộc hà giang, thành phố hà nội".split(" ");
+    var isOk = 0;
+    for (var i = 0; i < m.length; i++) {
+      for (var j = 0; j < n.length; j++) {
+        var reg = new RegExp("^" + m[i] + "$", "gi");
+        if (n[j].match(reg)) {
+          isOk = 1;
+          break;
+        }
+      }
+    }
+
+    if (isOk == 1) console.log("match");
+  }, []);
   return (
     <footer>
       <Menu

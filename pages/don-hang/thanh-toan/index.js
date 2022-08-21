@@ -304,22 +304,14 @@ const CheckoutCart = ({ hubs }) => {
     var name_district = districts?.find(
       (item) => item.code == addressSelect.district
     );
-    console.log(districts, "districts");
     const name_ward = wards?.find((item) => item.code == addressSelect.ward);
     const query = name_district || name_province;
     if (name_district) {
-      setListHUB(findString(name_district?.name));
+      setListHUB(findString(trimLessString(name_district?.name)));
     } else {
       setListHUB(findString(trimLessString(name_province?.name)));
     }
-    // if (findString(name_district?.name)) {
-    //   setListHUB(findString(name_district?.name));
-    // } else {
-    //   console.log('jorn');
-    //   if (findString(name_province?.name)) {
-    //     setListHUB(findString(trimLessString(name_province?.name)));
-    //   }
-    // }
+   
   }, [addressSelect]);
 
   const trimLessString = (string) => {
@@ -327,14 +319,15 @@ const CheckoutCart = ({ hubs }) => {
       if (string === "Thành phố Hà Nội") {
         return "Hà Nội";
       } else {
-        if (string.includes("Tỉnh ")) {
-          return string.replace("Tỉnh ", "");
-        }
+        return string
+          .replace("Tỉnh ", "")
+          .replace("Quận ", "")
+          .replace("Huyện ", "")
+          .replace("Thị xã ", "");
       }
     }
   };
   useEffect(() => {
-    // var result = document.getElementById("json-result");
     const Http = new XMLHttpRequest();
     var bdcApi = "https://api.bigdatacloud.net/data/reverse-geocode-client";
     navigator.geolocation.getCurrentPosition(
@@ -386,44 +379,28 @@ const CheckoutCart = ({ hubs }) => {
     var item_match = [];
     if (string) {
       listHubs?.map((item) => {
-        if (kmpSearch(string, item.name) !== -1) {
+        if (kmpSearch(string, item.name)) {
           item_match.push(item.name);
         }
-        // else{
-        // }
-        // if (kmpSearch()string.toLowerCase().includes(item.name.toLowerCase())) {
-        //   item_match.push(item.name);
-        // } else {
-        //   if (item.name.toLowerCase().includes(string.toLowerCase())) {
-        //     item_match.push(item.name);
-        //   }
-        // }
       });
     }
     return item_match;
   };
   function kmpSearch(pattern, text) {
-    var first = pattern.toLowerCase();
-    var last = text.toLowerCase();
-    if (first.length == 0) return 0; // Immediate match
-
-    var lsp = [0]; // Base case
-    for (var i = 1; i < first.length; i++) {
-      var j = lsp[i - 1];
-      while (j > 0 && first[i] !== first[j]) j = lsp[j - 1];
-      if (first[i] === first[j]) j++;
-      lsp.push(j);
-    }
-
-    var j = 0;
-    for (var i = 0; i < last.length; i++) {
-      while (j > 0 && last[i] != first[j]) j = lsp[j - 1];
-      if (last[i] == first[j]) {
-        j++;
-        if (j == first.length) return i - (j - 1);
+    const first = pattern.split(" ");
+    const last = text.split(" ");
+    var isOk = 0;
+    for (var i = 0; i < first.length; i++) {
+      for (var j = 0; j < last.length; j++) {
+        var reg = new RegExp("^" + first[i] + "$", "gi");
+        if (last[j].match(reg)) {
+          isOk = 1;
+          break;
+        }
       }
     }
-    return -1;
+
+    if (isOk == 1) return true;
   }
 
   if (!carts) return null;

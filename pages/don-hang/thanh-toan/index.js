@@ -386,26 +386,44 @@ const CheckoutCart = ({ hubs }) => {
     var item_match = [];
     if (string) {
       listHubs?.map((item) => {
-        if (kmpSearch(string, item.name)) {
+        if (kmpSearch(string, item.name) !== -1) {
           item_match.push(item.name);
         }
+        // else{
+        // }
+        // if (kmpSearch()string.toLowerCase().includes(item.name.toLowerCase())) {
+        //   item_match.push(item.name);
+        // } else {
+        //   if (item.name.toLowerCase().includes(string.toLowerCase())) {
+        //     item_match.push(item.name);
+        //   }
+        // }
       });
     }
     return item_match;
   };
   function kmpSearch(pattern, text) {
-    var isOk = 0;
-    for (var i = 0; i < pattern.length; i++) {
-      for (var j = 0; j < text.length; j++) {
-        var reg = new RegExp("^" + pattern[i] + "$", "gi");
-        if (text[j].match(reg)) {
-          isOk = 1;
-          break;
-        }
-      }
+    var first = pattern.toLowerCase();
+    var last = text.toLowerCase();
+    if (first.length == 0) return 0; // Immediate match
+
+    var lsp = [0]; // Base case
+    for (var i = 1; i < first.length; i++) {
+      var j = lsp[i - 1];
+      while (j > 0 && first[i] !== first[j]) j = lsp[j - 1];
+      if (first[i] === first[j]) j++;
+      lsp.push(j);
     }
 
-    if (isOk == 1) return true;
+    var j = 0;
+    for (var i = 0; i < last.length; i++) {
+      while (j > 0 && last[i] != first[j]) j = lsp[j - 1];
+      if (last[i] == first[j]) {
+        j++;
+        if (j == first.length) return i - (j - 1);
+      }
+    }
+    return -1;
   }
 
   if (!carts) return null;

@@ -1,6 +1,10 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-const Footer = ({ infoSettings }) => {
+import Menu from "../../components/popup/menu";
+const Footer = ({ productCategories, infoSettings }) => {
+  const [isOpenMenu, setOpenMenu] = useState(false);
+  const dataCate =
+    productCategories || JSON.parse(localStorage.getItem("productCategories"));
   var infoSet = null;
   if (typeof window !== "undefined" && !infoSettings) {
     infoSet =
@@ -10,9 +14,18 @@ const Footer = ({ infoSettings }) => {
   } else {
     infoSet = infoSettings;
   }
+  const openMenu = () => {
+    setOpenMenu(!isOpenMenu);
+  };
 
   return (
     <footer>
+      <Menu
+        setOpenMenu={setOpenMenu}
+        isOpenMenu={isOpenMenu}
+        dataCate={dataCate}
+        openMenu={openMenu}
+      />
       <div nh-row="ndc0lvy" className="pt-40 bg-light pb-80 mb-30">
         <div className="container">
           <div className="row ">
@@ -166,35 +179,39 @@ const Footer = ({ infoSettings }) => {
                         </g>
                       </svg>
                     </div>
-                    <div nh-menu="btn-open" href="#">
+                    <div nh-menu="btn-open" href="#" onClick={() => openMenu()}>
                       <i className="iconsax isax-element-equal" />
                       <span>Danh mục</span>
                     </div>
                   </div>
-                  <div className="toolbar-item">
-                    <div href="https://zalo.me/">
-                      <img
-                        nh-lazy="image"
-                        className="img-fluid"
-                        alt="zalo"
-                        src="https://cdn.5sfood.vn/media/icon/widget_icon_light_zalo.svg"
-                        style={{}}
-                      />
-                      <span>Zalo</span>
+                  <Link href="https://zalo.me/">
+                    <div className="toolbar-item">
+                      <div>
+                        <img
+                          nh-lazy="image"
+                          className="img-fluid"
+                          alt="zalo"
+                          src="https://cdn.5sfood.vn/media/icon/widget_icon_light_zalo.svg"
+                          style={{}}
+                        />
+                        <span>Zalo</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className="toolbar-item">
-                    <div>
-                      <img
-                        nh-lazy="image"
-                        className="img-fluid"
-                        alt="Messenger"
-                        src="https://cdn.5sfood.vn/media/icon/widget_icon_light_messenger.svg"
-                        style={{}}
-                      />
-                      <span>Messenger</span>
+                  </Link>
+                  <Link href="https://www.facebook.com/pages/category/Shopping---retail/5S-FOOD-Th%E1%BB%B1c-Ph%E1%BA%A9m-S%E1%BA%A1ch-111625650686603/">
+                    <div className="toolbar-item">
+                      <div>
+                        <img
+                          nh-lazy="image"
+                          className="img-fluid"
+                          alt="Messenger"
+                          src="https://cdn.5sfood.vn/media/icon/widget_icon_light_messenger.svg"
+                          style={{}}
+                        />
+                        <span>Messenger</span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -228,7 +245,7 @@ const Footer = ({ infoSettings }) => {
                   </Link>
                 </div>
               </div>
-              <div nh-block="kwavyip" nh-block-cache="true" className>
+              {/* <div nh-block="kwavyip" nh-block-cache="true" className>
                 <div className="social-right-default">
                   <ul className="list-unstyled m-0">
                     <li className="mb-20">
@@ -252,7 +269,7 @@ const Footer = ({ infoSettings }) => {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

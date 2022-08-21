@@ -386,44 +386,26 @@ const CheckoutCart = ({ hubs }) => {
     var item_match = [];
     if (string) {
       listHubs?.map((item) => {
-        if (kmpSearch(string, item.name) !== -1) {
+        if (kmpSearch(string, item.name)) {
           item_match.push(item.name);
         }
-        // else{
-        // }
-        // if (kmpSearch()string.toLowerCase().includes(item.name.toLowerCase())) {
-        //   item_match.push(item.name);
-        // } else {
-        //   if (item.name.toLowerCase().includes(string.toLowerCase())) {
-        //     item_match.push(item.name);
-        //   }
-        // }
       });
     }
     return item_match;
   };
   function kmpSearch(pattern, text) {
-    var first = pattern.toLowerCase();
-    var last = text.toLowerCase();
-    if (first.length == 0) return 0; // Immediate match
-
-    var lsp = [0]; // Base case
-    for (var i = 1; i < first.length; i++) {
-      var j = lsp[i - 1];
-      while (j > 0 && first[i] !== first[j]) j = lsp[j - 1];
-      if (first[i] === first[j]) j++;
-      lsp.push(j);
-    }
-
-    var j = 0;
-    for (var i = 0; i < last.length; i++) {
-      while (j > 0 && last[i] != first[j]) j = lsp[j - 1];
-      if (last[i] == first[j]) {
-        j++;
-        if (j == first.length) return i - (j - 1);
+    var isOk = 0;
+    for (var i = 0; i < pattern.length; i++) {
+      for (var j = 0; j < text.length; j++) {
+        var reg = new RegExp("^" + pattern[i] + "$", "gi");
+        if (text[j].match(reg)) {
+          isOk = 1;
+          break;
+        }
       }
     }
-    return -1;
+
+    if (isOk == 1) return true;
   }
 
   if (!carts) return null;
@@ -848,37 +830,12 @@ const CheckoutCart = ({ hubs }) => {
                                   </span>
                                 </div>
                               </div>
-
-                              <div className="note-order-review rounded-5 px-15 py-10 mb-15 text-center color-main d-flex">
-                                <div
-                                  nh-block="tqsf4rh"
-                                  type-load="document-ready"
-                                  loaded={1}
-                                >
-                                  <div className="row">
-                                    <div className="col-12">
-                                      <article className="item-only-title">
-                                        <div className="article-description mb-0 color-main fs-16">
-                                          <p>
-                                            Ghi chú:{" "}
-                                            <em>
-                                              Nội dung ghi chú riêng quản trị
-                                              viên có thể thay đổi tùy biến
-                                              trong quản trị
-                                            </em>
-                                          </p>
-                                        </div>
-                                      </article>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
                             </div>
                           </div>
                         </div>
                         <div id="order-info-left" className="col-lg-8 col-md-6">
                           <div className="billing-details">
-                            <div className="d-flex justify-content-between align-items-center mb-10">
+                            <div className="d-flex justify-content-between align-items-center mb-10 mt-10">
                               <h3 className="fs-16 mb-0">
                                 <b>Thông tin đặt hàng</b>
                               </h3>

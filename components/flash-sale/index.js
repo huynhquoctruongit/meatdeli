@@ -31,7 +31,7 @@ const Products = ({ products }) => {
 
   const addToCart = (data) => {
     setCardModal(true);
-    setChangeCart(!isChangeCart);
+    // setChangeCart(!isChangeCart);
     var getCart = localStorage.getItem("cart");
     let dataCart = JSON.parse(getCart);
 

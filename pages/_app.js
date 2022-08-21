@@ -115,7 +115,7 @@ function MyApp({ Component, pageProps, result, infoSettings }) {
           infoSettings={infoSettings}
         />
         <Component {...pageProps} key={asPath} infoSettings={infoSettings} />
-        <Footer infoSettings={infoSettings} />
+        <Footer productCategories={result?.data?.productCategories?.nodes} infoSettings={infoSettings} />
       </div>
     </ApolloProvider>
   );

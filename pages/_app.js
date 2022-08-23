@@ -62,8 +62,6 @@ export const afterware = new ApolloLink((operation, forward) => {
   });
 });
 const apolloClient = new ApolloClient({
-  // uri: "https://delimeat.vn/?graphql",
-  // link: middleware.concat(afterware.concat(HttpLink)),
   link: middleware.concat(
     afterware.concat(
       createHttpLink({

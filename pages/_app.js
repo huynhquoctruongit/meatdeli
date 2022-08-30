@@ -5,7 +5,7 @@ import Headseo from "../components/seo-header";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { motion } from "framer-motion";
-import { homeGQL, getInfoCompayny } from "@/geters/home";
+import { homeGQL, getInfoCompany } from "@/geters/home";
 import { apollo } from "@/api/index";
 import {
   ApolloClient,
@@ -62,6 +62,8 @@ export const afterware = new ApolloLink((operation, forward) => {
   });
 });
 const apolloClient = new ApolloClient({
+  // uri: "https://delimeat.vn/?graphql",
+  // link: middleware.concat(afterware.concat(HttpLink)),
   link: middleware.concat(
     afterware.concat(
       createHttpLink({
@@ -82,8 +84,8 @@ const getPosts = async () => {
 
 MyApp.getInitialProps = async (context) => {
   if (isServer()) {
-    const result = await apollo.query({ query: getInfoCompayny });
-    const infoSettings = result.data.user;
+    const result = await apollo.query({ query: getInfoCompany });
+    const infoSettings = result?.data?.user;
     return { result: await getPosts(), infoSettings: infoSettings };
   } else {
     return {

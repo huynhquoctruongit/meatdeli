@@ -3,10 +3,13 @@ import Link from "next/link";
 import Menu from "../../components/popup/menu";
 const Footer = ({ productCategories, infoSettings }) => {
   const [isOpenMenu, setOpenMenu] = useState(false);
-  const dataCate =
-    productCategories || JSON.parse(localStorage.getItem("productCategories"));
+  var dataCate = null;
+
   var infoSet = null;
   if (typeof window !== "undefined" && !infoSettings) {
+    dataCate =
+      productCategories ||
+      JSON.parse(localStorage.getItem("productCategories"));
     infoSet =
       localStorage.getItem("infoSettings") !== "undefined"
         ? JSON.parse(localStorage.getItem("infoSettings"))

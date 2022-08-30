@@ -12,20 +12,24 @@ import { homeGQL } from "@/geters/home";
 
 export async function getStaticProps() {
   const result = await apollo.query({ query: homeGQL });
+  console.log(result,'result');
   const home = {};
   Object.keys(result?.data || {}).map((key) => {
     const element = result?.data[key];
     home[key] = element?.nodes || element?.posts || [];
   });
+  if (!home.products && !home.productCategories)
+    return {
+      props: {},
+    };
   const { products, productCategories } = home;
 
   return {
     props: { products, productCategories },
-    revalidate: 60,
   };
 }
 export default function Home({ products, productCategories }) {
-  if (typeof window !== "undefined") {
+  if (typeof window !== "undefined" && productCategories) {
     localStorage.setItem(
       "productCategories",
       JSON.stringify(productCategories)

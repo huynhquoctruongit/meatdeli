@@ -74,7 +74,7 @@ export const getCustomer = gql`
     }
   }
 `;
-export const getInfoCompayny = gql`
+export const getInfoCompany = gql`
   query Home {
     user(id: 1, idType: DATABASE_ID) {
       info_page {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import CartModal from "../../components/popup/cart";
 import { useRouter } from "next/router";
-import Menu from "../popup/menu"
+import Menu from "../popup/menu";
 const Header = ({ productCategories, infoSettings }) => {
   const router = useRouter();
   const [isCartModal, setCardModal] = useState(false);
@@ -10,11 +10,12 @@ const Header = ({ productCategories, infoSettings }) => {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState("");
   const { q } = router.query;
-  const dataCate =
-    productCategories || JSON.parse(localStorage.getItem("productCategories"));
+  var dataCate = null;
   var infoSet = null;
   if (typeof window !== "undefined" && !infoSettings) {
-    
+    dataCate =
+      productCategories ||
+      JSON.parse(localStorage.getItem("productCategories"));
     infoSet =
       localStorage.getItem("infoSettings") !== "undefined"
         ? JSON.parse(localStorage.getItem("infoSettings"))
@@ -22,7 +23,7 @@ const Header = ({ productCategories, infoSettings }) => {
   } else {
     infoSet = infoSettings;
   }
- 
+
   const openMenu = () => {
     setOpenMenu(!isOpenMenu);
   };
@@ -62,7 +63,12 @@ const Header = ({ productCategories, infoSettings }) => {
                   >
                     <i className="iconsax isax-menu-1" />
                   </div>
-                  <Menu setOpenMenu={setOpenMenu} isOpenMenu={isOpenMenu} dataCate={dataCate} openMenu={openMenu} />
+                  <Menu
+                    setOpenMenu={setOpenMenu}
+                    isOpenMenu={isOpenMenu}
+                    dataCate={dataCate}
+                    openMenu={openMenu}
+                  />
                 </div>
               </div>
             </div>
